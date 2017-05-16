@@ -16,7 +16,7 @@ echo <<< EOT
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>SnapSpot</title>
 		<link rel="stylesheet" href="./css/default.css" title = "default">
-    
+
 	</head>
 	<body>
 EOT;
@@ -47,8 +47,8 @@ echo '</header>'."\n";
     </form>
 </div>
 
-<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
-<script type="text/javascript" src="js/snapspot.js" ></script>
+    	<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="js/snapspot.js" ></script>
 
     </body>
 </html>
