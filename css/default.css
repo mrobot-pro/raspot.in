@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Pacifico';
+    src: url('fonts/Pacifico.ttf') format('truetype');
+    }
+
+
+body {
+background-image: url('Chevreuils.png');
+background-repeat : no-repeat ;
+    width: 900px;
+    margin: 1% auto;
+    padding: 1%;
+    font-family: pacifico;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
