@@ -17,27 +17,38 @@ echo <<< EOT
 		<title>SnapSpot</title>
 		<link rel="stylesheet" href="./css/default.css" title = "default">
     
-		<script type="text/javascript" src="js/affichage.js"></script>
 	</head>
 	<body>
-
-
 EOT;
+
+		
 echo '<header>'."\n";
 echo '<h1><a href="index.php">SNAP SNAP SPOT !</a></h1>'."\n";
 echo '</header>'."\n";
 ?>
 
-<!--Solution 1-->
-<img src="./image/favicon.png" id="upfile1" style="cursor:pointer" image-orientation="center"/>
+<!--Affichage de l'accueil-->
+<div class="accueil">
+<img src="./image/favicon.png" id="upfile1" style="cursor:pointer" image-orientation="center" alt="logo_appli" />
 <input type="file" id="file1"  name="file1" style="display:none" />
 <br>
-<div id="explain">Partagez vos photos <br>sur ce spot <br>tout au long de l'événement' !</div>
+<div id="explain">Partagez vos photos <br>sur ce spot <br>tout au long de l'événement !</div>
+<button id="admin">ADMIN</button>
+</div>
 
-<script type="text/javascript" src="js/jquery-3.2.1.js" > </script>
-<script type="text/javascript" src="js/snapspot.js" > </script>
+<!--Affichage connexion-->
+<div class="connexion">
+	<img src="./image/favicon.png" alt="logo_appli"/><br>
+<!--lien php pour traiter la vérification du mot de passe attendu-->
+	<form action='' method='post'>
+		<label>Mot de Passe</label>
+			<input type='password' name='mdp' value='' required/>
+        	<input type='submit' value='Valider'/>
+    </form>
+</div>
 
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script type="text/javascript" src="js/snapspot.js" ></script>
 
     </body>
 </html>
-
