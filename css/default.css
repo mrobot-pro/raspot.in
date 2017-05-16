@@ -4,28 +4,22 @@
     }
 
 
-body {
-background-image: url('accueil.ppg');
-background-repeat : no-repeat ;
-    width: 900px;
-    margin: 1% auto;
-    padding: 1%;
-    font-family: pacifico;
+html {
+	background-image: url('accueil.jpg');
+	background-position: center;
+	background-repeat : no-repeat;
 }
 
+body {
+	font-family: Pacifico;
+	font-size: 2em;
+}
 
+h1,#explain {
+	text-align: center;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+img {
+	float: left;
+	margin-left: 48%;
+}

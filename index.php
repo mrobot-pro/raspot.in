@@ -29,10 +29,10 @@ echo '</header>'."\n";
 ?>
 
 <!--Solution 1-->
-<img src="./image/favicon.png" id="upfile1" style="cursor:pointer" />
+<img src="./image/favicon.png" id="upfile1" style="cursor:pointer" image-orientation="center"/>
 <input type="file" id="file1"  name="file1" style="display:none" />
-
-<div id="explain">Partagez vos photos sur ce spot tout au long de l'événement' !</div>
+<br>
+<div id="explain">Partagez vos photos <br>sur ce spot <br>tout au long de l'événement' !</div>
 
 <script type="text/javascript" src="js/jquery-3.2.1.js" > </script>
 <script type="text/javascript" src="js/snapspot.js" > </script>
