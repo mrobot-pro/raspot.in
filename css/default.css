@@ -12,21 +12,19 @@ html {
 
 body {
 	font-family: Pacifico;
-	font-size: 2em;
+	font-size: 1.5em;
 }
 
-h1,#explain {
-	text-decoration-color: currentcolor;
+h1,a,p {
     text-decoration-line: none;
     text-decoration-style: solid;
 	text-align: center;
 }
 
-img {
-	float: left;
-	margin-left: 48%;
+a, footer p {
+	color: white;
 }
 
-#admin {
-	float: right;
+p {
+	display: inline-block;
 }
