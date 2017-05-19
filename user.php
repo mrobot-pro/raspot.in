@@ -5,10 +5,9 @@ echo '<h3>Bases disponibles</h3>';
 foreach (PDO::getAvailableDrivers() as $pdo_driver) {
     echo 'disponible: '.$pdo_driver . "<br/>";
 }
-echo '<h3>Tables user</h3>';
 /* Connexion à la base */
 $dbh=new PDO("sqlite:snapspot.sqlite");
-
+echo '<h3>Tables user</h3>';
 /* requete sql */
 $res = $dbh->query("SELECT * 
 FROM user");
@@ -23,9 +22,6 @@ if ($res != false){
 }
 
 echo '<h3>Tables media</h3>';
-/* Connexion à la base */
-$dbh=new PDO("sqlite:snapspot.sqlite");
-
 /* requete sql */
 $res = $dbh->query("SELECT * 
 FROM media");
