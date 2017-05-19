@@ -7,32 +7,20 @@ $s->start();
 $a = Authentification::getInstance();
 
 
-//===========Code d'affichage de la page==========
-echo <<< EOT
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>SnapSpot</title>
-		<link rel="stylesheet" href="./css/default.css" title = "default">
+include('./php/includes/heading.php'); 
 
-	</head>
-	<body>
-EOT;
+//emplacement de l'header
+include('./php/includes/header.php');
+
+//emplacement accueil
+include('./php/includes/accueil.php');
+
+//ici pied de page
+include('./php/includes/footer.php');
 ?>
 
-<!--emplacement de l'header-->
-<?php include('header.php'); ?>
-
-<!--emplacement accueil-->
-<?php include('accueil.php'); ?>
-
-<!--ici pied de cochon-->
-<?php include('footer.php'); ?>
-
     	<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
-		<script type="text/javascript" src="js/snapspot.js" ></script>
+	<script type="text/javascript" src="js/snapspot.js" ></script>
 
     </body>
 </html>

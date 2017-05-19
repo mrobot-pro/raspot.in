@@ -9,4 +9,3 @@ echo <<<EOT
 	<p>tout au long de l'événement !</p>
 </div></center>
 EOT;
-?>
