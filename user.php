@@ -34,7 +34,8 @@ FROM media");
 if ($res != false){ 
 
         while($row = $res->fetch()){
-            echo $row['media_id'].' '.$row['chemin'].' '.$row['description']."<br/>";
+			$src=$row['chemin'];
+            echo $row['media_id'].' '.$src.' '.$row['description']."<br/>".'<a href="'.$src.'"><img src="'.$src.'" height="100"></a>'."<br/>";
         }
 } else{
         echo "erreur de connexion";
