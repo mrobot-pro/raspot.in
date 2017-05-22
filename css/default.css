@@ -12,7 +12,7 @@ html {
 
 body {
 	font-family: Pacifico;
-	font-size: 1.5em;
+	font-size: 1em;
 }
 
 h1,a,p {
@@ -28,3 +28,18 @@ a, footer p {
 p {
 	display: inline-block;
 }
+
+ul#menu_horizontal li { 
+display : inline;
+padding : 0 0.5em;
+}
+ul#menu_horizontal {
+list-style-type : none;
+}
+
+ul li a {  
+ width:150px;
+ background:black;
+ text-decoration:none;
+ text-align:center;
+ }

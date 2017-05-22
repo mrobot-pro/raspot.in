@@ -1,5 +1,8 @@
 <?php
 
+include ('./php/includes/heading.php');
+include ('./php/includes/header.php');
+
 echo <<< EOT
 
 <form action="" method="post">
@@ -26,3 +29,5 @@ echo <<< EOT
 </form>
 
 EOT;
+
+include ('./php/includes/footer.php');

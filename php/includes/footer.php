@@ -3,8 +3,7 @@
 echo <<<EOT
         <footer>
             <center>
-		<p>&copy;2017 - Dream Team - Olive et Tom</p>
-		<img src="./image/Playstation.png" alt"logo_psone"/>
+		<p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
             </center>
         </footer>
     </body>

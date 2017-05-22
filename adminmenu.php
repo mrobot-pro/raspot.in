@@ -12,20 +12,13 @@ include('./php/includes/heading.php');
 
 include('./php/includes/header.php');
 
-echo '<center>';
-echo '<form action"adminmenu.php" method="post"';
-echo '<input name="appli" value="Appli" />';
-echo '<input name="data" value="Data" />';
-echo '</form>';
-echo '</center>';
+echo '<center><ul id="menu_horizontal">';
+echo '<li><a href="adminappli.php">Appli</a></li>';
+echo '<li><a href="admindata.php">Data</a></li>';
+echo '</ul></center>';
 
-    if(isset($_POST['appli'])) {
-        include('adminappli.php');
-    }
-    else {
-        include('admindata.php');
-    }
-include('./php/includes/footer.php');
+include ('./php/includes/footer.php');
+
 }
 else {
     include('./php/includes/heading.php');
