@@ -13,10 +13,10 @@ echo <<< EOT
 
 <form action="" method="post">
          <center>
-        <label>Vider SDCard</label><br>
-                <input type="submit" value="Valider" />
-        <label>Vider BackUP</label><br>
-                <input type="submit" value="Valider" />
+        <label>Vider SDCard</label>
+                <input class="btn" type="submit" value="Valider" /><br>
+        <label>Vider BackUP</label>
+                <input class="btn" type="submit" value="Valider" /><br>
         <p>Utilisation du Disque Principal:<br>
                 <progress id="avancement" value="50" max="100"></progress>
                 </p>
@@ -24,5 +24,9 @@ echo <<< EOT
 </form>
 
 EOT;
+
+echo '<center><ul id="menu_horizontal">';
+echo '<li class="btn"><a href="adm.php">Menu</a></li>';
+echo '</ul></center>';
 
 include ('./php/includes/footer.php');
