@@ -47,7 +47,7 @@
      width:auto;
      }
 
-     .btn {
+     .btn, input {
       background: #3498db;
       border-radius: 28px;
       border: 3px grey outset;
