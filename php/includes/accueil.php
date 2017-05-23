@@ -10,8 +10,8 @@ echo <<<EOT
 </div></center>
 EOT;
 
-if(isset($_SESSION['evenement']) && !empty($_SESSION['evenement'])){
-    echo $_SESSION['evenement'];
+if(isset($_POST['evenement']) && !empty($_POST['evenement'])){
+    echo $_POST['evenement'];
 }
 else{
     echo '<center><h1>BONJOUR</h1></center>';
