@@ -22,7 +22,10 @@ include ('./php/includes/footer.php');
 }
 else {
     include('./php/includes/heading.php');
+    
     include('./php/includes/header.php');
+    
     echo'<center><p>Mot de Passe non reconnu <br>Veuillez contacter <br>l\'Administrateur !</p></center>';
+    
     include('./php/includes/footer.php');
 }

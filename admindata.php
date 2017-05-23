@@ -10,8 +10,8 @@ include ('./php/includes/heading.php');
 include ('./php/includes/header.php');
 
 echo '<center><ul id="menu_horizontal">';
-echo '<li class="btndata" ><a href="adminappli.php">Appli</a></li>';
-echo '<li class="btn" ><a href="admindata.php">Data</a></li>';
+echo '<li class="btn" ><a href="adminappli.php">Appli</a></li>';
+echo '<li class="btndata" ><a href="admindata.php">Data</a></li>';
 echo '</ul></center>';
 
 echo <<< EOT

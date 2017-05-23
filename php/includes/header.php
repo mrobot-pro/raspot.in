@@ -1,11 +1,14 @@
 <?php
 
-require_once('php/autoload.php');
+//require_once('php/autoload.php');
+//session_start();
+/* instanciation et authentification par Claire-Olivier
 $s = Session::getInstance();
 $s->setMaxAge(10000); 
 $s->start();
 $a = Authentification::getInstance();
 $s->getRemainingTime();
+*/
 
 echo session_id();
 echo '<br>';
