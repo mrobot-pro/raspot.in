@@ -3,9 +3,14 @@
 include ('./php/includes/heading.php');
 include ('./php/includes/header.php');
 
+echo '<center><ul id="menu_horizontal">';
+echo '<li class="btnappli" ><a href="adminappli.php">Appli</a></li>';
+echo '<li class="btn" ><a href="admindata.php">Data</a></li>';
+echo '</ul></center>';
+
 echo <<< EOT
 
-<form action="" method="post">
+<form action="index.php" method="post">
        
         <label class="position">Nom de l\'Evenement:</label><br>
                 <input class="position" type="text" name="evenement" placeholder="Evenement..." />
@@ -31,7 +36,7 @@ echo <<< EOT
 EOT;
 
 echo '<center><ul id="menu_horizontal">';
-echo '<li class="btn"><a href="adm.php">Menu</a></li>';
+echo '<li class="btn"><a href="adminmenu.php">Retour Menu</a></li>';
 echo '</ul></center>';
 
 include ('./php/includes/footer.php');

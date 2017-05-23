@@ -11,8 +11,4 @@ echo '<form action="adminmenu.php" method="post">';
     echo    '<input class="btn" type="submit" value="Valider"/></center>';
 echo '</form>';
 
-echo '<center><ul id="menu_horizontal">';
-echo '<li class="btn"><a href="adm.php">Menu</a></li>';
-echo '</ul></center>';
-
 include('./php/includes/footer.php');

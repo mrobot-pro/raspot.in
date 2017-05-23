@@ -1,11 +1,11 @@
 <?php
-//==================================Code de calcul des données de la page
+/*
 require_once('php/autoload.php');
 $s = Session::getInstance();
 $s->setMaxAge(10); 
 $s->start();
 $a = Authentification::getInstance();
-
+*/
 
 include('./php/includes/heading.php'); 
 
