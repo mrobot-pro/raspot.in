@@ -10,7 +10,7 @@ echo '</ul></center>';
 
 echo <<< EOT
 
-<form action="index.php" method="post">
+<form action="" method="post">
        
         <label class="position">Nom de l\'Evenement:</label><br>
                 <input class="position" type="text" name="evenement" placeholder="Evenement..." />

@@ -4,7 +4,7 @@ class Session {
     private $nom = 'DEF_SESSID'; 
     // le nom de la variable de session 
 
-    private $maxAge = 1;
+    private $maxAge = -1;
     // durée de vie maximale d'une session-1 => pas de limite 
 
     private function __construct() { 

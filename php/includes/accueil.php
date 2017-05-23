@@ -9,3 +9,10 @@ echo <<<EOT
 	<p>tout au long de l'événement !</p>
 </div></center>
 EOT;
+
+if(isset($_SESSION['evenement']) && !empty($_SESSION['evenement'])){
+    echo $_SESSION['evenement'];
+}
+else{
+    echo '<center><h1>BONJOUR</h1></center>';
+}

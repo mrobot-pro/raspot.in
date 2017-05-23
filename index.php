@@ -1,7 +1,7 @@
 <?php
-
 /*
 require_once('php/autoload.php');
+session_start();
 $s = Session::getInstance();
 $s->setMaxAge(10); 
 $s->start();
