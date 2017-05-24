@@ -27,18 +27,17 @@ function getExtension($str)
 $extension_upload 	= 	getExtension($filename);
 //mise en minuscule extension
 $extension_upload 	= 	strtolower($extension_upload);
+
+//Test de l'extension
 if ( in_array($extension_upload,$extensions_valides) ) echo "Extension correcte";
 
 //Créer un identifiant difficile à deviner
   $new_name = md5(uniqid(rand(), true)).'.'.$extension_upload;
 
-
-
 $resultat = move_uploaded_file($uploadedfile,$chemin.$new_name);
 if ($resultat) echo "Transfert reussi";
 
 //Création miniature
-
 $src = 	imagecreatefromjpeg($chemin.$new_name);
 list($width,$height)	=	getimagesize($chemin.$new_name);
 
@@ -51,6 +50,8 @@ list($width,$height)	=	getimagesize($chemin.$new_name);
 			imagedestroy($src);
 			imagedestroy($tmp);
 			echo "<img src='{$vigname}'/>";
+			
+			
 //connexion a la base 
   try {
 // Nouvel objet de base SQLite 
