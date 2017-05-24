@@ -84,7 +84,7 @@ if(isset($_POST['upload']))
 			imagedestroy($tmp);
 		
 			
-			echo "imagecopyresampled: <img src='{$filename}'/>";
+			echo "<img src='{$filename}'/>";
 		}
 	}
 	
