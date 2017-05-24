@@ -1,4 +1,4 @@
-<center><img src="./css/camera.ico" id="upfile1" width="50" style="cursor:pointer" image-orientation="center" alt="logo_appli" />
+<center><img src="./css/camera.ico" id="upfile1" width="75" style="cursor:pointer" image-orientation="center" alt="logo_appli" />
 <input type="file" id="file1"  name="file1" style="display:none" /><br>
 <div>
 	<p>Partagez vos photos </p>
