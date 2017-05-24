@@ -45,18 +45,12 @@ list($width,$height)	=	getimagesize($chemin.$new_name);
 			$newheight	=	100;
 			$newwidth	=	($width/$height)*$newheight;
 			$tmp		=	imagecreatetruecolor($newwidth,$newheight);
-
 			imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-
 			$vigname 	= 	$vign_path.$new_name;
-	
 			imagejpeg($tmp,$vigname,100);
-		
 			imagedestroy($src);
 			imagedestroy($tmp);
-			
 			echo "<img src='{$vigname}'/>";
-
 //connexion a la base 
   try {
 // Nouvel objet de base SQLite 
