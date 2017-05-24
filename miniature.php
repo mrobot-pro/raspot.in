@@ -36,15 +36,19 @@ if(isset($_POST['upload']))
 		}
 		else
 		{
-			
+			//verification de la taille
 			$size		=	filesize($_FILES['file']['tmp_name']);
 			if ($size > MAX_SIZE*1024)
 			{
 				exit ("verifier la taille de votre image!!");
 				$errors=1;
 			}
+			//recup extension
 			$extension 	= 	getExtension($filename);
+			//mise en minuscule extension
 			$extension 	= 	strtolower($extension);
+			
+			
 			if($extension=="jpg" || $extension=="jpeg" )
 			{
 				$uploadedfile 	= 	$_FILES['file']['tmp_name'];
@@ -64,25 +68,23 @@ if(isset($_POST['upload']))
 			$newheight	=	($height/$width)*$newwidth;
 			$tmp		=	imagecreatetruecolor($newwidth,$newheight);
 
-			$newwidth1	=	25;
-			$newheight1	=	($height/$width)*$newwidth1;
-			$tmp1		=	imagecreatetruecolor($newwidth1,$newheight1);
+		
 
 			imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
 
-			imagecopyresampled($tmp1, $src, 0, 0, 0, 0, $newwidth1, $newheight1, $width, $height);
+		
 
 			$filename 	= 	"". $_FILES['file']['name'];
-			$filename1 	= 	"small". $_FILES['file']['name'];
+		
 
 			imagejpeg($tmp,$filename,100);
-			imagejpeg($tmp1,$filename1,100);
+		
 
 			imagedestroy($src);
 			imagedestroy($tmp);
-			imagedestroy($tmp1);
-			echo "miniature: <img src='{$filename1}'/><br/><br/>";
-			echo "image originale: <img src='{$filename}'/>";
+		
+			
+			echo "imagecopyresampled: <img src='{$filename}'/>";
 		}
 	}
 	

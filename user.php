@@ -30,7 +30,7 @@ FROM media");
 if ($res != false){ 
         while($row = $res->fetch()){
 			$src=$row['chemin'].$row['new_name'];
-            echo $row['media_id'].' '.$src.' '.$row['commentaire']."<br/>".'<a href="'.$src.'"><img src="'.$src.'" height="100"></a>'."<br/>";
+            echo $row['media_id'].' '.$src.' '.$row['commentaire']."<br/>".'<a href="'.$src.'"><img src="'.'vignette/'.$row['new_name'].'"></a>'."<br/>";
         }
 } else{
         echo "erreur de connexion";
