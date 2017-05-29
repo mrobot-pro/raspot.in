@@ -12,7 +12,7 @@ $chemin='image/';//répertoire stockage photos
 $uploadedfile 	= 	$_FILES['mon_fichier']['tmp_name'];
 $file_size = $_FILES['mon_fichier']['size'];
 $filename		=	$_FILES["mon_fichier"]["name"];
-$extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
+$extensions_valides = array( 'jpg' , 'jpeg' );
 
 function getExtension($str) 
 {
@@ -29,13 +29,16 @@ $extension_upload 	= 	getExtension($filename);
 $extension_upload 	= 	strtolower($extension_upload);
 
 //Test de l'extension
-if ( in_array($extension_upload,$extensions_valides) ) echo "Extension correcte";
+//if ( in_array($extension_upload,$extensions_valides) ) echo "Extension correcte";
+
+
+
 
 //Créer un identifiant difficile à deviner
   $new_name = md5(uniqid(rand(), true)).'.'.$extension_upload;
 
 $resultat = move_uploaded_file($uploadedfile,$chemin.$new_name);
-if ($resultat) echo "Transfert reussi";
+//if ($resultat) echo "Transfert reussi";
 
 //Création miniature
 $src = 	imagecreatefromjpeg($chemin.$new_name);
@@ -49,7 +52,7 @@ list($width,$height)	=	getimagesize($chemin.$new_name);
 			imagejpeg($tmp,$vigname,100);
 			imagedestroy($src);
 			imagedestroy($tmp);
-			echo "<img src='{$vigname}'/>";
+			//echo "<img src='{$vigname}'/>";
 			
 			
 //connexion a la base 
@@ -61,7 +64,7 @@ list($width,$height)	=	getimagesize($chemin.$new_name);
 } catch (Exception $e) {
    die('Erreur : '.$e->getMessage());
 }
- $old_name=$_FILES['mon_fichier']['name'];
+
  $pseudo=$_POST['pseudo'];
  $commentaire=$_POST['commentaire'];
  
@@ -69,6 +72,6 @@ list($width,$height)	=	getimagesize($chemin.$new_name);
 $req = $base->prepare('INSERT INTO media ( pseudo, commentaire, chemin, new_name, old_name, file_size ) VALUES (?,?,?,?,?,?)');
 
 // On l’éxécute.
-$req->execute(array($pseudo, $commentaire,$chemin,$new_name,$old_name,$file_size));
+$req->execute(array($pseudo, $commentaire,$chemin,$new_name,$filename,$file_size));
 
 unset ($base);
