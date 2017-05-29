@@ -10,7 +10,7 @@ $('#upfile1').on('click',function () {
 });
 
 
-
+document.getElementById("mon_fichier").onchange = function() {document.getElementById("uploadform").submit();}
 
 
 

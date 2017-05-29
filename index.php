@@ -44,9 +44,7 @@ echo <<< ZOB
 <input type="file" id="mon_fichier"  name="mon_fichier" style="display:none"  />
 </form>
 
-<script>
-document.getElementById("mon_fichier").onchange = function() {document.getElementById("uploadform").submit();}
-</script>
+
 
 <div>
 	<p>Partagez vos photos </p>
