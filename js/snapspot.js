@@ -6,8 +6,13 @@ $(window).on('load',function () {
 
 //gestion evenement du clic pour photo à envoyer et ouverture sur les mobiles d'un choix entre prise de photo ou photo enregistré
 $('#upfile1').on('click',function () {
-    $('#file1').trigger('click');
+    $('#mon_fichier').trigger('click');
 });
+
+
+
+
+
 
 //gestion d'accès à la connexion administrateur côté client
 $('#admin').on('click',function () {
