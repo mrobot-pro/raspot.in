@@ -72,9 +72,27 @@ list($width,$height)	=	getimagesize($chemin.$new_name);
 			imagejpeg($tmp,$vigname,100);
 			imagedestroy($src);
 			imagedestroy($tmp);
+			echo '<br>';
+			echo "<img src='{$vigname}'/>";
 			
 			
-			
+echo <<<EOT
+<form method="post" action="index.php" type="submit" >
+    <label for="pseudo">Pseudo:</label>
+    <br />
+    <input type="text" name="pseudo" id="pseudo" />
+    <br />
+    <label for="commentaire">Commentaire :</label>
+    <br />
+    <input type="text" name="commentaire"  id="commentaire" />
+    <br />
+    <input type="submit" name="submit" value="Envoyer" /> -->
+</form>
+EOT;
+
+$pseudo=$_POST['pseudo'];
+$commentaire=$_POST['commentaire'];
+
 			
 			
 //connexion a la base 
@@ -87,8 +105,7 @@ list($width,$height)	=	getimagesize($chemin.$new_name);
    die('Erreur : '.$e->getMessage());
 }
 
- $pseudo=$_POST['pseudo'];
- $commentaire=$_POST['commentaire'];
+
  
 // On prépare la requête
 $req = $base->prepare('INSERT INTO media ( pseudo, commentaire, chemin, new_name, old_name, file_size ) VALUES (?,?,?,?,?,?)');
