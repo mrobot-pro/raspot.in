@@ -52,7 +52,7 @@ list($width,$height)	=	getimagesize($chemin.$new_name);
 			imagejpeg($tmp,$vigname,100);
 			imagedestroy($src);
 			imagedestroy($tmp);
-			echo "<img src='{$vigname}'/>";
+			
 			
 			
 			
