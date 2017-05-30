@@ -1,3 +1,8 @@
+<?php
+require('php/autoload.php');
+session_start();
+?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
 	<head>
@@ -13,11 +18,11 @@
 <!-- <center><img src="./image/favicon.png" alt="logo_appli" /></center> -->
 </header>
 
-<form method="post" id='uploadform' action="php/upload.php" enctype="multipart/form-data">
-<center><img src="./css/camera.ico" id="upfile1" width="75" style="cursor:pointer" image-orientation="center"  alt="logo_appli" type="submit" />
-<input type="file" id="mon_fichier"  name="mon_fichier" style="display:none"  />
-</form>
+<form method="post" id='uploadform' action="upload.php" enctype="multipart/form-data">
+<center>
 
+<img src='{$vigname}'/>
+</form>
 
 <div>
 	<p>Partagez vos photos </p>
