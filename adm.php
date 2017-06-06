@@ -1,6 +1,6 @@
 <?php
 require_once('/php/autoload.php');
-session_start();
+Session::getInstance()->start();
 ?>
 
 <!DOCTYPE html>
@@ -22,22 +22,16 @@ session_start();
 		<h1>TITRE EVENEMENT</h1>
 
 		<?php 
-			if (!$admin->isAuthenticated()) { ?>
-			<form action="" method="post">
-            		<center><label>Mot de Passe</label><br>
-                    <input type="password" name="mdp" required/><br>
-                    <input class="btn" type="submit" value="Valider"/></center>
-        	</form>
-    	<?php } ?>
+			if (Authentification::getInstance()->isAuth()==false) { ?>
+			<center><a href="adm.php?page=connexion">Connexion</a></center>
 
-		<?php 
-			if ($admin->isAuthenticated()) { ?>
-			<center><ul id="menu_horizontal">
-            		<li class="btn" ><a href="adm.php?page=adminappli.php">Appli</a></li>';
-            		<li class="btn" ><a href="admindata.php">Data</a></li>';
-            		</ul></center>
-		<?php } ?>
-
+    	<?php } 
+    		else { ?>
+    		<center><ul id="menu_horizontal">
+		    			<li class="btn" ><a href="adm.php?page=appli">Appli</a></li>
+		    			<li class="btn" ><a href="adm.php?page=data">Data</a></li>
+					</ul></center>
+    	<?php	} ?>
 
 		<footer>
             <center>

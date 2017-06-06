@@ -1,5 +1,5 @@
 <?php
 function __autoload($class_name) {
-    require_once $class_name.'.class.php'; 
+    require ($class_name.'.class.php'); 
 
 } 
