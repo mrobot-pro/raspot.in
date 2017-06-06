@@ -36,7 +36,7 @@
                                     <input class="position" type="text" name="evenement" placeholder="Evenement..." />
                                     <input class="btn" type="submit" value="Valider"/><br>
                             <label class="position">Message d\'Explication:</label><br>
-                                    <input class="position" type="text" name="explication" placeholder="Slogan..." />
+                                    <input class="position" type="text" name="slogan" placeholder="Slogan..." />
                                     <input class="btn" type="submit" value="Valider"/><br>
                             <label class="position">Changer de Mot de Passe:</label><br>
                                     <input class="position" type="password" name="password" placeholder="********" />

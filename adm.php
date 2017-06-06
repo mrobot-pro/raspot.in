@@ -1,5 +1,5 @@
 <?php
-require_once('/php/autoloaddavid.php');
+require_once('/php/autoload.php');
 session_start();
 ?>
 
@@ -21,13 +21,24 @@ session_start();
 
 		<h1>TITRE EVENEMENT</h1>
 
-<?php
+		<?php 
+			if (!$admin->isAuthenticated()) { ?>
+			<form action="" method="post">
+            		<center><label>Mot de Passe</label><br>
+                    <input type="password" name="mdp" required/><br>
+                    <input class="btn" type="submit" value="Valider"/></center>
+        	</form>
+    	<?php } ?>
 
-		$admin = new Admin;
-		$admin->accueil();
-		
+		<?php 
+			if ($admin->isAuthenticated()) { ?>
+			<center><ul id="menu_horizontal">
+            		<li class="btn" ><a href="adm.php?page=adminappli.php">Appli</a></li>';
+            		<li class="btn" ><a href="admindata.php">Data</a></li>';
+            		</ul></center>
+		<?php } ?>
 
-?>
+
 		<footer>
             <center>
 		<p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
