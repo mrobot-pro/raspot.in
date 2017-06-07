@@ -1,12 +1,13 @@
  <?php
      session_start() ;
       var_dump($_SESSION);
+        var_dump($_POST);
  // CONNEXION SQLITE //
 $db = new PDO('sqlite:snapspot.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 
 //  NOUVELLE INSTANCE DE LA CLASS PARAMETRES = OBJET $parametres //
-    $q = $db->query('SELECT slogan, evenement, mdp FROM parametre WHERE id = 1');
+    $q = $db->query('SELECT slogan, evenement, mdp FROM parametres WHERE id = 1');
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
 
@@ -42,10 +43,28 @@ echo '</center>';
 }
 
  else {
+     
  echo '<center><ul id="menu_horizontal">
 <li class="btn" ><a href="adm.php?page=appli">Appli</a></li>
 <li class="btn" ><a href="adm.php?page=data">Data</a></li>
-</ul></center>';
+ <form action="" method="post" id="adminappli"> 
+                <label class="position">Nom de l\'Evenement:</label><br>';
+echo "<input class='position' type='text' name='slogan' value='".$donnees['slogan']."'  />";
+  echo "<input class='position' type='text' name='evenement' value='".$donnees['evenement']."' />";
+ echo "<input class='position' type='text' name='mdp' value='".$donnees['mdp']."' />";
+  echo " <input class='btn' type='submit' value='Valider'/><br>";
+  echo '</form>';
+echo '</ul></center>';
+
+if(isset($_POST))
+{
+    $q = $db->prepare('UPDATE parametres SET evenement = :evenement, slogan = :slogan, mdp = :mdp WHERE id = 1');
+    $q->bindValue(':evenement', $_POST['evenement'], PDO::PARAM_STR);
+    $q->bindValue(':slogan', $_POST['slogan'], PDO::PARAM_STR);
+    $q->bindValue(':mdp', $_POST['mdp'], PDO::PARAM_STR);
+    $q->execute();
+}
+
  }
  
 if(isset($_POST['mdp']))
