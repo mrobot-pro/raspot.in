@@ -57,6 +57,21 @@ echo "<form method='post' id='change_fond' action='' enctype='multipart/form-dat
 echo "<input style='cursor:pointer' class='position' type='file' id='image_fond'  name='image_fond'   />";
 echo "</form>";
 echo var_dump($_FILES);
+
+if (isset($_FILES['image_fond'])){
+    //Vérification image uploadée
+if ($_FILES['image_fond']['error'] > 0) {
+$erreur = "Erreur lors du transfert";
+}
+    
+$media->setNewName(md5(uniqid(rand(), true)).'.'.$media->getExtension());
+$media->saveFile();
+
+
+}
+
+
+
 if(isset($_POST['valider']))
 {
     $q = $db->prepare('UPDATE parametres SET evenement = :evenement, slogan = :slogan, mdp = :mdp WHERE id = 1');
