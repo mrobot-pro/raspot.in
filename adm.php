@@ -1,7 +1,6 @@
  <?php
      session_start() ;
-      var_dump($_SESSION);
-        var_dump($_POST);
+  
  // CONNEXION SQLITE //
 $db = new PDO('sqlite:snapspot.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
@@ -10,6 +9,8 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une aler
     $q = $db->query('SELECT slogan, evenement, mdp FROM parametres WHERE id = 1');
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
+
+    
 
 ?>
 <!DOCTYPE html>
@@ -34,35 +35,37 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une aler
 
 if($_SESSION['login'] !== 'admin')
 {
-echo '<center>';
-  echo "<form action='adm.php' method='post'>";
-     echo "<label>Mot de passe</label><input type='password' name='mdp' value='' required>";
-     echo "<input class='btn' type='submit' value='Valider'>";
-   echo '</form>';   
-echo '</center>';
+    include '/php.adminconnect.php';
 }
 
  else {
      
  echo '<center><ul id="menu_horizontal">
-<li class="btn" ><a href="adm.php?page=appli">Appli</a></li>
-<li class="btn" ><a href="adm.php?page=data">Data</a></li>
- <form action="" method="post" id="adminappli"> 
-                <label class="position">Nom de l\'Evenement:</label><br>';
-echo "<input class='position' type='text' name='slogan' value='".$donnees['slogan']."'  />";
-  echo "<input class='position' type='text' name='evenement' value='".$donnees['evenement']."' />";
- echo "<input class='position' type='text' name='mdp' value='".$donnees['mdp']."' />";
-  echo " <input class='btn' type='submit' value='Valider'/><br>";
-  echo '</form>';
+    <li class="btn" ><a href="adm.php?page=appli">Appli</a></li>
+    <li class="btn" ><a href="adm.php?page=data">Data</a></li>
+
+    <form action="" method="post" id="adminappli"> 
+        <label class="position">Nom de l\'Evenement:</label><br>';
+        echo "<input class='position' type='text' name='slogan' value='".$donnees['slogan']."'  />";
+        echo "<input class='position' type='text' name='evenement' value='".$donnees['evenement']."' />";
+        echo "<input class='position' type='text' name='mdp' value='".$donnees['mdp']."' />";
+        echo " <input class='btn' type='submit' name='valider' value='Valider'/><br>";
+    echo '</form>';
 echo '</ul></center>';
 
-if(isset($_POST))
+if(isset($_POST['valider']))
 {
     $q = $db->prepare('UPDATE parametres SET evenement = :evenement, slogan = :slogan, mdp = :mdp WHERE id = 1');
     $q->bindValue(':evenement', $_POST['evenement'], PDO::PARAM_STR);
     $q->bindValue(':slogan', $_POST['slogan'], PDO::PARAM_STR);
     $q->bindValue(':mdp', $_POST['mdp'], PDO::PARAM_STR);
     $q->execute();
+    
+   
+
+   
+     header('Location: adm.php');
+      exit;
 }
 
  }

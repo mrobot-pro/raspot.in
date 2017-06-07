@@ -1,10 +1,8 @@
 <?php
     session_start() ;
-echo var_dump($_SESSION);
 // AUTOLOAD //
 require('php/autoload.php');
 
- 
     // CONNEXION SQLITE //
 $db = new PDO('sqlite:snapspot.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
@@ -13,17 +11,9 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une aler
 $manager = new MediaManager($db);
 
 //  NOUVELLE INSTANCE DE LA CLASS PARAMETRES = OBJET $parametres //
-    $q = $db->query('SELECT slogan, evenement, mdp FROM parametre WHERE id = 1');
+    $q = $db->query('SELECT slogan, evenement, mdp FROM parametres WHERE id = 1');
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
   
-   
-
-
-// TABLEAU DES ROWS PRESENTS DANS LA BASE //
-$medias = $manager->getList();
-
-echo '<p>Nombre de photos : '.$manager->count().'</p><br>';
-
 ?>
 
 <!DOCTYPE html>
