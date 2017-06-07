@@ -14,10 +14,19 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une aler
 //  NOUVELLE INSTANCE DE LA CLASS MANAGER = OBJET $manager //
 $manager = new MediaManager($db);
 
+//  NOUVELLE INSTANCE DE LA CLASS PARAMETRES = OBJET $parametres //
+
+    $q = $db->query('SELECT slogan, evenement, mdp FROM parametre WHERE id = 1');
+    $donnees = $q->fetch(PDO::FETCH_ASSOC);
+  
+   
+
+
 // TABLEAU DES ROWS PRESENTS DANS LA BASE //
 $medias = $manager->getList();
 
 echo '<p>Nombre de photos : '.$manager->count().'</p><br>';
+echo var_dump($donnees);
 
 ?>
 
@@ -62,12 +71,11 @@ $media->saveFile();
 $vignette= Media::VIGN_PATH.$media->newName();
 $manager->add($media);
 }
+
+echo '<div>';
+echo value($donnees[0]);
 ?> 
-
-
-
- 
-        <div>
+        
 	<p>Partagez vos photos </p>
 	<p>sur ce spot </p>
 	<p>tout au long de l'événement !</p>
