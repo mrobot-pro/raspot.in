@@ -66,7 +66,7 @@ $erreur = "Erreur lors du transfert";
     
 // ENREGISTREMENT DE L'IMAGE UPLOADEE
 move_uploaded_file($_FILES["image_fond"]["tmp_name"], 'css/accueil.jpg');
-header('location:adm.php');
+//header('location:adm.php');
 }
 
 
