@@ -59,9 +59,9 @@ $manager->add($media);
 }
 
 echo '<div>';
-echo '<p>'.$donnees['slogan'].'</p>';
+echo '<h1>'.$donnees['slogan'].'</h1>';
 echo'</div></center>';
-echo '<center><h1>'.$donnees['evenement'].'</h1></center>';
+echo '<center><p>'.$donnees['evenement'].'</p></center>';
 ?> 
         
         <footer>

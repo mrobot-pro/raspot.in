@@ -29,7 +29,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une aler
 		<!-- <center><img src="./image/favicon.png" alt="logo_appli" /></center> -->
 		</header>
 
-		<h1>TITRE EVENEMENT</h1>
+
 
 <?php
 
@@ -43,15 +43,15 @@ if($_SESSION['login'] !== 'admin')
  echo '<center><ul id="menu_horizontal">
     <li class="btn" ><a href="adm.php?page=appli">Appli</a></li>
     <li class="btn" ><a href="adm.php?page=data">Data</a></li>
-
+</center>
     <form action="" method="post" id="adminappli"> 
         <label class="position">Nom de l\'Evenement:</label><br>';
         echo "<input class='position' type='text' name='slogan' value='".$donnees['slogan']."'  />";
         echo "<input class='position' type='text' name='evenement' value='".$donnees['evenement']."' />";
-        echo "<input class='position' type='text' name='mdp' value='".$donnees['mdp']."' />";
-        echo " <input class='btn' type='submit' name='valider' value='Valider'/><br>";
+        echo "<input class='position' type='text' name='mdp' value='".$donnees['mdp']."' /><br>";
+        echo " <input class='btn position' type='submit' name='valider' value='Valider'/><br>";
     echo '</form>';
-echo '</ul></center>';
+echo '</ul>';
 
 if(isset($_POST['valider']))
 {
