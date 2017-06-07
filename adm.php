@@ -44,15 +44,19 @@ echo '</form></center>';
 
 if(isset($_GET['Appli']))
 {
- echo '</center>';
-echo '<form action="" method="post" id="adminappli">'; 
-echo '<label class="position">Nom de l\'Evenement:</label><br>';
+
+echo "<form action='' method='post' id='adminappli'>"; 
+echo "<label class='position'>Nom de l'Evenement:</label><br>";
 echo "<input class='position' type='text' name='slogan' value='".$donnees['slogan']."'  />";
 echo "<input class='position' type='text' name='evenement' value='".$donnees['evenement']."' />";
 echo "<input class='position' type='text' name='mdp' value='".$donnees['mdp']."' /><br>";
 echo " <input class='btn position' type='submit' name='valider' value='Valider'/><br>";
-echo '</form>';
+echo "</form>";
 
+echo "<form method='post' id='change_fond' action='' enctype='multipart/form-data'>";
+echo "<input style='cursor:pointer' class='position' type='file' id='image_fond'  name='image_fond'   />";
+echo "</form>";
+echo var_dump($_FILES);
 if(isset($_POST['valider']))
 {
     $q = $db->prepare('UPDATE parametres SET evenement = :evenement, slogan = :slogan, mdp = :mdp WHERE id = 1');
@@ -64,14 +68,6 @@ if(isset($_POST['valider']))
     exit;
 } 
 }
-    
-
-
-
-
-
-
-
 }
   else 
 {
@@ -104,5 +100,8 @@ else
 		<p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
             </center>
         </footer>
+  <script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+  <script type="text/javascript" src="js/snapspotAdm.js" ></script>
 	</body>
 </html>
+  
