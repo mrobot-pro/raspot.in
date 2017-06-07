@@ -1,6 +1,6 @@
  <?php
      session_start() ;
-  echo var_dump($_SESSION);
+  //echo var_dump($_SESSION);
  // CONNEXION SQLITE //
 $db = new PDO('sqlite:snapspot.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
@@ -33,12 +33,12 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une aler
 if(isset($_SESSION) || $_SESSION['login'] !== 'admin')
 {
     echo '<center>';
-  echo "<form action='adm.php' method='post'>";
+  echo "<form action='' method='post'>";
      echo "<label>Mot de passe</label><input type='password' name='mdp' value='' required>";
-     echo "<input class='btn' type='submit' value='Valider'>";
+     echo "<input class='btn' type='submit' name='password' value='Valider'>";
    echo '</form>';   
 echo '</center>';
-if(isset($_POST['mdp']))
+if(isset($_POST['password']))
 {
     if($_POST['mdp']==$donnees['mdp'])
     {
@@ -60,7 +60,7 @@ echo '<p><a href="?deconnexion=1">Déconnexion</a></p>';
 {
   session_destroy();
   header('Location: .');
-  exit();
+
 }
      
 echo '
