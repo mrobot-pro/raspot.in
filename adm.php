@@ -25,7 +25,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une aler
 
 
 <?php
-
+// SI ADMINISTRATEUR //
 if(!empty($_SESSION) && $_SESSION['login'] == 'admin')
 {
     if (isset($_GET['deconnexion']))
@@ -69,8 +69,6 @@ move_uploaded_file($_FILES["image_fond"]["tmp_name"], 'css/accueil.jpg');
 //header('location:adm.php');
 }
 
-
-
 if(isset($_POST['valider']))
 {
     $q = $db->prepare('UPDATE parametres SET evenement = :evenement, slogan = :slogan, mdp = :mdp WHERE id = 1');
@@ -81,6 +79,10 @@ if(isset($_POST['valider']))
     header('location:adm.php');
     exit;
 } 
+}
+if(isset($_GET['Data']))
+{
+echo $db->query('SELECT COUNT(*) FROM media')->fetchColumn();
 }
 }
   else 
