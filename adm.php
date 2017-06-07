@@ -1,14 +1,20 @@
-<?php
-require_once('/php/autoload.php');
-Session::getInstance()->start();
-?>
+ <?php
+ // CONNEXION SQLITE //
+$db = new PDO('sqlite:snapspot.sqlite');
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 
+//  NOUVELLE INSTANCE DE LA CLASS PARAMETRES = OBJET $parametres //
+    $q = $db->query('SELECT slogan, evenement, mdp FROM parametre WHERE id = 1');
+    $donnees = $q->fetch(PDO::FETCH_ASSOC);
+
+
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>SNAPTOAST</title>
+		<title>SNAPSPOT</title>
 		<link rel="stylesheet" href="./css/default.css" title = "default">
 	</head>
 
@@ -21,17 +27,38 @@ Session::getInstance()->start();
 
 		<h1>TITRE EVENEMENT</h1>
 
-		<?php 
-			if (Authentification::getInstance()->isAuth()==false) { ?>
-			<center><a href="adm.php?page=connexion">Connexion</a></center>
 
-    	<?php } 
-    		else { ?>
-    		<center><ul id="menu_horizontal">
-		    			<li class="btn" ><a href="adm.php?page=appli">Appli</a></li>
-		    			<li class="btn" ><a href="adm.php?page=data">Data</a></li>
-					</ul></center>
-    	<?php	} ?>
+<center>
+   <form action='adm.php' method='post'>
+     <label>Mot de passe</label><input type='password' name='mdp' value='' required>
+     <input class='btn' type='submit' value='Valider'>
+   </form>   
+</center>
+
+<?php
+if(isset($_POST['mdp']))
+{
+    if($_POST['mdp']==$donnees['mdp'])
+    {
+
+echo '<center><ul id="menu_horizontal">
+<li class="btn" ><a href="adm.php?page=appli">Appli</a></li>
+<li class="btn" ><a href="adm.php?page=data">Data</a></li>
+</ul></center>';
+    }
+    else
+    {
+ echo 'Mauvais mot de passe !';
+        
+    }
+}
+
+
+?>
+                
+    
+    	
+    	
 
 		<footer>
             <center>

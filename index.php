@@ -26,7 +26,6 @@ $manager = new MediaManager($db);
 $medias = $manager->getList();
 
 echo '<p>Nombre de photos : '.$manager->count().'</p><br>';
-echo var_dump($donnees);
 
 ?>
 
@@ -78,7 +77,6 @@ echo'</div></center>';
 echo '<center><h1>'.$donnees['evenement'].'</h1></center>';
 ?> 
         
-
         <footer>
             <center>
 		<p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
