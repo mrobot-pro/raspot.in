@@ -1,6 +1,6 @@
  <?php
      session_start() ;
-  
+  echo var_dump($_SESSION);
  // CONNEXION SQLITE //
 $db = new PDO('sqlite:snapspot.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
@@ -8,9 +8,6 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une aler
 //  NOUVELLE INSTANCE DE LA CLASS PARAMETRES = OBJET $parametres //
     $q = $db->query('SELECT slogan, evenement, mdp FROM parametres WHERE id = 1');
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
-
-
-    
 
 ?>
 <!DOCTYPE html>
@@ -33,14 +30,41 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une aler
 
 <?php
 
-if($_SESSION['login'] !== 'admin')
+if(isset($_SESSION) || $_SESSION['login'] !== 'admin')
 {
-    include '/php.adminconnect.php';
+    echo '<center>';
+  echo "<form action='adm.php' method='post'>";
+     echo "<label>Mot de passe</label><input type='password' name='mdp' value='' required>";
+     echo "<input class='btn' type='submit' value='Valider'>";
+   echo '</form>';   
+echo '</center>';
+if(isset($_POST['mdp']))
+{
+    if($_POST['mdp']==$donnees['mdp'])
+    {
+        $_SESSION['login']   = 'admin';
+}
+    else
+    {
+ echo 'Mauvais mot de passe !';
+        
+    }
+}
 }
 
  else {
      
- echo '<center><ul id="menu_horizontal">
+echo '<p><a href="?deconnexion=1">Déconnexion</a></p>';
+     
+     if (isset($_GET['deconnexion']))
+{
+  session_destroy();
+  header('Location: .');
+  exit();
+}
+     
+echo '
+ <center><ul id="menu_horizontal">
     <li class="btn" ><a href="adm.php?page=appli">Appli</a></li>
     <li class="btn" ><a href="adm.php?page=data">Data</a></li>
 </center>
