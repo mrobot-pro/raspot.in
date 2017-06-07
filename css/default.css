@@ -21,6 +21,10 @@
             font-size: 1em;
     }
 
+    #deco {
+        margin-left: 80%;
+    }
+    
     h1,a,p {
             text-decoration: none;
             text-align: center;

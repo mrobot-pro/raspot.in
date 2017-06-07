@@ -1,6 +1,6 @@
  <?php
-     session_start() ;
-  //echo var_dump($_SESSION);
+session_start() ;
+echo var_dump($_SESSION);
  // CONNEXION SQLITE //
 $db = new PDO('sqlite:snapspot.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
@@ -20,62 +20,38 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une aler
 	</head>
 
 	<body>
-
-		<header>
-		<center><h1><a href="index.php">Snap Snap Spot !</a></h1></center>
+		
 		<!-- <center><img src="./image/favicon.png" alt="logo_appli" /></center> -->
-		</header>
-
 
 
 <?php
 
-if(isset($_SESSION) || $_SESSION['login'] !== 'admin')
+if(!empty($_SESSION) && $_SESSION['login'] == 'admin')
 {
-    echo '<center>';
-  echo "<form action='' method='post'>";
-     echo "<label>Mot de passe</label><input type='password' name='mdp' value='' required>";
-     echo "<input class='btn' type='submit' name='password' value='Valider'>";
-   echo '</form>';   
-echo '</center>';
-if(isset($_POST['password']))
-{
-    if($_POST['mdp']==$donnees['mdp'])
-    {
-        $_SESSION['login']   = 'admin';
-}
-    else
-    {
- echo 'Mauvais mot de passe !';
-        
-    }
-}
-}
-
- else {
-     
-echo '<p><a href="?deconnexion=1">Déconnexion</a></p>';
-     
-     if (isset($_GET['deconnexion']))
+    if (isset($_GET['deconnexion']))
 {
   session_destroy();
   header('Location: .');
-
+  exit();
 }
-     
-echo '
- <center><ul id="menu_horizontal">
-    <li class="btn" ><a href="adm.php?page=appli">Appli</a></li>
-    <li class="btn" ><a href="adm.php?page=data">Data</a></li>
-</center>
-    <form action="" method="post" id="adminappli"> 
-        <label class="position">Nom de l\'Evenement:</label><br>';
-        echo "<input class='position' type='text' name='slogan' value='".$donnees['slogan']."'  />";
-        echo "<input class='position' type='text' name='evenement' value='".$donnees['evenement']."' />";
-        echo "<input class='position' type='text' name='mdp' value='".$donnees['mdp']."' /><br>";
-        echo " <input class='btn position' type='submit' name='valider' value='Valider'/><br>";
-    echo '</form>';
-echo '</ul>';
+echo '<p id="deco"><a href="?deconnexion=1">Déconnexion</a></p>';
+echo '<center><h1><a href="index.php">Snap Snap Spot !</a></h1></center>';
+
+echo "<center><form action='' method='get'>";
+echo "<input class='btn' type='submit' name='Appli' value='Appli'>";
+echo "<input class='btn' type='submit' name='Data' value='Data'>";
+echo '</form></center>'; 
+
+if(isset($_GET['Appli']))
+{
+ echo '</center>';
+echo '<form action="" method="post" id="adminappli">'; 
+echo '<label class="position">Nom de l\'Evenement:</label><br>';
+echo "<input class='position' type='text' name='slogan' value='".$donnees['slogan']."'  />";
+echo "<input class='position' type='text' name='evenement' value='".$donnees['evenement']."' />";
+echo "<input class='position' type='text' name='mdp' value='".$donnees['mdp']."' /><br>";
+echo " <input class='btn position' type='submit' name='valider' value='Valider'/><br>";
+echo '</form>';
 
 if(isset($_POST['valider']))
 {
@@ -84,27 +60,42 @@ if(isset($_POST['valider']))
     $q->bindValue(':slogan', $_POST['slogan'], PDO::PARAM_STR);
     $q->bindValue(':mdp', $_POST['mdp'], PDO::PARAM_STR);
     $q->execute();
+    header('location:adm.php');
+    exit;
+} 
+}
     
-   
 
-   
-     header('Location: adm.php');
-      exit;
+
+
+
+
+
+
 }
-
- }
- 
-if(isset($_POST['mdp']))
+  else 
 {
-    if($_POST['mdp']==$donnees['mdp'])
-    {
-        $_SESSION['login']   = 'admin';
+echo '<center><h1><a href="index.php">Snap Snap Spot !</a></h1></center>';
+echo '<center>';
+echo "<form action='' method='post'>";
+echo "<label>Mot de passe</label><input type='password' name='mdp' value='' required>";
+echo "<input class='btn' type='submit' name='ok' value='Valider'>";
+echo '</form>';   
+echo '</center>';
+
+if(isset($_POST['ok']))
+{
+echo var_dump($_SESSION);
+if($_POST['mdp']==$donnees['mdp'])
+{
+$_SESSION['login']   = 'admin'; 
+header('location:adm.php');
 }
-    else
-    {
- echo 'Mauvais mot de passe !';
-        
-    }
+else
+{
+ echo 'Mauvais mot de passe !'; 
+} 
+}
 }
 ?>
 
