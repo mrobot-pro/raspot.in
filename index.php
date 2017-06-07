@@ -73,14 +73,12 @@ $manager->add($media);
 }
 
 echo '<div>';
-echo value($donnees[0]);
+echo '<p>'.$donnees['slogan'].'</p>';
+echo'</div></center>';
+echo '<center><h1>'.$donnees['evenement'].'</h1></center>';
 ?> 
         
-	<p>Partagez vos photos </p>
-	<p>sur ce spot </p>
-	<p>tout au long de l'événement !</p>
-</div></center>
-<center><h1>BONJOUR</h1></center>
+
         <footer>
             <center>
 		<p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
