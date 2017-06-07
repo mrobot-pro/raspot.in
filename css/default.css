@@ -9,34 +9,16 @@
         from {
             transform: scale(1);
         }
-        10% {
-            transform: scale(1.5);
-        }
-        20% {
-            transform: scale(2);
-        }
-        30% {
-            transform: scale(1);
-        }
-        40% {
-            transform: scale(1.5);
-        }
         50% {
-            transform: scale(2);
-        }
-        65% {
-            transform: scale(1);
-        }
-        90% {
             transform: scale(1.5);
         }
         100% {
-            transform: scale(2);
+            transform: scale(0.5);
         }
     }
     
     img {
-        animation: zoom 5s linear infinite;
+        animation: zoom 2s linear infinite;
     }
     
         .position {
