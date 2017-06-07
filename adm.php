@@ -64,10 +64,9 @@ if ($_FILES['image_fond']['error'] > 0) {
 $erreur = "Erreur lors du transfert";
 }
     
-$media->setNewName(md5(uniqid(rand(), true)).'.'.$media->getExtension());
-$media->saveFile();
-
-
+// ENREGISTREMENT DE L'IMAGE UPLOADEE
+move_uploaded_file($_FILES["image_fond"]["tmp_name"], 'css/accueil.jpg');
+header('location:adm.php');
 }
 
 
