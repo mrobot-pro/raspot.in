@@ -1,4 +1,6 @@
  <?php
+     session_start() ;
+      var_dump($_SESSION);
  // CONNEXION SQLITE //
 $db = new PDO('sqlite:snapspot.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
@@ -27,40 +29,38 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une aler
 
 		<h1>TITRE EVENEMENT</h1>
 
-
-<center>
-   <form action='adm.php' method='post'>
-     <label>Mot de passe</label><input type='password' name='mdp' value='' required>
-     <input class='btn' type='submit' value='Valider'>
-   </form>   
-</center>
-
 <?php
+
+if($_SESSION['login'] !== 'admin')
+{
+echo '<center>';
+  echo "<form action='adm.php' method='post'>";
+     echo "<label>Mot de passe</label><input type='password' name='mdp' value='' required>";
+     echo "<input class='btn' type='submit' value='Valider'>";
+   echo '</form>';   
+echo '</center>';
+}
+
+ else {
+ echo '<center><ul id="menu_horizontal">
+<li class="btn" ><a href="adm.php?page=appli">Appli</a></li>
+<li class="btn" ><a href="adm.php?page=data">Data</a></li>
+</ul></center>';
+ }
+ 
 if(isset($_POST['mdp']))
 {
     if($_POST['mdp']==$donnees['mdp'])
     {
-        session_start() ;
         $_SESSION['login']   = 'admin';
-        var_dump($_SESSION);
-echo '<center><ul id="menu_horizontal">
-<li class="btn" ><a href="adm.php?page=appli">Appli</a></li>
-<li class="btn" ><a href="adm.php?page=data">Data</a></li>
-</ul></center>';
-    }
+}
     else
     {
  echo 'Mauvais mot de passe !';
         
     }
 }
-
-
 ?>
-                
-    
-    	
-    	
 
 		<footer>
             <center>
