@@ -40,7 +40,9 @@ if(isset($_POST['mdp']))
 {
     if($_POST['mdp']==$donnees['mdp'])
     {
-
+        session_start() ;
+        $_SESSION['login']   = 'admin';
+        var_dump($_SESSION);
 echo '<center><ul id="menu_horizontal">
 <li class="btn" ><a href="adm.php?page=appli">Appli</a></li>
 <li class="btn" ><a href="adm.php?page=data">Data</a></li>
