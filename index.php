@@ -32,7 +32,7 @@ $manager = new MediaManager($db);
         </header>
       
 <form method="post" id='uploadform' action="index.php" enctype="multipart/form-data">
-<center><img src="./css/camera.ico" id="upfile1" width="75" style="cursor:pointer" image-orientation="center"  alt="logo_appli" type="submit" />
+<center><img class="cameraico" src="./css/camera.ico" id="upfile1" width="75" style="cursor:pointer" image-orientation="center"  alt="logo_appli" type="submit" />
 <!-- MAX_FILE_SIZE doit précéder le champ input de type file 
 <input type="hidden" name="MAX_FILE_SIZE" value="30000" /> -->
 <input type="file" id="mon_fichier"  name="mon_fichier" style="display:none"  />

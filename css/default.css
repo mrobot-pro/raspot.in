@@ -17,7 +17,7 @@
         }
     }
     
-    img {
+    .cameraico {
         animation: zoom 2s linear infinite;
     }
     
