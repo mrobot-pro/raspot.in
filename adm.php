@@ -8,8 +8,8 @@ $db = new PDO('sqlite:snapspot.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 
 //  CREATION TABLEAU PARAMETRES //
-    $q = $db->query('SELECT slogan, evenement, mdp FROM parametres WHERE id = 1');
-    $donnees = $q->fetch(PDO::FETCH_ASSOC);
+    $qPar = $db->query('SELECT slogan, evenement, mdp FROM parametres WHERE id = 1');
+    $donnees = $qPar->fetch(PDO::FETCH_ASSOC);
     
 
 
@@ -89,37 +89,24 @@ if(isset($_POST['valider']))
 }
 if(isset($_GET['Data']))
 {
-    
-//  CREATION TABLEAU PARAMETRES //
-    $q = $db->query('SELECT * FROM media ');
-    $datas = $q->fetch(PDO::FETCH_ASSOC);
-echo print_r($datas);
-
-
-
-
-$str='';
-if(count($db->query('SELECT COUNT(*) FROM media'))>1){
+$mediaCount=$db->query('SELECT COUNT(*) FROM media')->fetchColumn();
+if($mediaCount>1){
+    $qMedias =$db->query('SELECT * FROM media');
+    $datas = $qMedias->fetchAll(PDO::FETCH_ASSOC);
 foreach ($datas as $key => $value){
-                $str .= "<span class='resume'>";
+                //$str .= "<span class='resume'>";
                 $chemin = 'vignette/'.$value['newName'];
-             
-             
-                 $str=$str."<img src='$chemin' class='vignette' alt='vignette'/>\n";
-                       
-          
-                $str.="Pseudo : ".$value['pseudo']."<br/>\n";
-                $str.="Description : ".$value['pseudo']."<br/>\n";
-                $str.="Date ajout : ".$value['timestamp']."<br/>\n";
-                $str.="</span>\n";
+                //$str=$str."<img src='$chemin' class='vignette' alt='vignette'/>\n";
+                echo"<img src='$chemin' class='vignette' alt='vignette'/>\n";
+                //$str.="Pseudo : ".$value['pseudo']."<br/>\n";
+                //$str.="Description : ".$value['pseudo']."<br/>\n";
+                //$str.="Date ajout : ".$value['timestamp']."<br/>\n";
+  //$str.="</span>\n";
             }
         }else{
-            $str ="Aucun résultat";
+          echo "Aucun résultat";
         }
-       return $str;
-
-
-
+    
 
 }
 }
