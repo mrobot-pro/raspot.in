@@ -3,7 +3,6 @@ session_start() ;
 // AUTOLOAD //
 require('php/autoload.php');
 
-echo var_dump($_SESSION);
  // CONNEXION SQLITE //
 $db = new PDO('sqlite:snapspot.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
@@ -64,7 +63,7 @@ echo "</form>";
 echo "<form method='post' id='change_fond' action='' enctype='multipart/form-data'>";
 echo "<input style='cursor:pointer' class='position' type='file' id='image_fond'  name='image_fond'   />";
 echo "</form>";
-echo var_dump($_FILES);
+
 
 if (isset($_FILES['image_fond'])){
     //Vérification image uploadée
@@ -136,7 +135,7 @@ echo '</center>';
 
 if(isset($_POST['ok']))
 {
-echo var_dump($_SESSION);
+
 if($_POST['mdp']==$donnees['mdp'])
 {
 $_SESSION['login']   = 'admin'; 
