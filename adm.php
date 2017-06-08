@@ -1,13 +1,21 @@
  <?php
 session_start() ;
+// AUTOLOAD //
+require('php/autoload.php');
+
 echo var_dump($_SESSION);
  // CONNEXION SQLITE //
 $db = new PDO('sqlite:snapspot.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 
-//  NOUVELLE INSTANCE DE LA CLASS PARAMETRES = OBJET $parametres //
+//  CREATION TABLEAU PARAMETRES //
     $q = $db->query('SELECT slogan, evenement, mdp FROM parametres WHERE id = 1');
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
+    
+
+
+
+    
 
 ?>
 <!DOCTYPE html>
@@ -82,7 +90,38 @@ if(isset($_POST['valider']))
 }
 if(isset($_GET['Data']))
 {
-echo $db->query('SELECT COUNT(*) FROM media')->fetchColumn();
+    
+//  CREATION TABLEAU PARAMETRES //
+    $q = $db->query('SELECT * FROM media ');
+    $datas = $q->fetch(PDO::FETCH_ASSOC);
+echo print_r($datas);
+
+
+
+
+$str='';
+if(count($db->query('SELECT COUNT(*) FROM media'))>1){
+foreach ($datas as $key => $value){
+                $str .= "<span class='resume'>";
+                $chemin = 'vignette/'.$value['newName'];
+             
+             
+                 $str=$str."<img src='$chemin' class='vignette' alt='vignette'/>\n";
+                       
+          
+                $str.="Pseudo : ".$value['pseudo']."<br/>\n";
+                $str.="Description : ".$value['pseudo']."<br/>\n";
+                $str.="Date ajout : ".$value['timestamp']."<br/>\n";
+                $str.="</span>\n";
+            }
+        }else{
+            $str ="Aucun résultat";
+        }
+       return $str;
+
+
+
+
 }
 }
   else 
