@@ -97,7 +97,7 @@ foreach ($datas as $key => $value){
                 //$str .= "<span class='resume'>";
                 $chemin = 'vignette/'.$value['newName'];
                 //$str=$str."<img src='$chemin' class='vignette' alt='vignette'/>\n";
-                echo"<img src='$chemin' class='vignette' alt='vignette'/><br>";
+                echo"<center><img src='$chemin' class='vignette' alt='vignette'/></center><br>";
                 //$str.="Pseudo : ".$value['pseudo']."<br/>\n";
                 //$str.="Description : ".$value['pseudo']."<br/>\n";
                 //$str.="Date ajout : ".$value['timestamp']."<br/>\n";
