@@ -22,7 +22,7 @@ $manager = new MediaManager($db);
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SnapSpot</title>
-	<link rel="stylesheet" href="./css/default.css" title = "default">
+	 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     </head>
     <body>
 
@@ -69,7 +69,7 @@ echo '<center><p>'.$donnees['evenement'].'</p></center>';
 		<p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
             </center>
         </footer>
-    <script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+    <script type="text/javascript" src="js/jquery.js" ></script>
   <script type="text/javascript" src="js/snapspotIndex.js" ></script>
     </body>
 </html>
