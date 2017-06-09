@@ -28,7 +28,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une aler
 
 	<body>
 		
-		<!-- <center><img src="./image/favicon.png" alt="logo_appli" /></center> -->
+<div id="main-container" class="container-fluid">
 
 
 <?php
@@ -93,15 +93,18 @@ $mediaCount=$db->query('SELECT COUNT(*) FROM media')->fetchColumn();
 if($mediaCount>1){
     $qMedias =$db->query('SELECT * FROM media');
     $datas = $qMedias->fetchAll(PDO::FETCH_ASSOC);
-foreach ($datas as $key => $value){
-                //$str .= "<span class='resume'>";
-                $chemin = 'vignette/'.$value['newName'];
-                //$str=$str."<img src='$chemin' class='vignette' alt='vignette'/>\n";
-                echo"<img src='$chemin' class='vignette' alt='vignette'/><br>";
-                //$str.="Pseudo : ".$value['pseudo']."<br/>\n";
-                //$str.="Description : ".$value['pseudo']."<br/>\n";
-                //$str.="Date ajout : ".$value['timestamp']."<br/>\n";
-  //$str.="</span>\n";
+    
+   
+ foreach ($datas as $key => $value){
+        
+  echo '<ul class="list-group">';
+  echo '<a href="#" class="list-group-item">';
+  
+    echo '<p class="list-group-item-text pull-right">Mon joli tigre 2</p>';
+          $chemin = 'vignette/'.$value['newName'];
+    echo"<img src='$chemin'>";
+  echo '</a>';
+echo '</ul>';
             }
         }else{
           echo "Aucun résultat";
@@ -135,7 +138,7 @@ else
 }
 }
 ?>
-
+</div>
 		<footer>
             <center>
 		<p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
