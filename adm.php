@@ -28,16 +28,42 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une aler
 
 	<body>
 	
-    <div id="main-container" class="container-fluid">
+  
+
+
+<?php
+// SI ADMINISTRATEUR //
+if(!empty($_SESSION) && $_SESSION['login'] == 'admin')
+{
+    if (isset($_GET['deconnexion']))
+{
+  session_destroy();
+  header('Location: .');
+  exit();
+}
+echo '<p id="deco"><a href="?deconnexion=1">Déconnexion</a></p>';
+echo '<center><h1><a href="index.php">Snap Snap Spot !</a></h1></center>';
+
+echo "<center><form action='' method='get'>";
+echo "<input class='btn' type='submit' name='Appli' value='Appli'>";
+echo "<input class='btn' type='submit' name='Data' value='Data'>";
+echo '</form></center>'; 
+
+if(isset($_GET['Appli']))
+{
+
+    
+    ?>
+      <div id="main-container" class="container-fluid">
     <div class="text-center"><h1><a href="/" class="heading">Snap Snap Toast !</a></h1></div>
 <h3 class="heading text-center">Administration</h3>
 
 <form action="" id="admin-form" class="row" method="post" enctype="multipart/form-data">
     <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-xs-12">
         <br>
-        <label for="password">Changer le mot de passe de l'administrateur</label>
+        <label for="password">Mot de passe administrateur</label>
         <div class="input-group">
-            <input id="password" class="form-control" type="password" name="password" value="" placeholder="*******"/>
+            <input id="mdp" class="form-control" type="password" name="mdp" value="" placeholder="*******"/>
             <div class="input-group-btn">
                 <input type="submit" name="change_password" value="Modifier" class="btn btn-primary"/>
             </div>
@@ -45,10 +71,11 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une aler
     </div>
     <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-xs-12">
         <br>
-        <label for="title">Changer le titre</label>
+        <label for="title">Nom de l'événement</label>
         <div class="input-group">
-            <input id="title" class="form-control" type="text" name="title"
-                   value="Snap Snap Toast !" placeholder="BetaBox!"/>
+            <?php
+ echo "<input id='evenement' class='form-control' type='text' name='evenement' value='".$donnees['evenement']."'/>";
+ ?>
             <div class="input-group-btn">
                 <input type="submit" name="change_title" value="Modifier" class="btn btn-primary"/>
             </div>
@@ -107,29 +134,10 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une aler
     </div>
 </form>
 </div>
-
-
 <?php
-// SI ADMINISTRATEUR //
-if(!empty($_SESSION) && $_SESSION['login'] == 'admin')
-{
-    if (isset($_GET['deconnexion']))
-{
-  session_destroy();
-  header('Location: .');
-  exit();
-}
-echo '<p id="deco"><a href="?deconnexion=1">Déconnexion</a></p>';
-echo '<center><h1><a href="index.php">Snap Snap Spot !</a></h1></center>';
-
-echo "<center><form action='' method='get'>";
-echo "<input class='btn' type='submit' name='Appli' value='Appli'>";
-echo "<input class='btn' type='submit' name='Data' value='Data'>";
-echo '</form></center>'; 
-
-if(isset($_GET['Appli']))
-{
-
+    
+    
+    
 echo "<form action='' method='post' id='adminappli'>"; 
 echo "<label class='position'>Nom de l'Evenement:</label><br>";
 echo "<input class='position' type='text' name='slogan' value='".$donnees['slogan']."'  />";
@@ -193,13 +201,20 @@ echo '</ul>';
 }
   else 
 {
-echo '<center><h1><a href="index.php">Snap Snap Spot !</a></h1></center>';
-echo '<center>';
-echo "<form action='' method='post'>";
-echo "<label>Mot de passe</label><input type='password' name='mdp' value='' required>";
-echo "<input class='btn' type='submit' name='ok' value='Valider'>";
-echo '</form>';   
-echo '</center>';
+
+?>
+<form action="" class="row" method="post">
+    <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-xs-12">
+        <label for="password">Mot de passe</label>
+        <div class="input-group">
+            <input id="password" class="form-control" type="password" name="mdp" value=""/>
+            <div class="input-group-btn">
+                <input type="submit" name='ok' value="Se connecter" class="btn btn-primary"/>
+            </div>
+        </div>
+    </div>
+</form>  
+<?php
 
 if(isset($_POST['ok']))
 {
