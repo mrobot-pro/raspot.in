@@ -100,7 +100,7 @@ if($mediaCount>1){
   echo '<ul class="list-group">';
   echo '<a href="#" class="list-group-item">';
   
-    echo '<p class="list-group-item-text pull-right">Mon joli tigre 2</p>';
+    echo "<p class='list-group-item-text pull-right'>".$value['newName']."</p>";
           $chemin = 'vignette/'.$value['newName'];
     echo"<img src='$chemin'>";
   echo '</a>';
