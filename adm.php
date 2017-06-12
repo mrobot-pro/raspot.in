@@ -65,7 +65,7 @@ if(isset($_GET['Appli']))
         <div class="input-group">
             <input id="mdp" class="form-control" type="password" name="mdp" value="" placeholder="*******"/>
             <div class="input-group-btn">
-                <input type="submit" name="change_password" value="Modifier" class="btn btn-primary"/>
+                <input type="submit" name="change_password" value="change_password" class="btn btn-primary"/>
             </div>
         </div>
     </div>
@@ -144,7 +144,18 @@ if(isset($_GET['Appli']))
 </div>
 <?php
     
+if(isset($_POST['change_password']))
+{
+    $q = $db->prepare('UPDATE parametres SET mdp = :mdp WHERE id = 1');
+   
+    $q->bindValue(':mdp', password_hash($_POST['mdp'], PASSWORD_DEFAULT), PDO::PARAM_STR);
+    $q->execute();
+    header('location:adm.php');
+    exit;
+} 
     
+
+
    /* 
 echo "<form action='' method='post' id='adminappli'>"; 
 echo "<label class='position'>Nom de l'Evenement:</label><br>";
@@ -170,12 +181,14 @@ move_uploaded_file($_FILES["image_fond"]["tmp_name"], 'css/accueil.jpg');
 //header('location:adm.php');
 }
 
+
+
 if(isset($_POST['valider']))
 {
     $q = $db->prepare('UPDATE parametres SET evenement = :evenement, slogan = :slogan, mdp = :mdp WHERE id = 1');
     $q->bindValue(':evenement', $_POST['evenement'], PDO::PARAM_STR);
     $q->bindValue(':slogan', $_POST['slogan'], PDO::PARAM_STR);
-    $q->bindValue(':mdp', $_POST['mdp'], PDO::PARAM_STR);
+    $q->bindValue(':mdp', password_hash($_POST['mdp'], PASSWORD_DEFAULT), PDO::PARAM_STR);
     $q->execute();
     header('location:adm.php');
     exit;
@@ -226,8 +239,8 @@ echo '</ul>';
 
 if(isset($_POST['ok']))
 {
-
-if($_POST['mdp']==$donnees['mdp'])
+  
+if(password_verify($_POST['mdp'],$donnees['mdp']))
 {
 $_SESSION['login']   = 'admin'; 
 header('location:adm.php');
@@ -239,7 +252,7 @@ else
 }
 }
 ?>         
- <footer class="navbar-fixed-bottom container-fluid text-center" >
+<footer class="navbar-bottom text-center" >
     <p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
 </footer>
 <script type="text/javascript" src="js/jquery.js" ></script>
