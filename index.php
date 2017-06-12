@@ -55,7 +55,7 @@
           'evenement'=>  $donnees['evenement']
          
             ]);
- $media->setNewName($media->mediaId().$media->evenement().'.'.$media->getExtension());
+ 
    
 
     $vignette= Media::VIGN_PATH.$media->newName();
