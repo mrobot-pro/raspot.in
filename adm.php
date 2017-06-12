@@ -83,15 +83,15 @@ if(isset($_GET['Appli']))
     </div>
     <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-xs-12">
         <br>
-        <label for="message">Changer le message d'explications</label>
+        <label for="message">Slogan</label>
         <div class="input-group">
-            <textarea name="message" id="message" class="form-control custom-control" rows="3" style="resize:none"
-                      placeholder="Saisissez votre message...">Partagez vos photos sur ce spot tout au long de la soirée !</textarea>
+                       <?php
+ echo "<input id='slogan' class='form-control' type='text' name='slogan' value='".$donnees['slogan']."'/>";
+ ?>
             <label class="input-group-addon btn btn-primary" for="hidden_submit">Modifier</label>
         </div>
     </div>
-    <input class="invisible" id="hidden_submit" type="submit" value="Modifier"
-           style="visibility: hidden; position: absolute; top: 0; left: 0; height: 0; width: 0;"/>
+    <input class="btn btn-primary" id="hidden_submit" type="submit" value="Modifier"/>
     <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-xs-12">
         <br>
         <label for="message">Changer l'image de fond</label>
@@ -102,6 +102,14 @@ if(isset($_GET['Appli']))
                             </div>
         </div>
     </div>
+    <form class="form-inline">
+  <div class="input-group col-lg-3"> 
+    <input type="text" class="form-control" style="text-align:right" value="10 000">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button">Valider</button>
+    </span>
+  </div>
+</form>
     <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-xs-12">
         <br>
         <label for>
