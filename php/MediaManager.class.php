@@ -10,16 +10,17 @@ class MediaManager
   
   public function add(Media $media)
   {
-    $q = $this->_db->prepare('INSERT INTO media(oldName, newName, fileSize, pseudo, commentaire) VALUES(:oldName, :newName, :fileSize, :pseudo, :commentaire)');
+    $q = $this->_db->prepare('INSERT INTO media(oldName, newName, fileSize, pseudo, commentaire, evenement) VALUES(:oldName, :newName, :fileSize, :pseudo, :commentaire, :evenement)');
     $q->bindValue(':oldName', $media->oldName());
     $q->bindValue(':newName', $media->newName());
     $q->bindValue(':fileSize', $media->fileSize());
     $q->bindValue(':pseudo', $media->pseudo());
     $q->bindValue(':commentaire', $media->commentaire());
-    
+    $q->bindValue(':evenement', $media->evenement());
     $q->execute();
     $media->hydrate([
-     
+     'mediaId' => $this->_db->lastInsertId(),
+     'newName' => $this->_db->lastInsertId().$media->evenement()  
     ]);
   }
 
@@ -36,7 +37,7 @@ class MediaManager
   {
     if (is_int($info))
     {
-      $q = $this->_db->query('SELECT mediaId, oldName, newName, mediaPath, fileSize, pseudo, commentaire FROM media WHERE mediaId = '.$info);
+      $q = $this->_db->query('SELECT mediaId, oldName, newName, mediaPath, fileSize, pseudo, commentaire, evenement FROM media WHERE mediaId = '.$info);
       $donnees = $q->fetch(PDO::FETCH_ASSOC);
       return new Media($donnees);
     }
@@ -51,7 +52,7 @@ class MediaManager
   public function getList()
   {
     $medias = [];
-    $q = $this->_db->prepare('SELECT mediaId, oldName, newName, fileSize, pseudo, commentaire FROM media');
+    $q = $this->_db->prepare('SELECT mediaId, oldName, newName, fileSize, pseudo, commentaire, evenement FROM media');
     $q->execute();
     while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
     {

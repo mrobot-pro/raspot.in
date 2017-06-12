@@ -12,7 +12,7 @@
     //  NOUVELLE INSTANCE DE LA CLASS PARAMETRES = OBJET $parametres //
     $q = $db->query('SELECT slogan, evenement, mdp FROM parametres WHERE id = 1');
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
-      
+ 
 ?>
 
 <!DOCTYPE html>
@@ -52,10 +52,11 @@
     $media = new Media([
           'oldName' => $_FILES["mon_fichier"]["name"],                          
           'fileSize' => $_FILES["mon_fichier"]["size"], 
-        
-    ]);
-    $media->setNewName(md5(uniqid(rand(), true)).'.'.$media->getExtension());
-    $media->saveFile();
+          'evenement'=>  $donnees['evenement']
+         
+            ]);
+ $media->setNewName($media->mediaId().$media->evenement().'.'.$media->getExtension());
+   
 
     $vignette= Media::VIGN_PATH.$media->newName();
     $manager->add($media);

@@ -9,7 +9,8 @@ class Media
           $_fileSize,
           $_pseudo,
           $_commentaire,
-          $_timestamp;
+          $_timestamp,
+          $_evenement;
     
 // CLASS CONSTANTES //   
   const MEDIA_PATH = 'image/';
@@ -64,6 +65,10 @@ class Media
   {
     return $this->_commentaire;
   }
+            public function evenement()
+  {
+    return $this->_evenement;
+  }
   
   // SETTERS - MUTATEURS //
   
@@ -95,7 +100,10 @@ class Media
   {
       $this->_timestamp = $timestamp;
   }
-
+      public function setEvenement($evenement)
+  {
+      $this->_evenement = $evenement;
+  }
 
   // FONCTIONS //
 
@@ -111,6 +119,7 @@ public function getExtension()
 public function saveFile()
 {
 // ENREGISTREMENT DE L'IMAGE UPLOADEE
+$this->setNewName($this->_mediaId. $this->_evenement.$this->_timestamp.$this->getExtension());
 move_uploaded_file($_FILES["mon_fichier"]["tmp_name"], Media::MEDIA_PATH.$this->newName());
 
 //CREATION MINIATURE //
