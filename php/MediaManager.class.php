@@ -18,9 +18,10 @@ class MediaManager
     $q->bindValue(':commentaire', $media->commentaire());
     $q->bindValue(':evenement', $media->evenement());
     $q->execute();
+    
     $media->hydrate([
      'mediaId' => $this->_db->lastInsertId(),
-     'newName' => $this->_db->lastInsertId().$media->evenement()  
+     'newName' => $this->_db->lastInsertId().$media->evenement().$media->getExtension()  
     ]);
   }
 
