@@ -73,7 +73,7 @@
     echo '<div class="input-group">';
     echo "<input class='form-control' type='password' name='mdp' value='".$donnees['mdp']."' /><br>";
     echo '<div class="input-group-btn">';
-    echo "<input class='btn btn-primary' type='submit' name='valider' value='Valider'/></div></div></div>";
+    echo "<input class='btn btn-primary' type='submit' name='change_password' value='Valider'/></div></div></div>";
     echo "</form>";
 
 
@@ -114,6 +114,15 @@
     //header('location:adm.php');
     }
 
+    if(isset($_POST['change_password']))
+{
+    $q = $db->prepare('UPDATE parametres SET mdp = :mdp WHERE id = 1');
+    $q->bindValue(':mdp', password_hash($_POST['mdp'], PASSWORD_DEFAULT), PDO::PARAM_STR);
+    $q->execute();
+    header('location:adm.php');
+    exit;
+} 
+    
     if(isset($_POST['valider']))
     {
         $q = $db->prepare('UPDATE parametres SET evenement = :evenement, slogan = :slogan, mdp = :mdp WHERE id = 1');
@@ -177,7 +186,7 @@
     if(isset($_POST['ok']))
     {
 
-    if($_POST['mdp']==$donnees['mdp'])
+   if(password_verify($_POST['mdp'],$donnees['mdp']))
     {
     $_SESSION['login']   = 'admin'; 
     header('location:adm.php');
