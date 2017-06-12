@@ -55,7 +55,7 @@ if(isset($_GET['Appli']))
     
     ?>
       <div id="main-container" class="container-fluid">
-    <div class="text-center"><h1><a href="/" class="heading">Snap Snap Toast !</a></h1></div>
+    <div class="text-center"></div>
 <h3 class="heading text-center">Administration</h3>
 
 <form action="" id="admin-form" class="row" method="post" enctype="multipart/form-data">
@@ -238,14 +238,12 @@ else
 } 
 }
 }
-?>
-		<footer>
-            <center>
-		<p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
-            </center>
-        </footer>
-  <script type="text/javascript" src="js/jquery.js" ></script>
-  <script type="text/javascript" src="js/snapspotAdm.js" ></script>
-	</body>
+?>         
+<footer class="navbar-fixed-bottom container-fluid text-center" >
+    <p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
+</footer>
+<script type="text/javascript" src="js/jquery.js" ></script>
+<script type="text/javascript" src="js/snapspotAdm.js" ></script>
+        </body>
 </html>
   
