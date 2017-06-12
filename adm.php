@@ -145,7 +145,7 @@ if(isset($_GET['Appli']))
 <?php
     
     
-    
+   /* 
 echo "<form action='' method='post' id='adminappli'>"; 
 echo "<label class='position'>Nom de l'Evenement:</label><br>";
 echo "<input class='position' type='text' name='slogan' value='".$donnees['slogan']."'  />";
@@ -157,7 +157,7 @@ echo "</form>";
 echo "<form method='post' id='change_fond' action='' enctype='multipart/form-data'>";
 echo "<input style='cursor:pointer' class='position' type='file' id='image_fond'  name='image_fond'   />";
 echo "</form>";
-
+*/
 
 if (isset($_FILES['image_fond'])){
     //Vérification image uploadée
@@ -239,7 +239,7 @@ else
 }
 }
 ?>         
-<footer class="navbar-fixed-bottom container-fluid text-center" >
+ <footer class="navbar-fixed-bottom container-fluid text-center" >
     <p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
 </footer>
 <script type="text/javascript" src="js/jquery.js" ></script>

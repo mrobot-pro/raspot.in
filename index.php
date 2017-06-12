@@ -64,11 +64,9 @@ echo'</div></center>';
 echo '<center><p>'.$donnees['slogan'].'</p></center>';
 ?> 
         
-        <footer>
-            <center>
-		<p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
-            </center>
-        </footer>
+ <footer class="navbar-fixed-bottom container-fluid text-center" >
+    <p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
+</footer>
     <script type="text/javascript" src="js/jquery.js" ></script>
   <script type="text/javascript" src="js/snapspotIndex.js" ></script>
     </body>
