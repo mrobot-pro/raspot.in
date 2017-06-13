@@ -113,7 +113,7 @@ class Media
   
  public function updateNewName()
   {
-     $this->_newName = $this->mediaId().'_'.$this->timestamp().'_'.$this->evenement().'.'.$this->getExtension();
+     $this->_newName = $this->mediaId().'_'.$this->evenement().'.'.$this->getExtension();
  }
   
 public function getExtension()

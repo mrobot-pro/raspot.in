@@ -23,6 +23,8 @@ class MediaManager
     $media->updateNewName($media);
     echo var_dump($media);
     $this->update($media);
+    echo var_dump($_FILES);
+    $media->saveFile();
   }
 
   public function count()
