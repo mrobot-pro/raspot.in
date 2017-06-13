@@ -16,14 +16,14 @@ class Media
   const MEDIA_PATH = 'image/';
   const VIGN_PATH = 'vignette/';
   
-  public function __construct(array $donnees)
+  public function __construct(array $dataMedia)
   {
-    $this->hydrate($donnees);
+    $this->hydrate($dataMedia);
   }
 
-  public function hydrate(array $donnees)
+  public function hydrate(array $dataMedia)
   {
-    foreach ($donnees as $key => $value)
+    foreach ($dataMedia as $key => $value)
     {
       $method = 'set'.ucfirst($key);
       
@@ -32,6 +32,10 @@ class Media
         $this->$method($value);
       }
     }
+    
+  
+       
+   
   }
   
   
@@ -63,7 +67,7 @@ class Media
   }
           public function timestamp()
   {
-    return $this->_commentaire;
+    return $this->_timestamp;
   }
             public function evenement()
   {
@@ -106,7 +110,12 @@ class Media
   }
 
   // FONCTIONS //
-
+  
+ public function updateNewName()
+  {
+     $this->_newName = $this->mediaId().'_'.$this->timestamp().'_'.$this->evenement().'.'.$this->getExtension();
+ }
+  
 public function getExtension()
 {
  $i = strrpos($this->oldName(),".");
@@ -119,7 +128,7 @@ public function getExtension()
 public function saveFile()
 {
 // ENREGISTREMENT DE L'IMAGE UPLOADEE
-$this->setNewName($this->_mediaId. $this->_evenement.$this->_timestamp.$this->getExtension());
+
 move_uploaded_file($_FILES["mon_fichier"]["tmp_name"], Media::MEDIA_PATH.$this->newName());
 
 //CREATION MINIATURE //

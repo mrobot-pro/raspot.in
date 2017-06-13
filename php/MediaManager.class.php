@@ -10,19 +10,19 @@ class MediaManager
   
   public function add(Media $media)
   {
-    $q = $this->_db->prepare('INSERT INTO media(oldName, newName, fileSize, pseudo, commentaire, evenement) VALUES(:oldName, :newName, :fileSize, :pseudo, :commentaire, :evenement)');
+    $q = $this->_db->prepare('INSERT INTO media(oldName, fileSize, pseudo, commentaire, evenement) VALUES(:oldName, :fileSize, :pseudo, :commentaire, :evenement)');
+    
     $q->bindValue(':oldName', $media->oldName());
-    $q->bindValue(':newName', $media->newName());
     $q->bindValue(':fileSize', $media->fileSize());
     $q->bindValue(':pseudo', $media->pseudo());
     $q->bindValue(':commentaire', $media->commentaire());
     $q->bindValue(':evenement', $media->evenement());
     $q->execute();
     
-    $media->hydrate([
-     'mediaId' => $this->_db->lastInsertId(),
-     'newName' => $this->_db->lastInsertId().$media->evenement().$media->getExtension()  
-    ]);
+    $media = $this->get(intval($this->_db->lastInsertId()));
+    $media->updateNewName($media);
+    echo var_dump($media);
+    $this->update($media);
   }
 
   public function count()
@@ -38,12 +38,13 @@ class MediaManager
   {
     if (is_int($info))
     {
-      $q = $this->_db->query('SELECT mediaId, oldName, newName, mediaPath, fileSize, pseudo, commentaire, evenement FROM media WHERE mediaId = '.$info);
-      $donnees = $q->fetch(PDO::FETCH_ASSOC);
-      return new Media($donnees);
+      $q = $this->_db->query('SELECT mediaId, oldName, newName, fileSize, timestamp,pseudo, commentaire, evenement FROM media WHERE mediaId = '.$info);
+      $dataMedia = $q->fetch(PDO::FETCH_ASSOC);
+      return new Media($dataMedia);
     }
     else
     {
+        echo 'zob';
       //$q = $this->_db->prepare('SELECT mediaId, oldName, newName, mediaPath, fileSize, pseudo, commentaire FROM media WHERE pseudo = :pseudo');
       //$q->execute([':pseudo' => $info]);
       //return new Media($q->fetch(PDO::FETCH_ASSOC));
@@ -55,9 +56,9 @@ class MediaManager
     $medias = [];
     $q = $this->_db->prepare('SELECT mediaId, oldName, newName, fileSize, pseudo, commentaire, evenement FROM media');
     $q->execute();
-    while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+    while ($datas = $q->fetch(PDO::FETCH_ASSOC))
     {
-      $medias[] = new Media($donnees);
+      $medias[] = new Media($dataMedia);
     }
     return $medias;
   }
@@ -65,10 +66,11 @@ class MediaManager
   public function update(Media $media)
 
   {
-$q = $this->_db->prepare('UPDATE media SET pseudo = :pseudo, commentaire = :commentaire WHERE mediaId = :mediaId');
-$q->bindValue(':pseudo', $media->pseudo(), PDO::PARAM_INT);
-$q->bindValue(':commentaire', $media->commentaire(), PDO::PARAM_INT);
+$q = $this->_db->prepare('UPDATE media SET newName = :newName, pseudo = :pseudo, commentaire = :commentaire WHERE mediaId = :mediaId');
 $q->bindValue(':mediaId', $media->mediaId(), PDO::PARAM_INT);
+$q->bindValue(':newName', $media->newName(), PDO::PARAM_STR);
+$q->bindValue(':pseudo', $media->pseudo(), PDO::PARAM_STR);
+$q->bindValue(':commentaire', $media->commentaire(), PDO::PARAM_STR);
 $q->execute();
  }
   

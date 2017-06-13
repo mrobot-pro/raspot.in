@@ -11,8 +11,8 @@
 
     //  NOUVELLE INSTANCE DE LA CLASS PARAMETRES = OBJET $parametres //
     $q = $db->query('SELECT slogan, evenement, mdp FROM parametres WHERE id = 1');
-    $donnees = $q->fetch(PDO::FETCH_ASSOC);
- 
+    $dataParam = $q->fetch(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -52,19 +52,25 @@
     $media = new Media([
           'oldName' => $_FILES["mon_fichier"]["name"],                          
           'fileSize' => $_FILES["mon_fichier"]["size"], 
-          'evenement'=>  $donnees['evenement']
+          'evenement'=>  $dataParam['evenement']
          
             ]);
  
-   
+  
 
     $vignette= Media::VIGN_PATH.$media->newName();
     $manager->add($media);
+    $media->updateNewName($manager);
+    
+    
+    
+    
     }
 
     echo '<div id="explain">';
-    echo '<h1>'.$donnees['slogan'].'</h1>';
-    echo '<p>'.$donnees['evenement'].'</p></div></div></div>';
+    echo '<h1>'.$dataParam['slogan'].'</h1>';
+    echo '<p>'.$dataParam['evenement'].'</p></div></div></div>';
+ 
 ?> 
         
         <footer class="text-center">

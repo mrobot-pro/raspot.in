@@ -8,7 +8,7 @@
 
     //  CREATION TABLEAU PARAMETRES //
         $qPar = $db->query('SELECT slogan, evenement, mdp FROM parametres WHERE id = 1');
-        $donnees = $qPar->fetch(PDO::FETCH_ASSOC);
+        $dataParam = $qPar->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +55,7 @@
     echo '<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>';
     echo "<label for='slogan'>Nom de l'Evenement:</label>";
     echo '<div class="input-group">';
-    echo "<input id='slogan' class='form-control' type='text' name='slogan' value='".$donnees['slogan']."' />";
+    echo "<input id='slogan' class='form-control' type='text' name='slogan' value='".$dataParam['slogan']."' />";
     echo '<div class="input-group-btn">';
     echo "<input class='btn btn-primary' type='submit' name='valider' value='Valider'/></div></div></div>";
 
@@ -63,7 +63,7 @@
     echo '<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>';
     echo "<label for='evenement'>Slogan:</label>";
     echo '<div class="input-group">';
-    echo "<input id='evenement' class='form-control' type='text' name='evenement' value='".$donnees['evenement']."' />";
+    echo "<input id='evenement' class='form-control' type='text' name='evenement' value='".$dataParam['evenement']."' />";
     echo '<div class="input-group-btn">';
     echo "<input class='btn btn-primary' type='submit' name='valider' value='Valider'/></div></div></div>";
 
@@ -71,7 +71,7 @@
     echo '<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>';
     echo "<label for='password'>Mot de Passe:</label>";
     echo '<div class="input-group">';
-    echo "<input class='form-control' type='password' name='mdp' value='".$donnees['mdp']."' /><br>";
+    echo "<input class='form-control' type='password' name='mdp' value='".$dataParam['mdp']."' /><br>";
     echo '<div class="input-group-btn">';
     echo "<input class='btn btn-primary' type='submit' name='change_password' value='Valider'/></div></div></div>";
     echo "</form>";
@@ -186,7 +186,7 @@
     if(isset($_POST['ok']))
     {
 
-   if(password_verify($_POST['mdp'],$donnees['mdp']))
+   if(password_verify($_POST['mdp'],$dataParam['mdp']))
     {
     $_SESSION['login']   = 'admin'; 
     header('location:adm.php');

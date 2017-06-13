@@ -9,9 +9,9 @@ class Parametres
     
 
   
-public function __construct(array $donnees)
+public function __construct(array $dataParam)
   {
-    $this->hydrate($donnees);
+    $this->hydrate($dataParam);
   }
 
 
@@ -50,9 +50,9 @@ public function __construct(array $donnees)
 
   // FONCTIONS //
   
-  public function hydrate(array $donnees)
+  public function hydrate(array $dataParam)
   {
-    foreach ($donnees as $key => $value)
+    foreach ($dataParam as $key => $value)
     {
       $method = 'set'.ucfirst($key);
       
