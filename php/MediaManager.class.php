@@ -21,9 +21,7 @@ class MediaManager
     
     $media = $this->get(intval($this->_db->lastInsertId()));
     $media->updateNewName($media);
-    echo var_dump($media);
     $this->update($media);
-    echo var_dump($_FILES);
     $media->saveFile();
   }
 
