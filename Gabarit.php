@@ -21,12 +21,14 @@
         <?= $contenu ?>   <!-- Élément spécifique -->
       </div>
 
-  
+    </div>
+    </div>
+    </div>
     <footer class="text-center">
         <p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
     </footer>
-    </div> <!-- #global -->
-    <script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+  
+    <script type="text/javascript" src="js/jquery.js" ></script>
     <script type="text/javascript" src="js/snapspotAdm.js" ></script>
     
   </body>
