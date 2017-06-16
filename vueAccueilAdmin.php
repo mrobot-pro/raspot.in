@@ -1,13 +1,11 @@
 <?php $titre = 'SnapSpot';
  ob_start(); 
- foreach ($medias as $key => $value): 
-       echo '<ul class="list-group">';
-       echo '<a href="#" class="list-group-item">';
-       echo "<p class='list-group-item-text pull-right'>".$value['newName'].'</p>';
-      $chemin = 'vignette/'.$value['newName']; 
-       echo "<img src='$chemin'>";
-       echo '</a>';
-       echo '</ul>';
- endforeach;
+   echo '<h3 class="heading text-center">Administration</h3>';
+    echo '<div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-xs-12">';
+    echo '<div class="row">';
+    echo '<form action="" method="get">';
+    echo '<input class="btn btn-primary" type="submit" name="Appli" value="Appli" style="margin-right:2em">';
+    echo '<input class="btn btn-primary" type="submit" name="Data" value="Data">';
+    echo '</form></div></div></div>'; 
  $contenu = ob_get_clean();
  require 'gabarit.php';
