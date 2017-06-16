@@ -6,7 +6,6 @@
  */
 
 $titre = "SnapSpot"; 
-echo var_dump($parametres);
 ob_start();
 echo '<article>';
 echo '<header>';

@@ -10,7 +10,7 @@
   <body>
       
     <div id="main-container" class="container-fluid">
-    <h3 class="btn btn-primary" id="deco"><a class="heading" href="?deconnexion=1">Déconnexion</a></h3>
+ 
     <div class ="text-center"><h1><a class="heading"  href="index.php">Snap Snap Spot !</a></h1>
     <div id="global">
     <header>
