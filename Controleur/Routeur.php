@@ -11,18 +11,27 @@
  *
  * @author Olivier
  */
-//require_once 'Controleur/ControleurMedia.php';
+require_once 'Controleur/ControleurAccueilAdmin.php';
 require_once 'Controleur/ControleurMedia.php';
 require_once 'Vue/Vue.php';
 
 class Routeur {
 
   private $ctrlMedia;
-  //private $ctrlAccueil;
+  private $ctrlAccueilAdmin;
 
   public function __construct() {
     $this->ctrlMedia = new ControleurMedia();
-    //$this->ctrlAccueil = new ControleurAccueil();
+    $this->ctrlAccueilAdmin = new ControleurAccueilAdmin;
+  }
+
+  public function accueilAdmin() {
+      $this->ctrlAccueilAdmin->accueilAdmin();
+  }
+  
+  
+  public function connexion(){
+   
   }
 
   // Traite une requête entrante
@@ -45,7 +54,7 @@ class Routeur {
           throw new Exception("Action non valide");
       }
       else {  // aucune action définie : affichage de l'accueil*/
-        $this->ctrlMedia->accueil();
+        //$this->ctrlAccueil->accueil();
      // }
     }
     catch (Exception $e) {

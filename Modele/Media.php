@@ -22,13 +22,17 @@ class Media extends Modele
 
   public function count()
   {
-    return $this->_db->query('SELECT COUNT(*) FROM media')->fetchColumn();
+    $sql='SELECT COUNT(*) FROM media';
+    $medias = $this->executerRequete($sql);
+  return $medias;
   }
   
   public function delete(Media $media)
   {
     $this->_db->exec('DELETE FROM media WHERE id = '.$media->mediaId());
   }
+  
+  
   // INFO MEDIA
   public function getMedia($mediaId) {
     $sql = 'select * from media where mediaId=?';

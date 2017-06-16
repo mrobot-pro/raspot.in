@@ -12,7 +12,7 @@ class ControleurMedia {
   }
 
   // Affiche la liste de tous les billets du blog
-  public function accueil() {
+  public function ctrlAccueil() {
     $medias = $this->media->getMedias();
     $vue = new Vue("AccueilAdmin");
     $vue->generer(array('medias' => $medias));

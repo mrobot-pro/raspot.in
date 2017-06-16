@@ -8,4 +8,5 @@ $this->titre = "Mon Blog";
     echo '<input class="btn btn-primary" type="submit" name="parametres" value="Appli" style="margin-right:2em">';
     echo '<input class="btn btn-primary" type="submit" name="medias" value="Data">';
     echo '</form></div></div></div>';
+    
 
