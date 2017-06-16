@@ -11,6 +11,6 @@ function getMedias() {
 // Effectue la connexion à la BDD
 // Instancie et renvoie l'objet PDO associé
 function getDb() {
-  $db = new PDO('sqlite:snapspot.sqlite');
+  $db = new PDO('sqlite:snapspot.sqlite','','', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
   return $db;
 }
