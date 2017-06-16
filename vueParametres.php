@@ -6,17 +6,15 @@
  */
 
 $titre = "SnapSpot"; 
-
+echo var_dump($parametres);
 ob_start();
 echo '<article>';
-  echo '<header>';
-    echo '<h1>Parametres : '.$Parametres['type'].'</h1>';
-  echo '</header>';
-  echo '<p>';
-   <time><?= $billet['date'] ?></time>
-  echo '</p>';
-echo '</article>';
-<hr />
-
+echo '<header>';
+echo $parametres['slogan'];
+echo '</header>';
+echo '<p>';
+echo '<h1>'.$parametres['evenement'].'</h1>';
+echo '</p>';
+ echo '</article>';
 $contenu = ob_get_clean();
 require 'gabarit.php';

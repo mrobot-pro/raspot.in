@@ -8,10 +8,15 @@
 
 require 'Modele.php';
 
+function accueil() {
+ 
+  require 'vueAccueilAdmin.php';
+}
+
 // Affiche la liste de tous les billets du blog
 function parametres() {
   $parametres = getParametres();
-  require 'vueAccueilAdmin.php';
+  require 'vueParametres.php';
 }
 
 // Affiche les détails sur un billet

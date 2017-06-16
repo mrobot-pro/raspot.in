@@ -4,16 +4,18 @@
 function getMedias() {
     $db = getDb();
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
-    $medias = $db->query('select * from media');
+    $medias = $db->prepare('select * from media');
+    $medias->execute();
     $datas = $medias->fetchAll(PDO::FETCH_ASSOC);
     return $datas;
 }
 
 function getParametres() {
   $db = getDb();
-  $parametres = $db->prepare('select * from parametres'
-    . ' where id=1');
-  $parametres->execute();
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
+  $datas = $db->prepare('select * from parametres where id=1');
+  $datas->execute();
+  $parametres = $datas->fetch(PDO::FETCH_ASSOC);
   return $parametres;
 }
 
