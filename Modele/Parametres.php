@@ -4,15 +4,17 @@ class Parametres extends Modele
 {
 // CLASS ATTRIBUTS //    
   private 
+          $id,
           $_slogan,
           $_evenement,
-          $_mdp;
+          $_mdp,
+          $_type;
     
 
   
-public function __construct(array $parametres)
+public function __construct()
   {
-    $this->hydrate($parametres);
+    $this->hydrate($this->getParametre(1));
   }
 
 
@@ -31,7 +33,10 @@ public function __construct(array $parametres)
   {
     return $this->_mdp;
   }
-
+  public function getType()
+  {
+    return $this->_type;
+  }
   
   // SETTERS - MUTATEURS //
   
@@ -47,15 +52,25 @@ public function __construct(array $parametres)
   {
       $this->_mdp = $mdp;
   }
-   
+     public function setType($type)
+  {
+      $this->_type = $type;
+  }
 
   // FONCTIONS //
   
-    public function getParametres()  {
-    $sql='SELECT * FROM parametres where id=1';
- $medias = $this->executerRequete($sql);
-  return $parametres;
+    public function getParametre($id)  {
+    $sql='SELECT * FROM parametres where id=?';
+ $parametre = $this->executerRequete($sql, array($id));
+  return $parametre->fetch();
   }
+  
+    public function getParametres() {
+         $sql='SELECT * FROM parametres';
+        $parametres = $this->executerRequete($sql);
+        return $parametres->fetchall();
+    }
+  
   
   
   public function hydrate(array $parametres)

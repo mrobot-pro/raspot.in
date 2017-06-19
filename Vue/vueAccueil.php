@@ -1,6 +1,4 @@
 <?php
-$this->titre = 'ScooBiDoo Déconne';
-require ('Controleur/ControleurAccueil.php');
 ob_start(); ?>
 
             <div class="row text-center">

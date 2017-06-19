@@ -18,9 +18,6 @@
     </header>
         
       <div id="contenu"><?=$contenu?>   <!-- Élément spécifique -->
-          <?php
-          echo var_dump($parametres);
-          ?>
       </div>
 
     </div>
