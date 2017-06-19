@@ -17,8 +17,10 @@
         <a href="index.php"><h1 id="titreBlog">Mon Blog</h1></a>
     </header>
         
-      <div id="contenu">
-        <?= $contenu ?>   <!-- Élément spécifique -->
+      <div id="contenu"><?=$contenu?>   <!-- Élément spécifique -->
+          <?php
+          echo var_dump($parametres);
+          ?>
       </div>
 
     </div>

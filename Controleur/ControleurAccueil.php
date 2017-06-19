@@ -14,7 +14,6 @@ class ControleurAccueil {
   // Affiche la liste de tous les billets du blog
   public function accueil() {
     $parametres = $this->parametres->getParametres();
-  
     $vue = new Vue("Accueil");
     $vue->generer(array($parametres));
   }
