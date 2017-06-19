@@ -5,16 +5,16 @@ require_once 'Vue/Vue.php';
 
 class ControleurParametres {
 
-  private $media;
+  private $parametres;
 
   public function __construct() {
-    $this->media = new Media();
+    $this->parametres = new Parametres();
   }
 
   // Affiche la liste de tous les billets du blog
   public function parametres() {
-    $medias = $this->media->getMedias();
-    $vue = new Vue("Medias");
-    $vue->generer(array('medias' => $medias));
+    $parametres = $this->parametres->getParametres();
+    $vue = new Vue("Parametres");
+    $vue->generer(array('Parametres' => $parametres));
   }
 }

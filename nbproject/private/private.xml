@@ -6,14 +6,14 @@
             <file>file:/E:/wamp64/www/snapspot/Modele/Modele.php</file>
             <file>file:/E:/wamp64/www/snapspot/Controleur/ControleurAccueilAdmin.php</file>
             <file>file:/E:/wamp64/www/snapspot/Controleur/Routeur.php</file>
-            <file>file:/E:/wamp64/www/snapspot/Vue/gabarit.php</file>
+            <file>file:/E:/wamp64/www/snapspot/Vue/vueMedias.php</file>
             <file>file:/E:/wamp64/www/snapspot/Controleur/Controleur.php</file>
+            <file>file:/E:/wamp64/www/snapspot/Modele/Parametres.php</file>
             <file>file:/E:/wamp64/www/snapspot/Vue/vueAccueilAdmin.php</file>
             <file>file:/E:/wamp64/www/snapspot/Controleur/ControleurMedia.php</file>
+            <file>file:/E:/wamp64/www/snapspot/Controleur/ControleurParametres.php</file>
             <file>file:/E:/wamp64/www/snapspot/Modele/Media.php</file>
-            <file>file:/E:/wamp64/www/snapspot/index.php</file>
             <file>file:/E:/wamp64/www/snapspot/adMVC.php</file>
-            <file>file:/E:/wamp64/www/snapspot/Vue/Vue.php</file>
         </group>
     </open-files>
 </project-private>

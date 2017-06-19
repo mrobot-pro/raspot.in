@@ -11,6 +11,7 @@
  *
  * @author Olivier
  */
+require_once 'Controleur/ControleurAccueil.php';
 require_once 'Controleur/ControleurAccueilAdmin.php';
 require_once 'Controleur/ControleurMedia.php';
 require_once 'Controleur/ControleurParametres.php';
@@ -21,15 +22,21 @@ class Routeur {
   private $ctrlMedia;
   private $ctrlAccueilAdmin;
   private $ctrlParametres;
+    private $ctrlAccueil;
 
   public function __construct() {
     $this->ctrlMedia = new ControleurMedia();
     $this->ctrlAccueilAdmin = new ControleurAccueilAdmin;
+    $this->ctrlAccueil = new ControleurAccueil;
     $this->ctrlParametres = new ControleurParametres;
   }
 
   public function accueilAdmin() {
       $this->ctrlAccueilAdmin->accueilAdmin();      
+  }
+  
+  public function accueil(){
+      $this->ctrlAccueil->accueil();
   }
   
   public function medias(){

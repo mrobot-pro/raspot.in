@@ -8,8 +8,12 @@
 
 require 'Modele.php';
 
-function accueil() {
+function accueilAdmin() {
   require 'vueAccueilAdmin.php';
+}
+
+function accueil() {
+  require 'vueAccueil.php';
 }
 
 // Affiche la liste de tous les billets du blog

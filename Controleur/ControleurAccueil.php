@@ -1,20 +1,21 @@
 <?php
 
-require_once 'Modele/Param.php';
+require_once 'Modele/Parametres.php';
 require_once 'Vue/Vue.php';
 
 class ControleurAccueil {
 
-  private $param;
+  private $parametres;
 
   public function __construct() {
-    $this->param = new Param();
+    $this->parametres = new Parametres();
   }
 
   // Affiche la liste de tous les billets du blog
   public function accueil() {
-    $param = $this->param->getParam();
+    $parametres = $this->parametres->getParametres();
+  
     $vue = new Vue("Accueil");
-    $vue->generer(array('param' => $param));
+    $vue->generer(array($parametres));
   }
 }

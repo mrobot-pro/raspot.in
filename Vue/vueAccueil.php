@@ -1,10 +1,6 @@
 <?php
-
 $this->titre = 'ScooBiDoo Déconne';
-
-?>
-
-<?php ob_start(); ?>
+ob_start(); ?>
 
             <div class="row text-center">
                 <div class="col-xs-12">
@@ -16,12 +12,12 @@ $this->titre = 'ScooBiDoo Déconne';
                     </form>
 
                     <div id="explain">
-                        <h1><?= $param['slogan']; ?></h1>
-                        <p><?= $param['evenement']; ?></p>
+                        <h1><?= $parametres['slogan']; ?></h1>
+                        <p><?= $parametres['evenement']; ?></p>
                     </div>
                 </div>
             </div>
 
-<?php $contenu = ob_get_clean(); ?>
+<?php $contenu = ob_get_clean();
 
-<?php require('gabarit.php');
+require('gabarit.php');

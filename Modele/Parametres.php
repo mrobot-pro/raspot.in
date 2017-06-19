@@ -12,14 +12,14 @@
  * @author Olivier
  */
 require_once 'Modele/Modele.php';
-class Commentaire extends Modele {
+class Parametres extends Modele {
 
   // Renvoie la liste des parametres
-  public function getParametres($id) {
-    $sql = 'select * from parametres where id=?';
-    $parametres = $this->executerRequete($sql, array($id));
-    return $parametres;
-
+  public function getParametres() {
+    $sql = 'select * from parametres where id=1';
+    $parametres = $this->executerRequete($sql);
+      return $parametres->fetch();  // Accès à la première ligne de résultat
   }
+  
 }
 
