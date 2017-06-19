@@ -1,5 +1,6 @@
 <?php
-class Parametres
+require_once 'Modele/Modele.php';
+class Parametres extends Modele
 {
 // CLASS ATTRIBUTS //    
   private 
@@ -9,9 +10,9 @@ class Parametres
     
 
   
-public function __construct(array $dataParam)
+public function __construct(array $parametres)
   {
-    $this->hydrate($dataParam);
+    $this->hydrate($parametres);
   }
 
 
@@ -50,9 +51,16 @@ public function __construct(array $dataParam)
 
   // FONCTIONS //
   
-  public function hydrate(array $dataParam)
+    public function getParametres()  {
+    $sql='SELECT * FROM parametres where id=1';
+ $medias = $this->executerRequete($sql);
+  return $parametres;
+  }
+  
+  
+  public function hydrate(array $parametres)
   {
-    foreach ($dataParam as $key => $value)
+    foreach ($parametres as $key => $value)
     {
       $method = 'set'.ucfirst($key);
       
