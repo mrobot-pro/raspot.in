@@ -1,7 +1,7 @@
 <?php
 
 
-require_once 'Vue/Vue.php';
+require ('Vue/Vue.php');
 
 class ControleurAccueil {
 
