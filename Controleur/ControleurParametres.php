@@ -1,9 +1,9 @@
 <?php
 
-require_once 'Modele/Media.php';
+require_once 'Modele/Parametres.php';
 require_once 'Vue/Vue.php';
 
-class ControleurMedia {
+class ControleurParametres {
 
   private $media;
 
@@ -12,7 +12,7 @@ class ControleurMedia {
   }
 
   // Affiche la liste de tous les billets du blog
-  public function medias() {
+  public function parametres() {
     $medias = $this->media->getMedias();
     $vue = new Vue("Medias");
     $vue->generer(array('medias' => $medias));

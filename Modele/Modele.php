@@ -20,7 +20,7 @@ return $resultat;
 private function getDb() {
 if ($this->db == null) {
 // Création de la connexion
-$this->db = new PDO('sqlite:snapspot.sqlite','','', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$this->db = new PDO('sqlite:db/snapspot.sqlite','','', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
 return $this->db;
 }

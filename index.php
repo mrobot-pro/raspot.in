@@ -1,9 +1,9 @@
 <?php
-    require('php/autoload.php');
+    require('contenu/php/autoload.php');
     session_start() ;
 
     // CONNEXION SQLITE //
-    $db = new PDO('sqlite:snapspot.sqlite');
+    $db = new PDO('sqlite:db/snapspot.sqlite');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 
     //  NOUVELLE INSTANCE DE LA CLASS MANAGER = OBJET $manager //
@@ -21,8 +21,8 @@
     	<meta charset="UTF-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<title>SnapSpot</title>
-    	<link href="css/default.css" rel="stylesheet">
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="contenu/css/default.css" rel="stylesheet">
+        <link href="contenu/bootstrap/css/bootstrap.css" rel="stylesheet">
     </head>
     <body>
         <!--ENTETE-->
@@ -35,7 +35,7 @@
             <div class="row text-center">
                 <div class="col-xs-12">
                 <form method="post" id='uploadform' action="index.php" enctype="multipart/form-data">
-                <img class="cameraico" src="./css/camera.ico" id="upfile1" width="75" style="cursor:pointer" alt="logo_appli" type="submit" />
+                <img class="cameraico" src="contenu/css/camera.ico" id="upfile1" width="75" style="cursor:pointer" alt="logo_appli" type="submit" />
                 <!-- MAX_FILE_SIZE doit précéder le champ input de type file 
                 <input type="hidden" name="MAX_FILE_SIZE" value="30000" /> -->
                 <input type="file" id="mon_fichier"  name="mon_fichier" style="display:none"  />

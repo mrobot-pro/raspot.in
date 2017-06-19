@@ -1,9 +1,9 @@
  <?php
-    require('php/autoload.php');
+    require('contenu/php/autoload.php');
     session_start() ;
 
      // CONNEXION SQLITE //
-    $db = new PDO('sqlite:snapspot.sqlite');
+    $db = new PDO('sqlite:db/snapspot.sqlite');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 
     //  CREATION TABLEAU PARAMETRES //
@@ -17,8 +17,8 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>SNAPSPOT ADMIN</title>
-		 <link href="css/default.css" rel="stylesheet">
-     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+                <link href="contenu/css/default.css" rel="stylesheet">
+     <link href="contenu/bootstrap/css/bootstrap.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -150,7 +150,7 @@
                     echo '<ul class="list-group">';
                     echo '<a href="#" class="list-group-item">';
                     echo "<p class='list-group-item-text pull-right'>".$value['newName']."</p>";
-                    $chemin = 'vignette/'.$value['newName'];
+                    $chemin = 'contenu/vignette/'.$value['newName'];
                     echo"<img src='$chemin'>";
                     echo '</a>';
                     echo '</ul>';

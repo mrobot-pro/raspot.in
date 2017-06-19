@@ -13,22 +13,32 @@
  */
 require_once 'Controleur/ControleurAccueilAdmin.php';
 require_once 'Controleur/ControleurMedia.php';
+require_once 'Controleur/ControleurParametres.php';
 require_once 'Vue/Vue.php';
 
 class Routeur {
 
   private $ctrlMedia;
   private $ctrlAccueilAdmin;
+  private $ctrlParametres;
 
   public function __construct() {
     $this->ctrlMedia = new ControleurMedia();
     $this->ctrlAccueilAdmin = new ControleurAccueilAdmin;
+    $this->ctrlParametres = new ControleurParametres;
   }
 
   public function accueilAdmin() {
-      $this->ctrlAccueilAdmin->accueilAdmin();
+      $this->ctrlAccueilAdmin->accueilAdmin();      
   }
   
+  public function medias(){
+        $this->ctrlMedia->medias();
+  }
+  
+   public function parametres(){
+        $this->ctrlParametres->parametres();
+  }
   
   public function connexion(){
    
@@ -54,7 +64,7 @@ class Routeur {
           throw new Exception("Action non valide");
       }
       else {  // aucune action définie : affichage de l'accueil*/
-        //$this->ctrlAccueil->accueil();
+        $this->ctrlMedia->medias();
      // }
     }
     catch (Exception $e) {

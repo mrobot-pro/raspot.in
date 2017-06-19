@@ -6,11 +6,6 @@
  * and open the template in the editor.
  */
 
-/**
- * Description of Vue
- *
- * @author Olivier
- */
 class Vue {
 
   // Nom du fichier associé à la vue

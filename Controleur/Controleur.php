@@ -9,7 +9,6 @@
 require 'Modele.php';
 
 function accueil() {
- 
   require 'vueAccueilAdmin.php';
 }
 
