@@ -1,5 +1,6 @@
 <?php
 $this->titre = 'ScooBiDoo Déconne';
+require ('ControleurAccueil.php');
 ob_start(); ?>
 
             <div class="row text-center">
@@ -12,7 +13,7 @@ ob_start(); ?>
                     </form>
 
                     <div id="explain">
-                        <h1><?= $parametres['slogan']; ?></h1>
+                        <h1><?= $parametres->; ?></h1>
                         <p><?= $parametres['evenement']; ?></p>
                     </div>
                 </div>
