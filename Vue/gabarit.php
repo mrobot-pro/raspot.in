@@ -12,12 +12,8 @@
     <div id="main-container" class="container-fluid">
  
     <div class ="text-center"><h1><a class="heading"  href="index.php">Snap Snap Spot !</a></h1>
-    <div id="global">
-    <header>
-        <a href="index.php"><h1 id="titreBlog">Mon Blog</h1></a>
-    </header>
         
-      <div id="contenu"><?=$contenu?>   <!-- Élément spécifique -->
+      <div id="contenu"><?= $contenu ?>   <!-- Élément spécifique -->
       </div>
 
     </div>
@@ -27,8 +23,9 @@
         <p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
     </footer>
   
-    <script type="text/javascript" src="js/jquery.js" ></script>
-    <script type="text/javascript" src="js/snapspotAdm.js" ></script>
+    <script type="text/javascript" src="contenu/js/jquery.js" ></script>
+    <script type="text/javascript" src="contenu/js/snapspotAdm.js" ></script>
+    <script type="text/javascript" src="contenu/js/snapspotIndex.js" ></script>
     
   </body>
 </html>
