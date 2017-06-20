@@ -32,8 +32,7 @@ else{
   
 
     $vignette= Media::VIGN_PATH.$media->newName();
-    echo var_dump($_FILES);
-    echo var_dump($media);
+ 
     $mediaManager->add($media);
     $media->updateNewName($mediaManager);
     
