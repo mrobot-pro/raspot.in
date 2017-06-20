@@ -12,36 +12,25 @@ class ControleurAccueil {
     $vue->generer(array());
     $parametres = new Parametres();
  
-    $mediaManager = new MediaManager(get);
+    $mediaManager = new MediaManager();
     
     if (isset($_FILES['mon_fichier'])){
         //Vérification image uploadée
     if ($_FILES['mon_fichier']['error'] > 0) {
     echo 'Erreur lors du transfert';
-     echo var_dump($_FILES);
     }
 else{
     //  NOUVELLE INSTANCE DE LA CLASS MEDIA = OBJET $media
     $media = new Media([
           'oldName' => $_FILES["mon_fichier"]["name"],                          
           'fileSize' => $_FILES["mon_fichier"]["size"], 
-          'evenement'=>  $parametres->getEvenement()
-         
+          'evenement'=>  $parametres->getEvenement()        
             ]);
  
-  
-
     $vignette= Media::VIGN_PATH.$media->newName();
- 
     $mediaManager->add($media);
-    $media->updateNewName($mediaManager);
-    
-    
+    $media->updateNewName($mediaManager);   
 }
-    
     }
-    
-    
-    
   }
 }
