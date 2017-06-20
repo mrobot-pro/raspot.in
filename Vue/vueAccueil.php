@@ -1,5 +1,4 @@
-<?php
-ob_start(); ?>
+<?php $this->titre = "Snap Snap Spot"; ?>
 
             <div class="row text-center">
                 <div class="col-xs-12">
@@ -12,10 +11,17 @@ ob_start(); ?>
 
                     <div id="explain">
 
+<?php     
+    
+    $parametres = new Parametres();
+    $slogan = $parametres->getSlogan();
+    $evenement = $parametres->getEvenement();
+
+    ?> 
+
+    <h1><?php echo $slogan; ?>
+    <p><?php echo $evenement; ?>
+
                     </div>
                 </div>
             </div>
-
-<?php $contenu = ob_get_clean();
-
-require('gabarit.php');
