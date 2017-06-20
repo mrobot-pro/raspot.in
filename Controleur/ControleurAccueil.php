@@ -11,7 +11,7 @@ class ControleurAccueil {
     $vue = new Vue("Accueil");
     $vue->generer(array());
     $parametres = new Parametres();
-    echo var_dump($parametres);
+ 
     $mediaManager = new MediaManager(get);
     
     if (isset($_FILES['mon_fichier'])){
