@@ -1,4 +1,4 @@
-<?php $this->titre = "Snap Snap Spot"; ?>
+<?php $titre = "Snap Snap Spot"; ?>
 
 <?php ob_start(); ?>
 
@@ -17,6 +17,6 @@
                 </div>
             </div>
 
-<?php $contenu = ob_get_clean(); ?>
+<?php $contenu = ob_get_clean();
 
-<?php require('gabarit.php');
+require_once('gabarit.php');
