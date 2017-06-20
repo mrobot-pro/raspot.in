@@ -22,7 +22,7 @@ class Routeur {
   private $ctrlMedia;
   private $ctrlAccueilAdmin;
   private $ctrlParametres;
-  private $ctrlAccueil;
+    private $ctrlAccueil;
 
   public function __construct() {
     $this->ctrlMedia = new ControleurMedia();

@@ -1,6 +1,5 @@
-<?php $titre = "Snap Snap Spot"; ?>
-
-<?php ob_start(); ?>
+<?php
+ob_start(); ?>
 
             <div class="row text-center">
                 <div class="col-xs-12">
@@ -19,4 +18,4 @@
 
 <?php $contenu = ob_get_clean();
 
-require_once('gabarit.php');
+require('gabarit.php');
