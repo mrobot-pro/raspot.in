@@ -1,0 +1,81 @@
+<?php
+
+class MediaManager
+{
+  private $_db; // Instance de PDO
+  public function __construct($db)
+  {
+    $this->setDb($db);
+  }
+  
+  public function add(Media $media)
+  {
+    $q = $this->_db->prepare('INSERT INTO media(oldName, fileSize, pseudo, commentaire, evenement) VALUES(:oldName, :fileSize, :pseudo, :commentaire, :evenement)');
+    
+    $q->bindValue(':oldName', $media->oldName());
+    $q->bindValue(':fileSize', $media->fileSize());
+    $q->bindValue(':pseudo', $media->pseudo());
+    $q->bindValue(':commentaire', $media->commentaire());
+    $q->bindValue(':evenement', $media->evenement());
+    $q->execute();
+    
+    $media = $this->get(intval($this->_db->lastInsertId()));
+    $media->updateNewName($media);
+    $this->update($media);
+    $media->saveFile();
+  }
+
+  public function count()
+  {
+    return $this->_db->query('SELECT COUNT(*) FROM media')->fetchColumn();
+  }
+  
+  public function delete(Media $media)
+  {
+    $this->_db->exec('DELETE FROM media WHERE id = '.$media->mediaId());
+  }
+  public function get($info)
+  {
+    if (is_int($info))
+    {
+      $q = $this->_db->query('SELECT mediaId, oldName, newName, fileSize, timestamp,pseudo, commentaire, evenement FROM media WHERE mediaId = '.$info);
+      $dataMedia = $q->fetch(PDO::FETCH_ASSOC);
+      return new Media($dataMedia);
+    }
+    else
+    {
+        echo 'zob';
+      //$q = $this->_db->prepare('SELECT mediaId, oldName, newName, mediaPath, fileSize, pseudo, commentaire FROM media WHERE pseudo = :pseudo');
+      //$q->execute([':pseudo' => $info]);
+      //return new Media($q->fetch(PDO::FETCH_ASSOC));
+    }
+  }
+  
+  public function getList()
+  {
+    $medias = [];
+    $q = $this->_db->prepare('SELECT mediaId, oldName, newName, fileSize, pseudo, commentaire, evenement FROM media');
+    $q->execute();
+    while ($datas = $q->fetch(PDO::FETCH_ASSOC))
+    {
+      $medias[] = new Media($dataMedia);
+    }
+    return $medias;
+  }
+  
+  public function update(Media $media)
+
+  {
+$q = $this->_db->prepare('UPDATE media SET newName = :newName, pseudo = :pseudo, commentaire = :commentaire WHERE mediaId = :mediaId');
+$q->bindValue(':mediaId', $media->mediaId(), PDO::PARAM_INT);
+$q->bindValue(':newName', $media->newName(), PDO::PARAM_STR);
+$q->bindValue(':pseudo', $media->pseudo(), PDO::PARAM_STR);
+$q->bindValue(':commentaire', $media->commentaire(), PDO::PARAM_STR);
+$q->execute();
+ }
+  
+  public function setDb(PDO $db)
+  {
+    $this->_db = $db;
+  }
+}
