@@ -19,8 +19,8 @@
 
     ?> 
 
-    <h1><?php echo $slogan; ?>
-    <p><?php echo $evenement; ?>
+    <h3><?php echo $slogan; ?></h3>
+    <p><?php echo $evenement; ?></p>
 
                     </div>
                 </div>
