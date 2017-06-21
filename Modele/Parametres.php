@@ -88,10 +88,26 @@ public function __construct()
         $this->_mdp = $mdp;
     $sql = 'update parametres set evenement= ?, slogan= ?, mdp= ? where id=?';
     $this->executerRequete($sql, array($evenement, $slogan, $mdp, $id));
-    echo var_dump($this);
+   
   }
   
+   public function updatePassword($mdp, $id) {
+        $this->_mdp = $mdp;
+    $sql = 'update parametres set mdp= ? where id=?';
+    $this->executerRequete($sql, array($mdp, $id));
+  }
   
+     public function updateEvent($event, $id) {
+        $this->_evenement = $event;
+    $sql = 'update parametres set evenement= ? where id=?';
+    $this->executerRequete($sql, array($event, $id));
+  }
+  
+       public function updateSlogan($slogan, $id) {
+        $this->_slogan = $slogan;
+    $sql = 'update parametres set slogan= ? where id=?';
+    $this->executerRequete($sql, array($slogan, $id));
+  }
   
   public function hydrate(array $parametres)
   {

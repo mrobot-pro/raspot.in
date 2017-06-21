@@ -24,17 +24,19 @@ class ControleurAdminAppli {
     move_uploaded_file($_FILES["image_fond"]["tmp_name"], 'contenu/css/accueil.jpg');
     //header('location:adm.php');
     }
-    //appel traitement changement mot de passe 
+    //changement mot de passe 
     if(isset($_POST['changePassword'])){
-    $parametres->updateParametres($_POST['evenement'],$_POST['slogan'],$_POST['mdp'],$parametres->getId());
+    $parametres->updatePassword($_POST['mdp'],$parametres->getId());
+    } 
     
-} 
-    
-    //appel traitement changement parametres
-    if(isset($_POST['valider']))
-    {
-      
-    }
+      //changement evenement
+    if(isset($_POST['changeEvent'])){
+    $parametres->updateEvent($_POST['evenement'],$parametres->getId());
+    } 
 
+       //changement slogan
+    if(isset($_POST['changeSlogan'])){
+    $parametres->updateSlogan($_POST['slogan'],$parametres->getId());
+    } 
 	}
 }

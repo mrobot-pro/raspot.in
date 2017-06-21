@@ -20,7 +20,7 @@
 <input class="btn btn-primary" type="submit" name="changeEvent" value="Valider"/></div></div></div>
 
 <div class="col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>
-<label for="slogan">Slogan:</label>
+<label for="slogan">Slogan :</label>
 <div class="input-group">
 <input id="slogan" class="form-control" type="text" name="slogan" value="<?php echo $slogan; ?>" />
  <div class="input-group-btn">
@@ -28,7 +28,7 @@
 
  
 <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>
-<label for="password">Mot de Passe:</label>
+<label for="password">Mot de Passe :</label>
 <div class="input-group">
 <input class="form-control" type="password" name="mdp" value = "" placeholder="*******" /><br>
 <div class="input-group-btn">
@@ -37,7 +37,7 @@
 
 
 <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>
-<label for="change_fond">Changer Fond d\'Ecran</label>
+<label for="change_fond">Fond d'écran :</label>
 <div class="input-group">
 <form class="row" method="post" id="change_fond" action="" enctype="multipart/form-data">
 <input style="cursor:pointer" type="file" id="image_fond" name="image_fond"   /></div></div>
