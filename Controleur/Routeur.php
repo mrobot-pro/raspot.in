@@ -12,44 +12,50 @@
  * @author Olivier
  */
 require_once 'Controleur/ControleurAccueil.php';
-require_once 'Controleur/ControleurAccueilAdmin.php';
-require_once 'Controleur/ControleurMedia.php';
-require_once 'Controleur/ControleurParametres.php';
-require_once 'Vue/Vue.php';
+require_once 'Controleur/ControleurConnexion.php';
+require_once 'Controleur/ControleurAdministration.php';
+require_once 'Controleur/ControleurAdminAppli.php';
+require_once 'Controleur/ControleurAdminData.php';
 
 class Routeur {
 
-  private $ctrlMedia;
-  private $ctrlAccueilAdmin;
-  private $ctrlParametres;
-    private $ctrlAccueil;
+  private $ctrlAccueil;
+  private $ctrlConnexion;
+  private $ctrlAdministration;
+  private $ctrlAdminAppli;
+  private $ctrlAdminData;
+
 
   public function __construct() {
-    $this->ctrlMedia = new ControleurMedia();
-    $this->ctrlAccueilAdmin = new ControleurAccueilAdmin;
-    $this->ctrlAccueil = new ControleurAccueil;
-    $this->ctrlParametres = new ControleurParametres;
+    $this->ctrlAccueil = new ControleurAccueil();
+    $this->ctrlConnexion = new ControleurConnexion();
+    $this->ctrlAdministration = new ControleurAdministration();
+    $this->ctrlAdminAppli = new ControleurAdminAppli();
+    $this->ctrlAdminData = new ControleurAdminData();
   }
 
-  public function accueilAdmin() {
-      $this->ctrlAccueilAdmin->accueilAdmin();      
-  }
-  
   public function accueil(){
       $this->ctrlAccueil->accueil();
   }
-  
-  public function medias(){
-        $this->ctrlMedia->medias();
+
+  public function connexion() {
+    $this->ctrlConnexion->connexion();
   }
-  
-   public function parametres(){
-        $this->ctrlParametres->parametres();
+
+  public function administration() {
+    $this->ctrlAdministration->administration();
   }
-  
-  public function connexion(){
-  
+
+  public function adminappli() {
+    $this->ctrlAdminAppli->adminappli();    
   }
+
+  public function admindata() {
+    $this->ctrlAdminData->admindata();
+  }
+
+
+
 
   // Affiche une erreur
   private function erreur($msgErreur) {

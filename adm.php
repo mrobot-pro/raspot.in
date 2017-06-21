@@ -1,17 +1,34 @@
 <?php
 
+session_start();
+
 require 'Controleur/Routeur.php';
 
 $routeur = new Routeur();
-$routeur->accueilAdmin();
-if (isset($_GET['admin'])) {
-        if ($_GET['admin'] == 'Data') {
-      
-              $routeur->medias();
+
+    if(!empty($_SESSION) && $_SESSION['login'] == 'admin') {
+
+        if (isset($_GET['deconnexion'])) {
+
+                  session_destroy();
+                  header('Location: .');
+                  exit();
+
+        }elseif(isset($_GET['Appli'])) {
+
+                $routeur->adminappli();
+
+        }elseif(isset($_GET['Data'])) {
+
+                $routeur->admindata();
+
+        }else{
+
+        $routeur->administration();
+
         }
-         if ($_GET['admin'] == 'Appli') {
-     
-              $routeur->parametres();
-        }
-        
-}
+    
+    }else{
+        $routeur->connexion();
+    }
+?>

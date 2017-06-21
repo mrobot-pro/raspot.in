@@ -1,6 +1,5 @@
-<?php $this->titre = "AdminAppli"; ?>
+<?php $this->titre = "AdminAppli";
 
-<?php
 	require_once'Modele/Parametres.php'; 
 
 	$parametres = new Parametres();
@@ -12,27 +11,28 @@
 <form class="row" action="" method="post">
 
 
-<div class="col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>
-<label for="slogan">Nom de l'Evenement:</label>
-<div class="input-group">
-<input id="slogan" class="form-control" type="text" name="slogan" value="<?php echo $slogan; ?>" />
- <div class="input-group-btn">
- <input class="btn btn-primary" type="submit" name="valider" value="Valider"/></div></div></div>
-
-<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>
-<label for="evenement">Slogan:</label>
+    
+    <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>
+<label for="evenement">Nom de l'événement:</label>
 <div class="input-group">
 <input id="evenement" class="form-control" type="text" name="evenement" value="<?php echo $evenement; ?>" />
 <div class="input-group-btn">
-<input class="btn btn-primary" type="submit" name="valider" value="Valider"/></div></div></div>
+<input class="btn btn-primary" type="submit" name="changeEvent" value="Valider"/></div></div></div>
 
+<div class="col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>
+<label for="slogan">Slogan:</label>
+<div class="input-group">
+<input id="slogan" class="form-control" type="text" name="slogan" value="<?php echo $slogan; ?>" />
+ <div class="input-group-btn">
+ <input class="btn btn-primary" type="submit" name="changeSlogan" value="Valider"/></div></div></div>
 
-<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>';
+ 
+<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>
 <label for="password">Mot de Passe:</label>
 <div class="input-group">
-<input class="form-control" type="password" name="mdp" value="" /><br>
+<input class="form-control" type="password" name="mdp" value = "" placeholder="*******" /><br>
 <div class="input-group-btn">
-<input class="btn btn-primary" type="submit" name="change_password" value="Valider"/></div></div></div>
+<input class="btn btn-primary" type="submit" name="changePassword" value="Valider"/></div></div></div>
 </form>
 
 
@@ -44,7 +44,7 @@
 </form>
 
 
-<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>';   
+<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>  
 <label for>Utilisation du disque</label>
 <div class="row">
 <div class="col-xs-12">

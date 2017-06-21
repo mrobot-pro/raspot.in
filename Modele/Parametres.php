@@ -59,7 +59,7 @@ public function __construct()
   }
   public function setMdp($mdp)
   {
-      $this->_mdp = $mdp;
+      $this->_mdp = password_hash($mdp, PASSWORD_DEFAULT);
   }
      public function setType($type)
   {
@@ -79,6 +79,17 @@ public function __construct()
         $parametres = $this->executerRequete($sql);
         return $parametres->fetchall();
     }
+  
+ 
+  
+    public function updateParametres($evenement, $slogan, $mdp, $id) {
+        $this->_evenement = $evenement;
+        $this->_slogan = $slogan;
+        $this->_mdp = $mdp;
+    $sql = 'update parametres set evenement= ?, slogan= ?, mdp= ? where id=?';
+    $this->executerRequete($sql, array($evenement, $slogan, $mdp, $id));
+    echo var_dump($this);
+  }
   
   
   

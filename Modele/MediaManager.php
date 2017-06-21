@@ -40,24 +40,22 @@ class MediaManager extends Modele
     }
     else
     {
-        echo 'zob';
-      //$q = $this->_db->prepare('SELECT mediaId, oldName, newName, mediaPath, fileSize, pseudo, commentaire FROM media WHERE pseudo = :pseudo');
-      //$q->execute([':pseudo' => $info]);
-      //return new Media($q->fetch(PDO::FETCH_ASSOC));
+        echo 'erreur de type d\'informations';
     }
   }
   
-  public function getList()
-  {
-    $medias = [];
-    $q = $this->getDb()->prepare('SELECT mediaId, oldName, newName, fileSize, pseudo, commentaire, evenement FROM media');
-    $q->execute();
-    while ($datas = $q->fetch(PDO::FETCH_ASSOC))
-    {
-      $medias[] = new Media($dataMedia);
-    }
+ 
+  
+  
+   public function getList() {
+    $sql = 'select * from media';
+    $medias = $this->executerRequete($sql);
     return $medias;
   }
+  
+  
+  
+  
   
   public function update(Media $media)
 

@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Modele/MediaManager.php';
+require_once 'Modele/Parametres.php';
 require_once 'Vue/Vue.php';
 
 class ControleurAccueil {
@@ -11,7 +12,7 @@ class ControleurAccueil {
     $vue = new Vue("Accueil");
     $vue->generer(array());
     $parametres = new Parametres();
- 
+    
     $mediaManager = new MediaManager();
     
     if (isset($_FILES['mon_fichier'])){
