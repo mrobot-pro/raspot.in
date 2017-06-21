@@ -6,6 +6,7 @@
     <title>Snap - <?= $titre ?></title>   <!-- Titre Onglet Dynamique -->
     <link href="contenu/css/default.css" rel="stylesheet">
     <link href="contenu/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="contenu/css/tuto.css" rel="stylesheet">
   </head>
   <body>
       
@@ -14,12 +15,14 @@
       <div class ="text-center"><h1><a class="heading"  href="index.php">Snap Snap Spot !</a></h1> 
                   <h3 class="heading text-center"><?= $titre ?></h3>
              <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-xs-12">
-                <div class="row form-inline">
-                  <form  action="" method="get">
-                  <input class="btn btn-primary " type="submit" name="Appli" value="Appli" >
-                  <input class="btn btn-primary " type="submit" name="Data" value="Data">
+                
+                  <form action="" method="get">
+                      <div class="row">
+                          <div class="col-lg-6 "><input class="btn btn-primary" type="submit" name="Appli" value="Appli" ></div>
+                          <div class="col-lg-6 "><input class="btn btn-primary " type="submit" name="Data" value="Data"></div>
+                   </div>
                   </form>
-                    </div>
+                   
                  
 <?= $contenu ?>
                 </div>
