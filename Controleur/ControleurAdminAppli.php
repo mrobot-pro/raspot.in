@@ -11,7 +11,7 @@ class ControleurAdminAppli {
     $vue = new VueAdmin("AdminAppli");
     $vue->generer(array());
 
-    echo count(glob('contenu/image/*.jpg'));
+
    $parametres = new Parametres();
     
     if (isset($_FILES['image_fond'])){

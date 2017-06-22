@@ -73,10 +73,10 @@
   <form action="" method="get">
  <div class="row">
 <div class="col-lg-6">
-    <input class="btn btn-primary" type="submit" name="delete_photos_submit" value="Backup" >
+    <button class="btn btn-primary " type="submit" name="delete_data_submit" value="Data">Images <span class="badge"><?=count(glob(Media::MEDIA_PATH.'*.jpg'));?></span></button>
 </div>
 <div class="col-lg-6">
-    <input class="btn btn-primary " type="submit" name="delete_backup_submit" value="Images">
+    <button class="btn btn-primary " type="submit" name="delete_backup_submit" value="Backup">Backup <span class="badge"><?=count(glob(Media::BACK_PATH.'*.jpg'));?></span></button>
 </div>
 </div>
 </form>

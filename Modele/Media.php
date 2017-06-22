@@ -15,8 +15,9 @@ class Media extends Modele
           $_evenement;
     
 // CLASS CONSTANTES //   
-  const MEDIA_PATH = 'contenu/image/';
-  const VIGN_PATH = 'contenu/vignette/';
+  const MEDIA_PATH = 'contenu/data/image/';
+  const VIGN_PATH = 'contenu/data/vignette/';
+  const BACK_PATH = 'contenu/data/backup/';
   
   public function __construct(array $dataMedia)
   {
