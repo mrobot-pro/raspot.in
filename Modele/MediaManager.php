@@ -21,6 +21,24 @@ class MediaManager extends Modele
     $media->saveFile();
   }
 
+  public function reset()
+  {
+   //Effacement table media   
+   $count=$this->getDb()->exec('delete from media');
+   //Effacement des photos et vignettes
+   $this->deleteMedias();
+   //Effacement des backup
+   
+   //Effacement des vignettes
+  }
+  
+  private function deleteMedias(){
+         array_map('unlink', glob(Media::MEDIA_PATH.'*'));
+         array_map('unlink', glob(Media::VIGN_PATH.'*'));
+  }
+  
+  
+  
   public function count()
   {
     return $this->getDb()->query('SELECT COUNT(*) FROM media')->fetchColumn();

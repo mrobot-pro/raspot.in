@@ -70,17 +70,19 @@
 <label for>Nettoyage du disque</label>
 
 
-  <form action="" method="get">
+  <form action="" method="post">
  <div class="row">
-<div class="col-lg-6">
-    <button class="btn btn-primary " type="submit" name="delete_data_submit" value="Data">Images <span class="badge"><?=count(glob(Media::MEDIA_PATH.'*.jpg'));?></span></button>
+<div class="col-lg-4">
+    <button class="btn btn-primary " type="submit" name="delete_data_submit" value="data">Images <span class="badge"><?=count(glob(Media::MEDIA_PATH.'*.jpg'));?></span></button>
 </div>
-<div class="col-lg-6">
-    <button class="btn btn-primary " type="submit" name="delete_backup_submit" value="Backup">Backup <span class="badge"><?=count(glob(Media::BACK_PATH.'*.jpg'));?></span></button>
+<div class="col-lg-4">
+    <button class="btn btn-primary " type="submit" name="delete_backup_submit" value="backup">Backup <span class="badge"><?=count(glob(Media::BACK_PATH.'*.jpg'));?></span></button>
+</div>
+     <div class="col-lg-4">
+         <input class="btn btn-primary btn-danger" type="submit" name="Reset" value="Reset">
 </div>
 </div>
 </form>
-
-
 </div>
 
+ 

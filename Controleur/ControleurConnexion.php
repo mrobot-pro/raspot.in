@@ -14,7 +14,8 @@ class ControleurConnexion {
     $vue->generer(array());
  
     if(isset($_POST['connexion'])) {
-      if(password_verify($_POST['mdp'], $parametres->getMdp()))
+        
+      if(password_verify($_POST['mdp'],$parametres->getMdp()))
         {
         $_SESSION['login'] = 'admin'; 
         header('location:adm.php');

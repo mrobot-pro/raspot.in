@@ -2,6 +2,7 @@
 
 require_once 'Vue/VueAdmin.php';
 require_once 'Modele/Parametres.php';
+require_once 'Modele/MediaManager.php';
 
 class ControleurAdminAppli {
 
@@ -37,6 +38,13 @@ class ControleurAdminAppli {
        //changement slogan
     if(isset($_POST['changeSlogan'])){
     $parametres->updateSlogan($_POST['slogan'],$parametres->getId());
+    } 
+    
+     //reset
+    if(isset($_POST['Reset'])){
+   
+    $mediaManager = new MediaManager();
+    $mediaManager->reset();
     } 
 	}
 }
