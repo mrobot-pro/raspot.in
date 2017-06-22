@@ -24,7 +24,7 @@ class MediaManager extends Modele
   public function reset()
   {
    //Effacement table media   
-   $count=$this->getDb()->exec('delete from media');
+   $this->getDb()->exec('delete from media');
    //Effacement des photos et vignettes
    $this->deleteMedias();
    //Effacement des backup

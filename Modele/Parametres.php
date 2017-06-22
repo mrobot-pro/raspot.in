@@ -65,6 +65,7 @@ public function __construct()
 
   // FONCTIONS //
   
+  
     public function getParametre($id)  {
     $sql='SELECT * FROM parametres where id=?';
  $parametre = $this->executerRequete($sql, array($id));
@@ -85,7 +86,13 @@ public function __construct()
         $this->_mdp = $mdp;
     $sql = 'update parametres set evenement= ?, slogan= ?, mdp= ? where id=?';
     $this->executerRequete($sql, array($evenement, $slogan, $mdp, $id));
-   
+  }
+  
+   public function resetParametres() {
+      $mdp=$this->_mdp = password_hash('admin', PASSWORD_DEFAULT);
+      $slogan=$this->_slogan = 'Partagez vos photos sur ce spot tout au long de la soirée !';
+      $evenement=$this->_evenement = "Saisissez ici le nom de l'événement !" ;
+      $this->updateParametres($evenement, $slogan, $mdp, 1);
   }
   
    public function updatePassword($mdp, $id) {

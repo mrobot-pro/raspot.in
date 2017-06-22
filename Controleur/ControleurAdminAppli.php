@@ -45,6 +45,7 @@ class ControleurAdminAppli {
    
     $mediaManager = new MediaManager();
     $mediaManager->reset();
+    $parametres->resetParametres();
     } 
 	}
 }
