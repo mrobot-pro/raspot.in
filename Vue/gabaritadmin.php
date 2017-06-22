@@ -6,7 +6,7 @@
     <title>Snap - <?= $titre ?></title>   <!-- Titre Onglet Dynamique -->
     <link href="contenu/css/default.css" rel="stylesheet">
     <link href="contenu/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="contenu/css/tuto.css" rel="stylesheet">
+   
   </head>
   <body>
       
