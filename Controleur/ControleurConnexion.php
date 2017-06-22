@@ -9,11 +9,11 @@ class ControleurConnexion {
     
     
   public function connexion() {
-   
+      $parametres = new Parametres();
     $vue = new Vue("Connexion");
     $vue->generer(array());
-    $parametres = new Parametres();
-    if(isset($_POST['ok'])) {
+ 
+    if(isset($_POST['connexion'])) {
       if(password_verify($_POST['mdp'], $parametres->getMdp()))
         {
         $_SESSION['login'] = 'admin'; 

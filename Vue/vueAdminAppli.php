@@ -30,7 +30,7 @@
 <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>
 <label for="password">Mot de Passe :</label>
 <div class="input-group">
-<input class="form-control" type="password" name="mdp" value = "" placeholder="*******" /><br>
+    <input class="form-control" type="password" name="mdp" value = "<?=$parametres->getMdp()?>"  /><br>
 <div class="input-group-btn">
 <input class="btn btn-primary" type="submit" name="changePassword" value="Valider"/></div></div></div>
 </form>

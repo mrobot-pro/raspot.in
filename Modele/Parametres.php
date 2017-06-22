@@ -10,13 +10,10 @@ class Parametres extends Modele
           $_mdp,
           $_type;
     
-
-  
 public function __construct()
   {
     $this->hydrate($this->getParametre(1));
   }
-
 
   
   // GETTERS - ACCESSEURS //
@@ -59,7 +56,7 @@ public function __construct()
   }
   public function setMdp($mdp)
   {
-      $this->_mdp = password_hash($mdp, PASSWORD_DEFAULT);
+      $this->_mdp = $mdp;
   }
      public function setType($type)
   {
@@ -92,9 +89,10 @@ public function __construct()
   }
   
    public function updatePassword($mdp, $id) {
-        $this->_mdp = $mdp;
+       $mdpN= password_hash($mdp, PASSWORD_DEFAULT);
+        $this->_mdp = $mdpN;
     $sql = 'update parametres set mdp= ? where id=?';
-    $this->executerRequete($sql, array($mdp, $id));
+    $this->executerRequete($sql, array($mdpN, $id));
   }
   
      public function updateEvent($event, $id) {
@@ -114,7 +112,6 @@ public function __construct()
     foreach ($parametres as $key => $value)
     {
       $method = 'set'.ucfirst($key);
-      
       if (method_exists($this, $method))
       {
         $this->$method($value);
