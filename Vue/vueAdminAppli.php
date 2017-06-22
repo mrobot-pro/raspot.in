@@ -69,16 +69,18 @@
 <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12">
 <label for>Nettoyage du disque</label>
 
- <form action="" method="get">
-<div class="row">
-<div class="col-lg-5 col-lg-offset-1 ">
-    <input class="btn btn-primary" type="submit" name="delete_backup_submit" value="Vider les sauvegardes" >
+
+  <form action="" method="get">
+ <div class="row">
+<div class="col-lg-6">
+    <input class="btn btn-primary" type="submit" name="delete_photos_submit" value="Backup" >
 </div>
-<div class="col-lg-5 ">
-    <input class="btn btn-primary " type="submit" name="delete_photos_submit" value="Vider les images">
+<div class="col-lg-6">
+    <input class="btn btn-primary " type="submit" name="delete_backup_submit" value="Images">
 </div>
 </div>
 </form>
+
 
 </div>
 
