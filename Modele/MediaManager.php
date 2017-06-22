@@ -28,8 +28,10 @@ class MediaManager extends Modele
    //Effacement des photos et vignettes
    $this->deleteMedias();
    //Effacement des backup
+   $this->deleteBackup();
+   //Reset parametres
    
-   //Effacement des vignettes
+   
   }
   
   private function deleteMedias(){
@@ -37,6 +39,9 @@ class MediaManager extends Modele
          array_map('unlink', glob(Media::VIGN_PATH.'*'));
   }
   
+    private function deleteBackup(){
+         array_map('unlink', glob(Media::BACK_PATH.'*'));
+  }
   
   
   public function count()

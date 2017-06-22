@@ -131,9 +131,9 @@ public function getExtension()
 public function saveFile()
 {
 // ENREGISTREMENT DE L'IMAGE UPLOADEE
-
 move_uploaded_file($_FILES["mon_fichier"]["tmp_name"], Media::MEDIA_PATH.$this->newName());
-
+// COPIE IMAGE VERS BACKUP
+copy(Media::MEDIA_PATH.$this->newName(), Media::BACK_PATH.$this->newName());
 //CREATION MINIATURE //
 $src = 	imagecreatefromjpeg($this::MEDIA_PATH.$this->newName());
 list($width,$height)	=	getimagesize(Media::MEDIA_PATH.$this->newName());
