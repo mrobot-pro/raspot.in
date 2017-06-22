@@ -11,19 +11,20 @@
   <body>
       
     <div id="main-container" class="container-fluid">
+          <div class="col-lg-12 col-md-8 col-xs-12">  
       <h3 class="btn btn-primary" id="deco"><a class="heading" href="?deconnexion=1">Déconnexion</a></h3>
       <div class ="text-center"><h1><a class="heading"  href="index.php">Snap Snap Spot !</a></h1> 
                   <h3 class="heading text-center"><?= $titre ?></h3>
-             <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-xs-12">
-                
+          
+                      
                   <form action="" method="get">
                       <div class="row">
-                          <div class="col-lg-6 "><input class="btn btn-primary" type="submit" name="Appli" value="Appli" ></div>
-                          <div class="col-lg-6 "><input class="btn btn-primary " type="submit" name="Data" value="Data"></div>
+                          <div class="col-lg-3 col-lg-offset-3"><input class="btn btn-primary" type="submit" name="Appli" value="Appli" ></div>
+                          <div class="col-lg-3 "><input class="btn btn-primary " type="submit" name="Data" value="Data"></div>
                    </div>
                   </form>
-                   
-                 
+                  
+           <div class="col-lg-8 col-md-offset-2 col-md-8 col-xs-12">      
 <?= $contenu ?>
                 </div>
         </div>

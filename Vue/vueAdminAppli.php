@@ -12,7 +12,7 @@
 
 
     
-    <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>
+    <div class="col-lg-12 col-md-offset-2 col-md-8 col-xs-12"><br>
 <label for="evenement">Nom de l'événement:</label>
 <div class="input-group">
 <input id="evenement" class="form-control" type="text" name="evenement" value="<?php echo $evenement; ?>" />
@@ -27,7 +27,7 @@
  <input class="btn btn-primary" type="submit" name="changeSlogan" value="Valider"/></div></div></div>
 
  
-<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>
+<div class="col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>
 <label for="password">Mot de Passe :</label>
 <div class="input-group">
     <input class="form-control" type="password" name="mdp" value = "<?=$parametres->getMdp()?>"  /><br>
@@ -36,7 +36,7 @@
 </form>
 
 
-<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>
+<div class="col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>
 <label for="change_fond">Fond d'écran :</label>
 <div class="input-group">
 <form class="row" method="post" id="change_fond" action="" enctype="multipart/form-data">
@@ -44,7 +44,7 @@
 </form>
 
 
-<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>  
+<div class="col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>  
 <label for>Utilisation du disque</label>
 <div class="row">
 <div class="col-xs-12">
@@ -53,10 +53,10 @@
 <span>89% / 14.0 Go disponible</span></div></div></div></div> 
 
 
-<div class="col-lg-offset-2 col-lg-10 col-md-offset-2 col-md-8 col-xs-12"><br>
+<div class="col-lg-8 col-md-offset-2 col-md-8 col-xs-12"><br>
 <label for>Nettoyage du disque</label>
 
 <div class="input-group-btn">
 <input class="btn btn-primary confirm-delete disabled" type="submit" name="delete_backup_submit" value="Vider les sauvegardes (0)"/>
 <input class="btn btn-primary confirm-delete disabled" type="submit" name="delete_photos_submit" value="Vider les images (0)"/>
-</div></div></div>
+</div></div>
