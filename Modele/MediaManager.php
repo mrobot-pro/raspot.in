@@ -34,12 +34,14 @@ class MediaManager extends Modele
    
   }
   
-  private function deleteMedias(){
+  public function deleteMedias(){
+         //Effacement table media   
+   $this->getDb()->exec('delete from media');
          array_map('unlink', glob(Media::MEDIA_PATH.'*'));
          array_map('unlink', glob(Media::VIGN_PATH.'*'));
   }
   
-    private function deleteBackup(){
+    public function deleteBackup(){
          array_map('unlink', glob(Media::BACK_PATH.'*'));
   }
   

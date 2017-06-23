@@ -42,10 +42,20 @@ class ControleurAdminAppli {
     
      //reset
     if(isset($_POST['Reset'])){
-   
     $mediaManager = new MediaManager();
     $mediaManager->reset();
     $parametres->resetParametres();
     } 
+    //DELETE PICTURES AND VIGNETTES
+       if(isset($_POST['delete_data_submit'])){
+    $mediaManager = new MediaManager();
+    $mediaManager->deleteMedias();
+    } 
+      //DELETE BACKUP
+       if(isset($_POST['delete_backup_submit'])){
+$mediaManager = new MediaManager();
+    $mediaManager->deleteBackup();
+    } 
+    
 	}
 }

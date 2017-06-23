@@ -7,7 +7,7 @@
 	$evenement = $parametres->getEvenement();
 	?>
 
-<!--<div class="col-lg-12 col-md-offset-2 col-md-8 col-xs-12">-->
+
 <form class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12" action="" method="post">
     
     <div >
@@ -41,23 +41,35 @@
 </div>
 </form>
 
+<!--
+ <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-xs-12">
+        <br>
+        <label for="message">Changer l'image de fond</label>
 
-
-<form class="form-inline col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12" method="post" id="change_fond" action="" enctype="multipart/form-data">
-<label for="image_fond">Fond d'écran :</label>
-<div class="input-group">
-    
-    <input style="cursor:pointer" type="file" id="image_fond" name="image_fond">
+        <div class="input-group">
+            <input type="file" name="file" class="form-control"/>
+            <div class="input-group-btn">
+                <input class="btn btn-primary" type="submit" name="image_submit" value="Envoyer"/>
+                            </div>
+        </div>
     </div>
-</form>
+-->
 
+<div class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12">
+<form class="" method="post" id="change_fond" action="" enctype="multipart/form-data">
+<label for="image_fond">Fond d'écran :</label>
+<div>
+    <input class="btn btn-info col-lg-12" style="cursor:pointer" type="file" id="image_fond" name="image_fond">
+</div>
+</form>
+</div>
 
 
 <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12">
 <label for>Utilisation du disque</label>
 <div class="row">
 
-<div class="progress text-center" style="text-indent: -89%;">
+<div class="progress text-center" style="text-align: center">
 <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;width: 89%;"></div>
 <span>89% / 14.0 Go disponible</span>
 </div>
