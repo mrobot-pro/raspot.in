@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Vue/VueAdmin.php';
+require_once 'vue/VueAdmin.php';
 
 class ControleurAdministration {
 

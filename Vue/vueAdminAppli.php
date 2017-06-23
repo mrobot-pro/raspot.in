@@ -1,6 +1,6 @@
 <?php $this->titre = "AdminAppli";
 
-	require_once'Modele/Parametres.php'; 
+	require_once'modele/Parametres.php'; 
 
 	$parametres = new Parametres();
 	$slogan = $parametres->getSlogan();

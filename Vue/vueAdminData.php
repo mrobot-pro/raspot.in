@@ -1,7 +1,7 @@
 <?php $this->titre = "AdminData";
 
-	require_once 'Modele/MediaManager.php';
-	require_once 'Modele/media.php';
+	require_once 'modele/MediaManager.php';
+	require_once 'modele/Media.php';
 
         $mediaManager = new MediaManager();
         $datas = $mediaManager->getList();

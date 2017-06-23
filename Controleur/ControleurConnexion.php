@@ -1,15 +1,15 @@
 <?php
 
-require_once 'Vue/Vue.php';
-require_once 'Modele/Parametres.php';
+require_once 'vue/Vue.php';
+require_once 'modele/Parametres.php';
+require_once 'controleur/Routeur.php';
 
 class ControleurConnexion {
    
 
-    
-    
   public function connexion() {
       $parametres = new Parametres();
+      $routeur = new Routeur();
     $vue = new Vue("Connexion");
     $vue->generer(array());
  
@@ -18,7 +18,7 @@ class ControleurConnexion {
       if(password_verify($_POST['mdp'],$parametres->getMdp()))
         {
         $_SESSION['login'] = 'admin'; 
-        header('location:adm.php');
+        $routeur->administration();
         }
         else
         {

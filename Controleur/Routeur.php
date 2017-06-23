@@ -11,11 +11,11 @@
  *
  * @author Olivier
  */
-require_once 'Controleur/ControleurAccueil.php';
-require_once 'Controleur/ControleurConnexion.php';
-require_once 'Controleur/ControleurAdministration.php';
-require_once 'Controleur/ControleurAdminAppli.php';
-require_once 'Controleur/ControleurAdminData.php';
+require_once 'controleur/ControleurAccueil.php';
+require_once 'controleur/ControleurConnexion.php';
+require_once 'controleur/ControleurAdministration.php';
+require_once 'controleur/ControleurAdminAppli.php';
+require_once 'controleur/ControleurAdminData.php';
 
 class Routeur {
 

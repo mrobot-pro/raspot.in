@@ -2,18 +2,15 @@
 
 session_start();
 
-require 'Controleur/Routeur.php';
+require 'controleur/Routeur.php';
 
 $routeur = new Routeur();
 
     if(!empty($_SESSION) && $_SESSION['login'] == 'admin') {
 
         if (isset($_GET['deconnexion'])) {
-
                   session_destroy();
-                  header('Location: .');
-                  exit();
-
+                  $routeur->accueil();
         }elseif(isset($_GET['Appli'])) {
 
                 $routeur->adminappli();
@@ -31,4 +28,4 @@ $routeur = new Routeur();
     }else{
         $routeur->connexion();
     }
-?>
+

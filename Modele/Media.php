@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Modele/Modele.php';
+require_once 'modele/Modele.php';
 class Media extends Modele
 {
 // CLASS ATTRIBUTS //    

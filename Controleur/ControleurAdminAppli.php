@@ -1,8 +1,8 @@
 <?php
 
-require_once 'Vue/VueAdmin.php';
-require_once 'Modele/Parametres.php';
-require_once 'Modele/MediaManager.php';
+require_once 'vue/VueAdmin.php';
+require_once 'modele/Parametres.php';
+require_once 'modele/MediaManager.php';
 
 class ControleurAdminAppli {
 

@@ -1,8 +1,8 @@
 <?php 
 
-require_once 'Vue/VueAdmin.php';
-require_once 'Modele/MediaManager.php';
-require_once 'Modele/media.php';
+require_once 'vue/VueAdmin.php';
+require_once 'modele/MediaManager.php';
+require_once 'modele/Media.php';
 
 class ControleurAdminData {
 

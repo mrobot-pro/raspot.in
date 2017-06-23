@@ -15,7 +15,7 @@ class VueAdmin {
 
   public function __construct($action) {
     // Détermination du nom du fichier vue à partir de l'action
-    $this->fichier = "Vue/vue" . $action . ".php";
+    $this->fichier = "vue/vue" . $action . ".php";
   }
 
   // Génère et affiche la vue
@@ -23,7 +23,7 @@ class VueAdmin {
     // Génération de la partie spécifique de la vue
     $contenu = $this->genererFichier($this->fichier, $donnees);
     // Génération du gabarit commun utilisant la partie spécifique
-    $vue = $this->genererFichier('Vue/gabaritadmin.php',
+    $vue = $this->genererFichier('vue/gabaritadmin.php',
       array('titre' => $this->titre, 'contenu' => $contenu));
     // Renvoi de la vue au navigateur
     echo $vue;

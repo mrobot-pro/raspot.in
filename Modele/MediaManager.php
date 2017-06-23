@@ -1,5 +1,5 @@
 <?php
-require_once 'Modele/Modele.php';
+require_once 'modele/Modele.php';
 class MediaManager extends Modele
 {
  
