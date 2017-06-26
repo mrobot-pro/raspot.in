@@ -14,24 +14,21 @@
 require_once 'controleur/ControleurAccueil.php';
 require_once 'controleur/ControleurConnexion.php';
 require_once 'controleur/ControleurAdministration.php';
-require_once 'controleur/ControleurAdminAppli.php';
-require_once 'controleur/ControleurAdminData.php';
+
 
 class Routeur {
 
   private $ctrlAccueil;
   private $ctrlConnexion;
   private $ctrlAdministration;
-  private $ctrlAdminAppli;
-  private $ctrlAdminData;
+
 
 
   public function __construct() {
     $this->ctrlAccueil = new ControleurAccueil();
     $this->ctrlConnexion = new ControleurConnexion();
     $this->ctrlAdministration = new ControleurAdministration();
-    $this->ctrlAdminAppli = new ControleurAdminAppli();
-    $this->ctrlAdminData = new ControleurAdminData();
+
   }
 
   public function accueil(){
@@ -52,15 +49,6 @@ class Routeur {
     }
  
   }
-
-  public function adminappli() {
-    $this->ctrlAdminAppli->adminappli();    
-  }
-
-  public function admindata() {
-    $this->ctrlAdminData->admindata();
-  }
-
 
 
 

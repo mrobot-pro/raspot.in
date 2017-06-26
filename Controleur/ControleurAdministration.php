@@ -8,7 +8,7 @@ class ControleurAdministration {
 
   // Affiche le menu admin
   public function administration() {
-   $routeur=new Routeur();
+ 
     $vue = new VueAdmin("Administration");
     $vue->generer(array());
       
@@ -76,5 +76,12 @@ $mediaManager = new MediaManager();
     } 
     
 	}
+        
+        public function admindata() {
+   
+    $vue = new VueAdmin("AdminData");
+    $vue->generer(array());
+
+}
   
 }
