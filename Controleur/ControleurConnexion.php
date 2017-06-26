@@ -19,8 +19,8 @@ class ControleurConnexion {
       if(password_verify($_POST['mdp'],$parametres->getMdp()))
         {
         $_SESSION['login'] = 'admin'; 
-      $routadmin =new Routeur();
-        $routadmin->administration();
+        header('location:adm.php');
+   
         }
         else
         {

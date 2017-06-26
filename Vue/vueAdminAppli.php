@@ -5,12 +5,14 @@
 	$parametres = new Parametres();
 	$slogan = $parametres->getSlogan();
 	$evenement = $parametres->getEvenement();
+    
 	?>
 
 
 <form class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12" action="" method="post">
     
     <div >
+       
 <label for="evenement">Nom de l'événement:</label>
 <div class="input-group">
 <input id="evenement" class="form-control" type="text" name="evenement" value="<?php echo $evenement; ?>" />
@@ -95,6 +97,7 @@
 </div>
 </div>
 </form>
+
 </div>
 
  
