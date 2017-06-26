@@ -21,7 +21,7 @@ class ControleurAdministration {
  $this->adminappli();
 
         }elseif(isset($_GET['Data'])) {
-                $routeur->admindata();
+                $this->admindata();
 	}       
   }
   

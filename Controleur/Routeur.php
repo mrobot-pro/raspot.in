@@ -46,11 +46,8 @@ class Routeur {
     }
     else{
         $this->ctrlConnexion->connexion();
-    }
- 
+    } 
   }
-
-
 
   // Affiche une erreur
   private function erreur($msgErreur) {
