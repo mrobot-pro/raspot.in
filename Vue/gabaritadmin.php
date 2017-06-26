@@ -31,7 +31,7 @@
     </div>
 
     </div>
-    <!-- <footer class="bottom">&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</footer> -->
+    <footer><p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p></footer>
     <script type="text/javascript" src="contenu/js/jquery.js" ></script>
     <script type="text/javascript" src="contenu/js/snapspotIndex.js" ></script>
     <script type="text/javascript" src="contenu/js/snapspotAdm.js" ></script>

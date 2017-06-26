@@ -110,7 +110,7 @@ footer {
     color: #FFFFFF;
     text-align: center;
     margin: 10px auto;
-    position: fixed;
+    /*position: fixed;*/
     bottom: 0;
     left: 0;
     right: 0;
