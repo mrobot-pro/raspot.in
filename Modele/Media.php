@@ -116,7 +116,7 @@ class Media extends Modele
   
  public function updateNewName()
   {
-     $this->_newName = $this->mediaId().'_'.$this->evenement().'.'.$this->getExtension();
+     $this->_newName = $this->cleanFileName($this->mediaId().'_'.$this->evenement().'.'.$this->getExtension());
  }
   
 public function getExtension()
@@ -126,6 +126,18 @@ public function getExtension()
  $l = strlen($this->oldName()) - $i;
  $ext = strtolower(substr($this->oldName(),$i+1,$l));
  return $ext;
+}
+
+function cleanFileName($str, $charset='utf-8')
+{
+    $str = htmlentities($str, ENT_NOQUOTES, $charset);
+    
+    $str = preg_replace('#&([A-za-z])(?:acute|cedil|caron|circ|grave|orn|ring|slash|th|tilde|uml);#', '\1', $str);
+    $str = preg_replace('#&([A-za-z]{2})(?:lig);#', '\1', $str); // pour les ligatures e.g. '&oelig;'
+    $str = preg_replace('#&[^;]+;#', '', $str); // supprime les autres caractères
+     $str = preg_replace('`[!\']`', '', $str);
+     
+    return $str;
 }
 
 public function saveFile()
