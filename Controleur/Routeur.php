@@ -12,41 +12,25 @@
  * @author Olivier
  */
 require_once 'controleur/ControleurAccueil.php';
-require_once 'controleur/ControleurConnexion.php';
 require_once 'controleur/ControleurAdministration.php';
-
 
 class Routeur {
 
   private $ctrlAccueil;
-  private $ctrlConnexion;
   private $ctrlAdministration;
-
 
 
   public function __construct() {
     $this->ctrlAccueil = new ControleurAccueil();
-    $this->ctrlConnexion = new ControleurConnexion();
     $this->ctrlAdministration = new ControleurAdministration();
-
   }
 
   public function accueil(){
       $this->ctrlAccueil->accueil();
   }
 
-  public function connexion() {
-    $this->ctrlConnexion->connexion();
-  }
-
   public function administration() {
-
-      if(!empty($_SESSION) && $_SESSION['login'] == 'admin'){
-        $this->ctrlAdministration->administration(); 
-    }
-    else{
-        $this->ctrlConnexion->connexion();
-    } 
+      $this->ctrlAdministration->administration();
   }
 
   // Affiche une erreur

@@ -2,7 +2,7 @@
 
 require_once 'vue/Vue.php';
 require_once 'modele/Parametres.php';
-require_once 'controleur/Routeur.php';
+require_once 'controleur/ControleurAdministration.php';
 
 class ControleurConnexion {
    
@@ -18,13 +18,12 @@ class ControleurConnexion {
         
       if(password_verify($_POST['mdp'],$parametres->getMdp()))
         {
-        $_SESSION['login'] = 'admin'; 
-        header('location:adm.php?Administration');
-   
+          $_SESSION['login'] = 'admin'; 
+          header('location:adm.php');
         }
         else
         {
-         echo '<h2 class="text-center">Mauvais mot de passe !</h2>'; 
+          echo '<h2 class="text-center">Mauvais mot de passe !</h2>'; 
         }
     }
     }
