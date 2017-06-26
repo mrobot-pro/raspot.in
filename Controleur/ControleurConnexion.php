@@ -19,7 +19,7 @@ class ControleurConnexion {
       if(password_verify($_POST['mdp'],$parametres->getMdp()))
         {
         $_SESSION['login'] = 'admin'; 
-        header('location:adm.php');
+        header('location:adm.php?Administration');
    
         }
         else

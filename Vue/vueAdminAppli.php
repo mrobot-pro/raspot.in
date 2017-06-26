@@ -5,7 +5,7 @@
 	$parametres = new Parametres();
 	$slogan = $parametres->getSlogan();
 	$evenement = $parametres->getEvenement();
-    
+    header_remove ('amd.php?' )
 	?>
 
 
@@ -42,20 +42,6 @@
 </div>
 </div>
 </form>
-
-<!--
- <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-xs-12">
-        <br>
-        <label for="message">Changer l'image de fond</label>
-
-        <div class="input-group">
-            <input type="file" name="file" class="form-control"/>
-            <div class="input-group-btn">
-                <input class="btn btn-primary" type="submit" name="image_submit" value="Envoyer"/>
-                            </div>
-        </div>
-    </div>
--->
 
 <div class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12">
 <form class="" method="post" id="change_fond" action="" enctype="multipart/form-data">

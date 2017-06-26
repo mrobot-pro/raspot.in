@@ -11,7 +11,7 @@ class ControleurAdminAppli {
    
     $vue = new VueAdmin("AdminAppli");
     $vue->generer(array());
-
+header_remove ('adm.php?Administration');
 
    $parametres = new Parametres();
     
