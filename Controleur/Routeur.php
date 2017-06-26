@@ -43,7 +43,14 @@ class Routeur {
   }
 
   public function administration() {
-    $this->ctrlAdministration->administration();
+
+      if(!empty($_SESSION) && $_SESSION['login'] == 'admin'){
+        $this->ctrlAdministration->administration(); 
+    }
+    else{
+        $this->ctrlConnexion->connexion();
+    }
+ 
   }
 
   public function adminappli() {

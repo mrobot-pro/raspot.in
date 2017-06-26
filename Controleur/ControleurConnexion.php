@@ -9,16 +9,18 @@ class ControleurConnexion {
 
   public function connexion() {
       $parametres = new Parametres();
-      $routeur = new Routeur();
+     
     $vue = new Vue("Connexion");
     $vue->generer(array());
- 
+    
+  
     if(isset($_POST['connexion'])) {
         
       if(password_verify($_POST['mdp'],$parametres->getMdp()))
         {
         $_SESSION['login'] = 'admin'; 
-        $routeur->administration();
+      $routadmin =new Routeur();
+        $routadmin->administration();
         }
         else
         {
