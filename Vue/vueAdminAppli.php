@@ -1,4 +1,7 @@
-<?php $this->titre = "AdminAppli"?>
+<?php $this->titre = "AdminAppli";
+	require_once'modele/Parametres.php'; 
+	$parametres = new Parametres();
+	?>
 
 <br>
 <form id="paramAppli" class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12" action="" method="post">
@@ -6,9 +9,9 @@
     <div>
 <label for="evenement">Nom de l'événement:</label>
 <div class="input-group">
-<input id="evenement" class="form-control" type="text" name="evenement" value="" />
+<input id="evenement" class="form-control" type="text" name="evenement" value="<?php echo $parametres->getEvenement(); ?>" />
 <div class="input-group-btn">
-<input class="btn btn-primary" type="submit" id ="changeEvent" name="changeEvent" value="Valider">
+    <input class="btn btn-primary" type="submit" id ="changeEvent" name="changeEvent" value="Valider" onclick="<?php echo $parametres->hydrate($parametres->getParametre(1)); ?>">
 </div>
 </div>
     </div>
@@ -16,7 +19,7 @@
 <div>
 <label for="slogan">Slogan :</label>
 <div class="input-group">
-<input id="slogan" class="form-control" type="text" name="slogan" value="" />
+<input id="slogan" class="form-control" type="text" name="slogan" value="<?php echo $parametres->getSlogan(); ?>" />
  <div class="input-group-btn">
  <input class="btn btn-primary" type="submit" name="changeSlogan" value="Valider">
  </div>
@@ -26,7 +29,7 @@
 <div>
 <label for="password">Mot de Passe :</label>
 <div class="input-group">
-    <input class="form-control" type="password" name="mdp" value = "" />
+    <input class="form-control" type="password" name="mdp" value = "<?=$parametres->getMdp()?>"  />
 <div class="input-group-btn">
 <input class="btn btn-primary" type="submit" name="changePassword" value="Valider">
 </div>
