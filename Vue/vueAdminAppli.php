@@ -77,7 +77,7 @@ $parametres = new Parametres();
          <input class="btn btn-primary btn-danger" type="submit" name="Reset" value="Reset">
 </div>
 </div>
-      <?php echo var_dump($parametres); ?>
+     
 </form>
 <br>
 
@@ -86,6 +86,7 @@ $parametres = new Parametres();
 <script>
     function update (){
    alert("Hello! I am an alert box!!");
+   
     }
  </script>
     
