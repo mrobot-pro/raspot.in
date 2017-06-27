@@ -1,6 +1,6 @@
 <?php $this->titre = "AdminAppli";
-	
-
+require_once 'modele/Parametres.php';	
+$parametres = new Parametres();
 	?>
 
 <br>
@@ -10,9 +10,9 @@
     <div>
 <label for="evenement">Nom de l'événement:</label>
 <div class="input-group">
-<input id="evenement" class="form-control" type="text" name="evenement" placeholder="<?php echo $parametres->getEvenement(); ?>" />
+<input id="evenement" class="form-control" type="text" name="evenement" value="<?php echo $parametres->getEvenement(); ?>" />
 <div class="input-group-btn">
-    <input class="btn btn-primary" type="submit" id ="changeEvent" name="changeEvent" value="Valider" onclick="">
+    <input class="btn btn-primary" type="submit" id ="changeEvent" name="changeEvent" value="Valider" onclick="update()">
 </div>
 </div>
     </div>
@@ -83,7 +83,14 @@
 
 </div>
 
-
+<script>
+    function update (){
+   alert("Hello! I am an alert box!!");
+    }
+ </script>
+    
+    
+    
 
 
 
