@@ -106,6 +106,7 @@ public function __construct()
         $this->_evenement = $event;
     $sql = 'update parametres set evenement= ? where id=?';
     $this->executerRequete($sql, array($event, $id));
+    
   }
   
        public function updateSlogan($slogan, $id) {

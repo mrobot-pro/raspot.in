@@ -1,23 +1,14 @@
-<?php $this->titre = "AdminAppli";
-
-	require_once'modele/Parametres.php'; 
-
-	$parametres = new Parametres();
-	$slogan = $parametres->getSlogan();
-	$evenement = $parametres->getEvenement();
-    header_remove ('amd.php?' )
-	?>
+<?php $this->titre = "AdminAppli"?>
 
 <br>
-<form class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12" action="" method="post">
+<form id="paramAppli" class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12" action="" method="post">
     
-    <div >
-       
+    <div>
 <label for="evenement">Nom de l'événement:</label>
 <div class="input-group">
-<input id="evenement" class="form-control" type="text" name="evenement" value="<?php echo $evenement; ?>" />
+<input id="evenement" class="form-control" type="text" name="evenement" value="" />
 <div class="input-group-btn">
-<input class="btn btn-primary" type="submit" name="changeEvent" value="Valider">
+<input class="btn btn-primary" type="submit" id ="changeEvent" name="changeEvent" value="Valider">
 </div>
 </div>
     </div>
@@ -25,7 +16,7 @@
 <div>
 <label for="slogan">Slogan :</label>
 <div class="input-group">
-<input id="slogan" class="form-control" type="text" name="slogan" value="<?php echo $slogan; ?>" />
+<input id="slogan" class="form-control" type="text" name="slogan" value="" />
  <div class="input-group-btn">
  <input class="btn btn-primary" type="submit" name="changeSlogan" value="Valider">
  </div>
@@ -35,7 +26,7 @@
 <div>
 <label for="password">Mot de Passe :</label>
 <div class="input-group">
-    <input class="form-control" type="password" name="mdp" value = "<?=$parametres->getMdp()?>"  />
+    <input class="form-control" type="password" name="mdp" value = "" />
 <div class="input-group-btn">
 <input class="btn btn-primary" type="submit" name="changePassword" value="Valider">
 </div>
@@ -85,4 +76,9 @@
 </form>
 <br>
 </div>
+
+
+
+
+
 
