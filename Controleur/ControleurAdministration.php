@@ -1,6 +1,6 @@
 <?php
 
-require_once 'controleur/ControleurAdminmenu.php';
+require_once 'controleur/ControleurAdminMenu.php';
 require_once 'controleur/ControleurConnexion.php';
 require_once 'controleur/ControleurAdminAppli.php';
 require_once 'controleur/ControleurAdminData.php';
