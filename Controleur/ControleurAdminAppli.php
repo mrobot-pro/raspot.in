@@ -32,6 +32,8 @@ class ControleurAdminAppli {
       //changement evenement
     if(isset($_POST['changeEvent'])){
     $parametres->updateEvent($_POST['evenement'],$parametres->getId());
+    echo var_dump($parametres);
+    
     } 
 
        //changement slogan

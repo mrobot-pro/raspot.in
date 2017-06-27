@@ -4,14 +4,15 @@
 	?>
 
 <br>
+
 <form id="paramAppli" class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12" action="" method="post">
     
     <div>
 <label for="evenement">Nom de l'événement:</label>
 <div class="input-group">
-<input id="evenement" class="form-control" type="text" name="evenement" value="<?php echo $parametres->getEvenement(); ?>" />
+<input id="evenement" class="form-control" type="text" name="evenement" placeholder="<?php echo $parametres->getEvenement(); ?>" />
 <div class="input-group-btn">
-    <input class="btn btn-primary" type="submit" id ="changeEvent" name="changeEvent" value="Valider" onclick="<?php echo $parametres->hydrate($parametres->getParametre(1)); ?>">
+    <input class="btn btn-primary" type="submit" id ="changeEvent" name="changeEvent" value="Valider" onclick="">
 </div>
 </div>
     </div>
@@ -76,8 +77,10 @@
          <input class="btn btn-primary btn-danger" type="submit" name="Reset" value="Reset">
 </div>
 </div>
+      <?php echo var_dump($parametres); ?>
 </form>
 <br>
+
 </div>
 
 
