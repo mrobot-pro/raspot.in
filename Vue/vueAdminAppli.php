@@ -47,7 +47,7 @@
 <form class="" method="post" id="change_fond" action="" enctype="multipart/form-data">
 <label for="image_fond">Fond d'écran :</label>
 <div>
-    <input class="btn btn-info col-lg-12" style="cursor:pointer" type="file" id="image_fond" name="image_fond">
+    <input class="btn btn-info col-lg-12" style="cursor:pointer; color: #fff; background-color: #337ab7; border-color: #2e6da4;" type="file" id="image_fond" name="image_fond">
 </div>
 </form>
 </div>
