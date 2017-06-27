@@ -8,11 +8,13 @@ class ControleurAdminAppli {
 
   // Affiche la liste de tous les billets du blog
   public function adminappli() {
+      
+   $parametres = new Parametres();
    
     $vue = new VueAdmin("AdminAppli");
     $vue->generer(array());
 
-   $parametres = new Parametres();
+   
     
     if (isset($_FILES['image_fond'])){
         //Vérification image uploadée

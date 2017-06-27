@@ -1,6 +1,6 @@
 <?php $this->titre = "AdminAppli";
-	require_once'modele/Parametres.php'; 
-	$parametres = new Parametres();
+	
+
 	?>
 
 <br>
