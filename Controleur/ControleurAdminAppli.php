@@ -11,15 +11,26 @@ class ControleurAdminAppli {
       
    $parametres = new Parametres();
    
+   try{
     $vue = new VueAdmin("AdminAppli");
     $vue->generer(array());
 
-   
+  } catch (Exception $e) {
+  $msgErreur = $e->getMessage();
+  require 'vue/vueErreur.php';
+
+}
+    
+    
+    
+    
     
     if (isset($_FILES['image_fond'])){
         //Vérification image uploadée
     if ($_FILES['image_fond']['error'] > 0) {
-    $erreur = "Erreur lors du transfert";
+          require 'vue/vueErreur.php';
+    $msgErreur = "Erreur lors du transfert";
+    require 'vue/vueErreur.php';
     }
         
     // ENREGISTREMENT DE L'IMAGE UPLOADEE

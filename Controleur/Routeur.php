@@ -30,7 +30,7 @@ class Routeur {
   }
 
   public function administration() {
-      $this->ctrlAdministration->administration();
+           $this->ctrlAdministration->administration();
   }
 
   // Affiche une erreur

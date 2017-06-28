@@ -6,6 +6,6 @@
  */
 $titre = 'SnaSpot'; 
 ob_start();
-echo '<p>Une erreur est survenue : '.$msgErreur.'</p>';
+echo '<h3>Une erreur est survenue : '.$msgErreur.'</h3>';
 $contenu = ob_get_clean();
 require 'gabarit.php'; 
