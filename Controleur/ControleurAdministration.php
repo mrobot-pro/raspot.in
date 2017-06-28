@@ -32,8 +32,7 @@ class ControleurAdministration {
                   exit();
 
         }elseif(isset($_GET['Appli'])) {
-
-                $this->ctrlAdminAppli->adminappli();
+$this->ctrlAdminAppli->adminappli();
 
         }elseif(isset($_GET['Data'])) {
 

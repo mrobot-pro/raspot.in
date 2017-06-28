@@ -8,11 +8,17 @@ class ControleurAccueil {
 
   // Affiche la liste de tous les billets du blog
   public function accueil() {
-   
+
+  try {
     $vue = new Vue("Accueil");
     $vue->generer(array());
     $parametres = new Parametres();
-    
+  }
+ catch (Exception $e) {
+  $msgErreur = $e->getMessage();
+  require 'vue/vueErreur.php';
+
+}
     $mediaManager = new MediaManager();
     
     if (isset($_FILES['mon_fichier'])){
