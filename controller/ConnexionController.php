@@ -1,16 +1,16 @@
 <?php
 
-require_once 'vue/Vue.php';
-require_once 'modele/Parametres.php';
-require_once 'controleur/ControleurAdministration.php';
+require_once 'view/View.php';
+require_once 'model/Settings.php';
+require_once 'controller/AdministrationController.php';
 
-class ControleurConnexion {
+class ConnexionController {
    
 
   public function connexion() {
-      $parametres = new Parametres();
+      $parametres = new Settings();
      
-    $vue = new Vue("Connexion");
+    $vue = new View("Connexion");
     $vue->generer(array());
     
   

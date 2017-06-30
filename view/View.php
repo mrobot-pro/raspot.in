@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-class VueAdmin {
+class View {
 
   // Nom du fichier associé à la vue
   private $fichier;
@@ -15,7 +15,7 @@ class VueAdmin {
 
   public function __construct($action) {
     // Détermination du nom du fichier vue à partir de l'action
-    $this->fichier = "vue/vue" . $action . ".php";
+    $this->fichier = "view/view" . $action . ".php";
   }
 
   // Génère et affiche la vue
@@ -23,10 +23,10 @@ class VueAdmin {
     // Génération de la partie spécifique de la vue
     $contenu = $this->genererFichier($this->fichier, $donnees);
     // Génération du gabarit commun utilisant la partie spécifique
-    $vue = $this->genererFichier('vue/gabaritadmin.php',
+    $view = $this->genererFichier('view/template.php',
       array('titre' => $this->titre, 'contenu' => $contenu));
     // Renvoi de la vue au navigateur
-    echo $vue;
+    echo $view;
   }
 
   // Génère un fichier vue et renvoie le résultat produit

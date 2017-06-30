@@ -14,7 +14,7 @@ final class Test extends TestCase
     {
     	$data = [];
     	$slogan = '';
-    	$param = new Parametres($data);
+    	$param = new Settings($data);
     	$param->hydrate($data);
 
         $this->assertEquals(
@@ -27,7 +27,7 @@ final class Test extends TestCase
     {
     	$data2 = [];
     	$event = '';
-    	$param2 = new Parametres($data2);
+    	$param2 = new Settings($data2);
     	$param2->hydrate($data2);
 
     	$this->assertEquals(
@@ -40,7 +40,7 @@ final class Test extends TestCase
     {
     	$data3 =[];
     	$mdp = '';
-    	$param3 = new Parametres($data3);
+    	$param3 = new Settings($data3);
     	$param3->hydrate($data3);
 
     	$this->assertEquals(

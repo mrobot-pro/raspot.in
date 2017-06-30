@@ -1,13 +1,13 @@
 <?php
 
-require_once 'vue/VueAdmin.php';
+require_once 'view/viewAdmin.php';
 
-class ControleurAdminMenu {
+class AdminMenuController {
 
   // Affiche la liste de tous les billets du blog
   public function adminmenu() {
    
-    $vue = new VueAdmin("Administration");
+    $vue = new viewAdmin("Administration");
     $vue->generer(array());
     
 	}

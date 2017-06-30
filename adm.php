@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require 'controleur/Routeur.php';
+require 'controller/Router.php';
 
-$routeur = new Routeur();
+$routeur = new Router();
 $routeur->administration();

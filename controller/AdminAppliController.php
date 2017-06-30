@@ -1,31 +1,36 @@
 <?php
 
-require_once 'vue/VueAdmin.php';
-require_once 'modele/Parametres.php';
-require_once 'modele/MediaManager.php';
+require_once 'view/viewadmin.php';
+require_once 'model/Settings.php';
+require_once 'model/MediaManager.php';
 
-class ControleurAdminAppli {
+class AdminAppliController {
 
   // Affiche la liste de tous les billets du blog
   public function adminappli() {
       
-   $parametres = new Parametres();
+   $parametres = new Settings();
    
    try{
-    $vue = new VueAdmin("AdminAppli");
+    $vue = new ViewAdmin("AdminAppli");
     $vue->generer(array());
 
   } catch (Exception $e) {
   $msgErreur = $e->getMessage();
-  require 'vue/vueErreur.php';
+  require 'view/viewError.php';
 
 }
     
-    
-    
-    
-    
-    if (isset($_FILES['image_fond'])){
+
+
+
+
+
+
+
+
+
+        if (isset($_FILES['image_fond'])){
         //Vérification image uploadée
     if ($_FILES['image_fond']['error'] > 0) {
           require 'vue/vueErreur.php';
@@ -45,7 +50,8 @@ class ControleurAdminAppli {
       //changement evenement
     if(isset($_POST['changeEvent'])){
     $parametres->updateEvent($_POST['evenement'],$parametres->getId());
-   $vue->generer(array());
+ 
+  
    
     } 
 
