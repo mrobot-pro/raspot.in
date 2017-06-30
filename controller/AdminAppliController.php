@@ -21,51 +21,47 @@ class AdminAppliController {
         if (isset($_FILES['image_fond'])) {
             //Vérification image uploadée
             if ($_FILES['image_fond']['error'] > 0) {
-                require 'vue/vueErreur.php';
-                $msgErreur = "Erreur lors du transfert";
-                require 'vue/vueErreur.php';
+                
             }
 
             // ENREGISTREMENT DE L'IMAGE UPLOADEE
             move_uploaded_file($_FILES["image_fond"]["tmp_name"], 'contenu/css/accueil.jpg');
-            //header('location:adm.php');
         }
         //changement mot de passe 
         if (isset($_POST['changePassword'])) {
             $settings->updatePassword($_POST['mdp'], $settings->getId());
-             echo "<meta http-equiv='refresh' content='0'>";
+            echo "<meta http-equiv='refresh' content='0'>";
         }
 
         //changement evenement
         if (isset($_POST['changeEvent'])) {
-            $settings->updateEvent($_POST['evenement'], $settings->getId());
+            $settings->updateEvent($_POST['event'], $settings->getId());
             echo "<meta http-equiv='refresh' content='0'>";
         }
 
         //changement slogan
         if (isset($_POST['changeSlogan'])) {
             $settings->updateSlogan($_POST['slogan'], $settings->getId());
-             echo "<meta http-equiv='refresh' content='0'>";
+            echo "<meta http-equiv='refresh' content='0'>";
         }
 
         //reset
         if (isset($_POST['Reset'])) {
             $mediaManager = new MediaManager();
             $mediaManager->reset();
-            $settings->resetParametres();
-             echo "<meta http-equiv='refresh' content='0'>";
+            $settings->resetSettings();
+            echo "<meta http-equiv='refresh' content='0'>";
         }
         //DELETE PICTURES AND VIGNETTES
         if (isset($_POST['delete_data_submit'])) {
             $mediaManager = new MediaManager();
             $mediaManager->deleteMedias();
-             echo "<meta http-equiv='refresh' content='0'>";
+            echo "<meta http-equiv='refresh' content='0'>";
         }
         //DELETE BACKUP
         if (isset($_POST['delete_backup_submit'])) {
             $mediaManager = new MediaManager();
             $mediaManager->deleteBackup();
-             echo "<meta http-equiv='refresh' content='0'>";
         }
     }
 

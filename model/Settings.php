@@ -8,19 +8,19 @@ class Settings extends Model {
     private
             $_id,
             $_slogan,
-            $_evenement,
-            $_mdp,
+            $_event,
+            $_pwd,
             $_type;
 
     // CLASS CONSTANTES //   
-  const STOCK_SIZE = 100;
-  const BACK_SIZE =  100;
-  
+    const STOCK_SIZE = 100;
+    const BACK_SIZE = 100;
+
     public function __construct() {
-        $this->hydrate($this->getParametre(1));
+        $this->hydrate($this->getSetting(1));
     }
 
-    // GETTERS - ACCESSEURS //
+    // GETTERS //
 
     public function getId() {
         return $this->_id;
@@ -30,19 +30,19 @@ class Settings extends Model {
         return $this->_slogan;
     }
 
-    public function getEvenement() {
-        return $this->_evenement;
+    public function getEvent() {
+        return $this->_event;
     }
 
-    public function getMdp() {
-        return $this->_mdp;
+    public function getPwd() {
+        return $this->_pwd;
     }
 
     public function getType() {
         return $this->_type;
     }
 
-    // SETTERS - MUTATEURS //
+    // SETTERS //
 
     public function setId($id) {
         $this->_id = $id;
@@ -52,69 +52,69 @@ class Settings extends Model {
         $this->_slogan = $slogan;
     }
 
-    public function setEvenement($evenement) {
-        $this->_evenement = $evenement;
+    public function setEvent($event) {
+        $this->_event = $event;
     }
 
-    public function setMdp($mdp) {
-        $this->_mdp = $mdp;
+    public function setPwd($pwd) {
+        $this->_pwd = $pwd;
     }
 
     public function setType($type) {
         $this->_type = $type;
     }
 
-    // FONCTIONS //
+    // FUNCTIONS //
 
 
-    public function getParametre($id) {
-        $sql = 'SELECT * FROM parametres where id=?';
-        $parametre = $this->executeRequest($sql, array($id));
-        return $parametre->fetch();
+    public function getSetting($id) {
+        $sql = 'SELECT * FROM settings where id=?';
+        $setting = $this->executeRequest($sql, array($id));
+        return $setting->fetch();
     }
 
-    public function getParametres() {
-        $sql = 'SELECT * FROM parametres';
-        $parametres = $this->executeRequest($sql);
-        return $parametres->fetchall();
+    public function getSettings() {
+        $sql = 'SELECT * FROM settings';
+        $settings = $this->executeRequest($sql);
+        return $settings->fetchall();
     }
 
-    public function updateParametres($evenement, $slogan, $mdp, $id) {
-        $this->_evenement = $evenement;
+    public function updateSettings($event, $slogan, $mdp, $id) {
+        $this->_event = $event;
         $this->_slogan = $slogan;
-        $this->_mdp = $mdp;
-        $sql = 'update parametres set evenement= ?, slogan= ?, mdp= ? where id=?';
-        $this->executeRequest($sql, array($evenement, $slogan, $mdp, $id));
+        $this->_pwd = $mdp;
+        $sql = 'update settings set event= ?, slogan= ?, mdp= ? where id=?';
+        $this->executeRequest($sql, array($event, $slogan, $mdp, $id));
     }
 
-    public function resetParametres() {
-        $mdp = $this->_mdp = password_hash('admin', PASSWORD_DEFAULT);
+    public function resetSettings() {
+        $mdp = $this->_pwd = password_hash('admin', PASSWORD_DEFAULT);
         $slogan = $this->_slogan = 'Partagez vos photos sur ce spot tout au long de la soirée !';
-        $evenement = $this->_evenement = "Saisissez ici le nom de l'événement !";
-        $this->updateParametres($evenement, $slogan, $mdp, 1);
+        $event = $this->_event = "Saisissez ici le nom de l'événement !";
+        $this->updateSettings($event, $slogan, $mdp, 1);
     }
 
-    public function updatePassword($mdp, $id) {
-        $mdpN = password_hash($mdp, PASSWORD_DEFAULT);
-        $this->_mdp = $mdpN;
-        $sql = 'update parametres set mdp= ? where id=?';
-        $this->executeRequest($sql, array($mdpN, $id));
+    public function updatePassword($pwd, $id) {
+        $pwdN = password_hash($pwd, PASSWORD_DEFAULT);
+        $this->_pwd = $pwdN;
+        $sql = 'update settings set pwd= ? where id=?';
+        $this->executeRequest($sql, array($pwdN, $id));
     }
 
     public function updateEvent($event, $id) {
-        $this->_evenement = $event;
-        $sql = 'update parametres set evenement= ? where id=?';
+        $this->_event = $event;
+        $sql = 'update settings set event= ? where id=?';
         $this->executeRequest($sql, array($event, $id));
     }
 
     public function updateSlogan($slogan, $id) {
         $this->_slogan = $slogan;
-        $sql = 'update parametres set slogan= ? where id=?';
+        $sql = 'update settings set slogan= ? where id=?';
         $this->executeRequest($sql, array($slogan, $id));
     }
 
-    public function hydrate(array $parametres) {
-        foreach ($parametres as $key => $value) {
+    public function hydrate(array $settings) {
+        foreach ($settings as $key => $value) {
             $method = 'set' . ucfirst($key);
             if (method_exists($this, $method)) {
                 $this->$method($value);
@@ -122,16 +122,16 @@ class Settings extends Model {
         }
     }
 
-   function dirSize($dir) {
-    $root = opendir($dir);
-    $size = 0;
-    while ($directory = readdir($root)) {
-        if (!in_array($directory, array("..", "."))) {
-            $size += filesize("$dir/$directory");
+    function dirSize($dir) {
+        $root = opendir($dir);
+        $size = 0;
+        while ($directory = readdir($root)) {
+            if (!in_array($directory, array("..", "."))) {
+                $size += filesize("$dir/$directory");
+            }
         }
+        closedir($root);
+        return $size;
     }
-    closedir($root);
-    return $size;
-}
 
 }

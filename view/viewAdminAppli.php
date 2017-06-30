@@ -1,10 +1,10 @@
 <?php
 $this->titre = "AdminAppli";
 require_once 'model/Settings.php';
-$parametres = new Settings();
+$settings = new Settings();
 
-$back = round($parametres->dirSize(Media::BACK_PATH) / 1024 / 1024);
-$stock = round($parametres->dirSize(Media::MEDIA_PATH) / 1024 / 1024);
+$back = round($settings->dirSize(Media::BACK_PATH) / 1024 / 1024);
+$stock = round($settings->dirSize(Media::MEDIA_PATH) / 1024 / 1024);
 $percentStock = ($stock * 100) / Settings::STOCK_SIZE;
 $percentBack = ($back * 100) / Settings::BACK_SIZE;
 ?>
@@ -13,9 +13,9 @@ $percentBack = ($back * 100) / Settings::BACK_SIZE;
 <form id="paramAppli" class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12" action="" method="post">
 
     <div>
-        <label for="evenement">Nom de l'événement:</label>
+        <label for="event">Nom de l'événement:</label>
         <div class="input-group">
-            <input id="evenement" class="form-control" type="text" name="evenement" value="<?php echo $parametres->getEvenement(); ?>" />
+            <input id="event" class="form-control" type="text" name="event" value="<?php echo $settings->getEvent(); ?>" />
             <div class="input-group-btn">
                 <input class="btn btn-primary" type="submit" id ="changeEvent" name="changeEvent" value="Valider" onclick="">
             </div>
@@ -25,7 +25,7 @@ $percentBack = ($back * 100) / Settings::BACK_SIZE;
     <div>
         <label for="slogan">Slogan :</label>
         <div class="input-group">
-            <input id="slogan" class="form-control" type="text" name="slogan" value="<?php echo $parametres->getSlogan(); ?>" />
+            <input id="slogan" class="form-control" type="text" name="slogan" value="<?php echo $settings->getSlogan(); ?>" />
             <div class="input-group-btn">
                 <input class="btn btn-primary" type="submit" name="changeSlogan" value="Valider">
             </div>
@@ -35,7 +35,7 @@ $percentBack = ($back * 100) / Settings::BACK_SIZE;
     <div>
         <label for="password">Mot de Passe :</label>
         <div class="input-group">
-            <input class="form-control" type="password" name="mdp" value = "<?= $parametres->getMdp() ?>"  />
+            <input class="form-control" type="password" name="pwd" value = "<?= $settings->getPwd() ?>"  />
             <div class="input-group-btn">
                 <input class="btn btn-primary" type="submit" name="changePassword" value="Valider">
             </div>

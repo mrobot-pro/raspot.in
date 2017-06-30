@@ -7,15 +7,15 @@ require_once 'controller/AdministrationController.php';
 class ConnexionController {
 
     public function connexion() {
-        $parametres = new Settings();
+        $settings = new Settings();
 
-        $vue = new View("Connexion");
-        $vue->generer(array());
+        $view = new View("Connexion");
+        $view->generer(array());
 
 
         if (isset($_POST['connexion'])) {
 
-            if (password_verify($_POST['mdp'], $parametres->getMdp())) {
+            if (password_verify($_POST['pwd'], $settings->getPwd())) {
                 $_SESSION['login'] = 'admin';
                 $this->redirect('adm.php');
             } else {

@@ -11,9 +11,9 @@ class Media extends Model {
             $_newName,
             $_fileSize,
             $_pseudo,
-            $_commentaire,
+            $_comment,
             $_timestamp,
-            $_evenement;
+            $_event;
 
 // CLASS CONSTANTES //   
     const MEDIA_PATH = 'contenu/data/picture/';
@@ -57,7 +57,7 @@ class Media extends Model {
     }
 
     public function commentaire() {
-        return $this->_commentaire;
+        return $this->_comment;
     }
 
     public function timestamp() {
@@ -65,7 +65,7 @@ class Media extends Model {
     }
 
     public function evenement() {
-        return $this->_evenement;
+        return $this->_event;
     }
 
     // SETTERS - MUTATEURS //
@@ -86,8 +86,8 @@ class Media extends Model {
         $this->_pseudo = $pseudo;
     }
 
-    public function setCommentaire($commentaire) {
-        $this->_commentaire = $commentaire;
+    public function setComment($comment) {
+        $this->_comment = $comment;
     }
 
     public function setFileSize($fileSize) {
@@ -98,14 +98,14 @@ class Media extends Model {
         $this->_timestamp = $timestamp;
     }
 
-    public function setEvenement($evenement) {
-        $this->_evenement = $evenement;
+    public function setEvent($event) {
+        $this->_event = $event;
     }
 
     // FONCTIONS //
 
     public function updateNewName() {
-        $this->_newName = $this->cleanFileName($this->mediaId() . '_' . $this->evenement() . '.' . $this->getExtension());
+        $this->_newName = $this->cleanFileName($this->mediaId() . '_' . $this->event() . '.' . $this->getExtension());
     }
 
     public function getExtension() {
@@ -120,12 +120,10 @@ class Media extends Model {
 
     function cleanFileName($str, $charset = 'utf-8') {
         $str = htmlentities($str, ENT_NOQUOTES, $charset);
-
         $str = preg_replace('#&([A-za-z])(?:acute|cedil|caron|circ|grave|orn|ring|slash|th|tilde|uml);#', '\1', $str);
         $str = preg_replace('#&([A-za-z]{2})(?:lig);#', '\1', $str); // pour les ligatures e.g. '&oelig;'
         $str = preg_replace('#&[^;]+;#', '', $str); // supprime les autres caractères
         $str = preg_replace('`[!\']`', '', $str);
-
         return $str;
     }
 
@@ -142,8 +140,8 @@ class Media extends Model {
         $newwidth = ($width / $height) * $newheight;
         $tmp = imagecreatetruecolor($newwidth, $newheight);
         imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-        $vigname = Media::VIGN_PATH . $this->newName();
-        imagejpeg($tmp, $vigname, 100);
+        $thumbnail = Media::VIGN_PATH . $this->newName();
+        imagejpeg($tmp, $thumbnail, 100);
         imagedestroy($src);
         imagedestroy($tmp);
     }
