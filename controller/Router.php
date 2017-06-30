@@ -16,17 +16,17 @@ require_once 'controller/AdministrationController.php';
 
 class Router {
 
-  private $ctrlAccueil;
+  private $ctrlHome;
   private $ctrlAdministration;
 
 
   public function __construct() {
-    $this->ctrlAccueil = new HomeController();
+    $this->ctrlHome = new HomeController();
     $this->ctrlAdministration = new AdministrationController();
   }
 
-  public function accueil(){
-      $this->ctrlAccueil->home();
+  public function home(){
+      $this->ctrlHome->home();
   }
 
   public function administration() {

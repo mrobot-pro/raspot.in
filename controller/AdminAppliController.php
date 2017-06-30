@@ -1,6 +1,6 @@
 <?php
 
-require_once 'view/viewadmin.php';
+require_once 'view/ViewAdmin.php';
 require_once 'model/Settings.php';
 require_once 'model/MediaManager.php';
 
