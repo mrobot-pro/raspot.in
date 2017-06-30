@@ -17,7 +17,7 @@ $percentBack = ($back * 100) / Settings::BACK_SIZE;
         <div class="input-group">
             <input id="evenement" class="form-control" type="text" name="evenement" value="<?php echo $parametres->getEvenement(); ?>" />
             <div class="input-group-btn">
-                <input class="btn btn-primary" type="submit" id ="changeEvent" name="changeEvent" value="Valider" onclick="update()">
+                <input class="btn btn-primary" type="submit" id ="changeEvent" name="changeEvent" value="Valider" onclick="">
             </div>
         </div>
     </div>
