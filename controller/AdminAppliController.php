@@ -62,6 +62,7 @@ class AdminAppliController {
         if (isset($_POST['delete_backup_submit'])) {
             $mediaManager = new MediaManager();
             $mediaManager->deleteBackup();
+            echo "<meta http-equiv='refresh' content='0'>";
         }
     }
 

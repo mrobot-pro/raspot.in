@@ -5,6 +5,8 @@ $('#upfile1').on('click', function () {
 
 document.getElementById("my_file").onchange = function () {
     document.getElementById("uploadform").submit();
-}
+};
+
+
 
 
