@@ -56,7 +56,7 @@ class Media extends Model {
         return $this->_pseudo;
     }
 
-    public function commentaire() {
+    public function comment() {
         return $this->_comment;
     }
 
@@ -64,7 +64,7 @@ class Media extends Model {
         return $this->_timestamp;
     }
 
-    public function evenement() {
+    public function event() {
         return $this->_event;
     }
 
@@ -129,7 +129,7 @@ class Media extends Model {
 
     public function saveFile() {
 // ENREGISTREMENT DE L'IMAGE UPLOADEE
-        move_uploaded_file($_FILES["mon_fichier"]["tmp_name"], Media::MEDIA_PATH . $this->newName());
+        move_uploaded_file($_FILES["my_file"]["tmp_name"], Media::MEDIA_PATH . $this->newName());
 // COPY MEDIA FROM STOCK TO BACKUP
         copy(Media::MEDIA_PATH . $this->newName(), Media::BACK_PATH . $this->newName());
 //CREATE THUMBNAIL //

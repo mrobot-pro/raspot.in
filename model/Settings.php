@@ -79,26 +79,25 @@ class Settings extends Model {
         return $settings->fetchall();
     }
 
-    public function updateSettings($event, $slogan, $mdp, $id) {
+    public function updateSettings($event, $slogan, $pwd, $id) {
         $this->_event = $event;
         $this->_slogan = $slogan;
-        $this->_pwd = $mdp;
-        $sql = 'update settings set event= ?, slogan= ?, mdp= ? where id=?';
-        $this->executeRequest($sql, array($event, $slogan, $mdp, $id));
+        $this->_pwd = $pwd;
+        $sql = 'update settings set event= ?, slogan= ?, pwd= ? where id=?';
+        $this->executeRequest($sql, array($event, $slogan, $pwd, $id));
     }
 
     public function resetSettings() {
-        $mdp = $this->_pwd = password_hash('admin', PASSWORD_DEFAULT);
-        $slogan = $this->_slogan = 'Partagez vos photos sur ce spot tout au long de la soirée !';
         $event = $this->_event = "Saisissez ici le nom de l'événement !";
-        $this->updateSettings($event, $slogan, $mdp, 1);
+        $slogan = $this->_slogan = 'Partagez vos photos sur ce spot tout au long de la soirée !';
+        $pwd = $this->_pwd = password_hash('admin', PASSWORD_DEFAULT);
+        $this->updateSettings($event, $slogan, $pwd, 1);
     }
 
     public function updatePassword($pwd, $id) {
-        $pwdN = password_hash($pwd, PASSWORD_DEFAULT);
-        $this->_pwd = $pwdN;
+        $newPwd = $this->_pwd = password_hash($pwd, PASSWORD_DEFAULT);
         $sql = 'update settings set pwd= ? where id=?';
-        $this->executeRequest($sql, array($pwdN, $id));
+        $this->executeRequest($sql, array($newPwd, $id));
     }
 
     public function updateEvent($event, $id) {

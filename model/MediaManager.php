@@ -10,8 +10,8 @@ class MediaManager extends Model {
         $q->bindValue(':oldName', $media->oldName());
         $q->bindValue(':fileSize', $media->fileSize());
         $q->bindValue(':pseudo', $media->pseudo());
-        $q->bindValue(':comment', $media->commentaire());
-        $q->bindValue(':event', $media->evenement());
+        $q->bindValue(':comment', $media->comment());
+        $q->bindValue(':event', $media->event());
         $q->execute();
 
         $media = $this->get(intval($this->getDb()->lastInsertId()));

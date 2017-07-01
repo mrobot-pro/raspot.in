@@ -29,7 +29,7 @@ class AdminAppliController {
         }
         //changement mot de passe 
         if (isset($_POST['changePassword'])) {
-            $settings->updatePassword($_POST['mdp'], $settings->getId());
+            $settings->updatePassword($_POST['pwd'], $settings->getId());
             echo "<meta http-equiv='refresh' content='0'>";
         }
 

@@ -6,14 +6,14 @@ abstract class Model {
     private $db;
 
 // execute request
-    protected function executeRequest($sql, $settings = null) {
-        if ($settings == null) {
-            $result = $this->getDb()->query($sql);    // exécution directe
+    protected function executeRequest($sql, $params = null) {
+        if ($params == null) {
+            $resultat = $this->getDb()->query($sql);    // exécution directe
         } else {
-            $result = $this->getDb()->prepare($sql);  // requête préparée
-            $result->execute($settings);
+            $resultat = $this->getDb()->prepare($sql);  // requête préparée
+            $resultat->execute($params);
         }
-        return $result;
+        return $resultat;
     }
 
 // return DB connexion object

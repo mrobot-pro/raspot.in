@@ -19,19 +19,18 @@ class HomeController {
         }
         $mediaManager = new MediaManager();
 
-        if (isset($_FILES['mon_fichier'])) {
+        if (isset($_FILES['my_file'])) {
             //Vérification image uploadée
-            if ($_FILES['mon_fichier']['error'] > 0) {
+            if ($_FILES['my_file']['error'] > 0) {
                 echo 'Erreur lors du transfert';
             } else {
+
                 //  NOUVELLE INSTANCE DE LA CLASS MEDIA = OBJET $media
                 $media = new Media([
-                    'oldName' => $_FILES["mon_fichier"]["name"],
-                    'fileSize' => $_FILES["mon_fichier"]["size"],
-                    'evenement' => $settings->getEvent()
+                    'oldName' => $_FILES["my_file"]["name"],
+                    'fileSize' => $_FILES["my_file"]["size"],
+                    'event' => $settings->getEvent()
                 ]);
-
-                $thumbnail = Media::VIGN_PATH . $media->newName();
                 $mediaManager->add($media);
                 $media->updateNewName($mediaManager);
                 header('location:index.php');

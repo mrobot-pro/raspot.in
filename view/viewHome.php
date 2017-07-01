@@ -6,16 +6,16 @@
             <form method="post" id='uploadform' action="index.php" enctype="multipart/form-data">
                 <img class="cameraico" src="contenu/css/lens-37025_640.png" id="upfile1" width="75" style="cursor:pointer" alt="logo_appli" type="submit" />
                 <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
-                <input type="file" id="mon_fichier"  name="mon_fichier" accept="image/*" capture="camera" style="display:none"  />
+                <input type="file" id="my_file"  name="my_file" accept="image/*" capture="camera" style="display:none"  />
             </form>
 
             <div id="explain">
                 <?php
                 $settings = new Settings();
-                $evenement = $settings->getEvenement();
+                $event = $settings->getEvent();
                 $slogan = $settings->getSlogan();
                 ?> 
-                <h2><?php echo $evenement; ?></h2>
+                <h2><?php echo $event; ?></h2>
                 <h3><?php echo $slogan; ?></h3>
 
 
