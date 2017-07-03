@@ -1,9 +1,6 @@
 <?php
+require_once 'autoload.php';
 $this->titre = "AdminData";
-
-require_once 'model/MediaManager.php';
-require_once 'model/Media.php';
-
 $mediaManager = new MediaManager();
 $datas = $mediaManager->getList();
 

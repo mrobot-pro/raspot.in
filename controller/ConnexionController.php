@@ -1,8 +1,6 @@
 <?php
 
-require_once 'view/View.php';
-require_once 'model/Settings.php';
-require_once 'controller/AdministrationController.php';
+require_once 'autoload.php';
 
 class ConnexionController {
 
@@ -14,8 +12,8 @@ class ConnexionController {
 
 
         if (isset($_POST['connexion'])) {
-
-            if (password_verify($_POST['pwd'], $settings->getPwd())) {
+            $password = htmlspecialchars($_POST['pwd']);
+            if (password_verify($password, $settings->getPwd())) {
                 $_SESSION['login'] = 'admin';
                 $this->redirect('adm.php');
             } else {

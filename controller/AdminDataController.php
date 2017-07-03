@@ -1,8 +1,6 @@
 <?php
 
-require_once 'view/ViewAdmin.php';
-require_once 'model/MediaManager.php';
-require_once 'model/Media.php';
+require_once 'autoload.php';
 
 class AdminDataController {
 

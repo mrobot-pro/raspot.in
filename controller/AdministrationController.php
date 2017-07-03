@@ -1,9 +1,6 @@
 <?php
 
-require_once 'controller/AdminMenuController.php';
-require_once 'controller/ConnexionController.php';
-require_once 'controller/AdminAppliController.php';
-require_once 'controller/AdminDataController.php';
+require_once 'autoload.php';
 
 class AdministrationController {
 

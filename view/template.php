@@ -12,7 +12,7 @@
 
         <div id="main-container" class="container-fluid">
             <div class ="text-center"><h1><a class="heading"  href="index.php">Snap Snap Spot !</a></h1> 
-                <?= $contenu ?>
+                <?=$contenu;?>
             </div>
         </div>
         <footer class="text-center">

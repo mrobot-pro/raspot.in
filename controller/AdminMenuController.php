@@ -1,6 +1,6 @@
 <?php
 
-require_once 'view/ViewAdmin.php';
+require_once 'autoload.php';
 
 class AdminMenuController {
 

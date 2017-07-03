@@ -1,6 +1,6 @@
 <?php
 
-require_once 'model/Model.php';
+require_once 'autoload.php';
 
 class Settings extends Model {
 

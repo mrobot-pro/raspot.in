@@ -1,8 +1,6 @@
 <?php
 
-require_once 'model/MediaManager.php';
-require_once 'model/Settings.php';
-require_once 'view/View.php';
+require_once 'autoload.php';
 
 class HomeController {
 
@@ -23,8 +21,9 @@ class HomeController {
             //Vérification image uploadée
             if ($_FILES['my_file']['error'] > 0) {
                 echo 'Erreur lors du transfert';
+            } elseif (preg_match('#[\x00-\x1F\x7F-\x9F/\\\\]#', $_FILES['my_file']['name'])) {
+                exit("Nom de fichier non valide");
             } else {
-
                 //  NOUVELLE INSTANCE DE LA CLASS MEDIA = OBJET $media
                 $media = new Media([
                     'oldName' => $_FILES["my_file"]["name"],

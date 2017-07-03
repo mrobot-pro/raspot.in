@@ -1,6 +1,6 @@
 <?php
+require_once 'autoload.php';
 $this->titre = "AdminAppli";
-require_once 'model/Settings.php';
 $settings = new Settings();
 
 $back = round($settings->dirSize(Media::BACK_PATH) / 1024 / 1024);

@@ -11,8 +11,7 @@
  *
  * @author Olivier
  */
-require_once 'controller/HomeController.php';
-require_once 'controller/AdministrationController.php';
+require_once 'autoload.php';
 
 class Router {
 
