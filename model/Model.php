@@ -20,7 +20,7 @@ abstract class Model {
     protected function getDb() {
         if ($this->db == null) {
 // Create connexion
-            $this->db = new PDO('sqlite:db/snapspot.sqlite', '', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+            $this->db = new PDO('sqlite:../db/database.sqlite', '', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         }
         return $this->db;
     }

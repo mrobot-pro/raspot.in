@@ -10,9 +10,9 @@ function autoload($class) {
 
     # List all the class directories in the array.
     $array_paths = array(
-        'model/',
-        'controller/',
-        'view/'
+        '../model/',
+        '../controller/',
+        '../view/'
     );
 
     foreach ($array_paths as $path) {

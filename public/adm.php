@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require 'autoload.php';
+require '../controller/autoload.php';
 
 $routeur = new Router();
 $routeur->administration();

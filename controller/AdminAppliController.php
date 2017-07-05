@@ -14,7 +14,7 @@ class AdminAppliController {
             $view->generer(array());
         } catch (Exception $e) {
             $msgErreur = $e->getMessage();
-            require 'view/viewError.php';
+            require '../view/viewError.php';
         }
         if (isset($_FILES['image_fond'])) {
             //Vérification image uploadée
@@ -23,7 +23,7 @@ class AdminAppliController {
             }
 
             // ENREGISTREMENT DE L'IMAGE UPLOADEE
-            move_uploaded_file($_FILES["image_fond"]["tmp_name"], 'contenu/css/accueil.jpg');
+            move_uploaded_file($_FILES["image_fond"]["tmp_name"], 'static/css/accueil.jpg');
         }
         //changement mot de passe 
         if (isset($_POST['changePassword'])) {

@@ -13,7 +13,7 @@ class HomeController {
             $settings = new Settings();
         } catch (Exception $e) {
             $msgErreur = $e->getMessage();
-            require 'view/viewError.php';
+            require '../view/viewError.php';
         }
         $mediaManager = new MediaManager();
 

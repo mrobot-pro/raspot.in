@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Snap - <?= $titre ?></title>   <!-- Élément spécifique -->
 
-        <link href="contenu/css/default.css" rel="stylesheet">
-        <link href="contenu/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="static/css/default.css" rel="stylesheet">
+        <link href="static/bootstrap/css/bootstrap.css" rel="stylesheet">
     </head>
     <body>
 
@@ -19,8 +19,8 @@
             <p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
         </footer>
 
-        <script type="text/javascript" src="contenu/js/jquery.js" ></script>
-        <script type="text/javascript" src="contenu/js/snapspotIndex.js" ></script>
-        <script type="text/javascript" src="contenu/js/snapspotAdm.js" ></script>
+        <script type="text/javascript" src="static/js/jquery.js" ></script>
+        <script type="text/javascript" src="static/js/snapspotIndex.js" ></script>
+        <script type="text/javascript" src="static/js/snapspotAdm.js" ></script>
     </body>
 </html>

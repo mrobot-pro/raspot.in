@@ -1,6 +1,6 @@
 <?php
 
-require_once 'autoload.php';
+require_once '../controller/autoload.php';
 
 class Media extends Model {
 
@@ -16,9 +16,9 @@ class Media extends Model {
             $_event;
 
 // CLASS CONSTANTES //   
-    const MEDIA_PATH = 'contenu/data/picture/';
-    const VIGN_PATH = 'contenu/data/thumbnail/';
-    const BACK_PATH = 'contenu/data/backup/';
+    const MEDIA_PATH = '../data/picture/';
+    const VIGN_PATH = '../data/thumbnail/';
+    const BACK_PATH = '../data/backup/';
 
     public function __construct(array $dataMedia) {
         $this->hydrate($dataMedia);

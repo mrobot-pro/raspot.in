@@ -1,6 +1,6 @@
 <?php
 
-require_once 'autoload.php';
+require_once '../controller/autoload.php';
 
 class MediaManager extends Model {
 
