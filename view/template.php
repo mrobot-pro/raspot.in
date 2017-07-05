@@ -16,7 +16,7 @@
             </div>
         </div>
         <footer class="text-center">
-            <p>&copy;2017 - David Fournier&nbsp;&amp;&nbsp;Olivier Welter.</p>
+            <p>&copy;2017 - M. ROBOT</p>
         </footer>
 
         <script type="text/javascript" src="static/js/jquery.js" ></script>
