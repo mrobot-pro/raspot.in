@@ -10,7 +10,7 @@ class Settings extends Model {
             $_slogan,
             $_event,
             $_pwd,
-            $_type;
+            $_background;
 
     // CLASS CONSTANTES //   
     const STOCK_SIZE = 100;
@@ -38,8 +38,8 @@ class Settings extends Model {
         return $this->_pwd;
     }
 
-    public function getType() {
-        return $this->_type;
+    public function getBackground() {
+        return $this->_background;
     }
 
     // SETTERS //
@@ -60,8 +60,8 @@ class Settings extends Model {
         $this->_pwd = $pwd;
     }
 
-    public function setType($type) {
-        $this->_type = $type;
+    public function setBackground($background) {
+        $this->_background = $background;
     }
 
     // FUNCTIONS //
@@ -79,19 +79,13 @@ class Settings extends Model {
         return $settings->fetchall();
     }
 
-    public function updateSettings($event, $slogan, $pwd, $id) {
+    public function updateSettings($event, $slogan, $pwd, $background,$id) {
         $this->_event = $event;
         $this->_slogan = $slogan;
         $this->_pwd = $pwd;
-        $sql = 'update settings set event= ?, slogan= ?, pwd= ? where id=?';
-        $this->executeRequest($sql, array($event, $slogan, $pwd, $id));
-    }
-
-    public function resetSettings() {
-        $event = $this->_event = "Saisissez ici le nom de l'événement !";
-        $slogan = $this->_slogan = 'Partagez vos photos sur ce spot tout au long de la soirée !';
-        $pwd = $this->_pwd = password_hash('admin', PASSWORD_DEFAULT);
-        $this->updateSettings($event, $slogan, $pwd, 1);
+        $this->_background = $background;
+        $sql = 'update settings set event= ?, slogan= ?, pwd= ?, background= ? where id=?';
+        $this->executeRequest($sql, array($event, $slogan, $pwd, $background, $id));
     }
 
     public function updatePassword($pwd, $id) {
@@ -110,6 +104,20 @@ class Settings extends Model {
         $this->_slogan = $slogan;
         $sql = 'update settings set slogan= ? where id=?';
         $this->executeRequest($sql, array($slogan, $id));
+    }
+
+      public function updateBackground($background, $id) {
+        $this->_background = $background;
+        $sql = 'update settings set background= ? where id=?';
+        $this->executeRequest($sql, array($background, $id));
+    }
+    
+    public function resetSettings() {
+        $event = $this->_event = "Saisissez ici le nom de l'événement !";
+        $slogan = $this->_slogan = 'Partagez vos photos sur ce spot tout au long de la soirée !';
+        $pwd = $this->_pwd = password_hash('admin', PASSWORD_DEFAULT);
+        $background = $this->_background = 'default';
+        $this->updateSettings($event, $slogan, $pwd, $background,1);
     }
 
     public function hydrate(array $settings) {

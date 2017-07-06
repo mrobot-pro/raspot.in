@@ -1,3 +1,12 @@
+<?php
+$settings = new Settings();
+
+if($settings->getBackground() == 'custom'){
+    echo var_dump($settings);
+    $bg = '../public/static/css/homecustom.jpg';
+}else{$bg='../public/static/css/homedefault.png';}
+?>
+
 <!doctype html>
 <html lang="fr">
     <head>
@@ -8,7 +17,8 @@
         <link href="static/css/default.css" rel="stylesheet">
         <link href="static/bootstrap/css/bootstrap.css" rel="stylesheet">
     </head>
-    <body>
+    <body style="background: url('<?php echo $bg;?>') no-repeat center center fixed;" >
+          
 
         <div id="main-container" class="container-fluid">
             <div class ="text-center"><h1><a class="heading"  href="index.php">Snap Snap Spot !</a></h1> 

@@ -1,4 +1,0 @@
-AuthName "Espece de petit con, tu crois que c'est la fete ?"
-AuthType Basic
-AuthUserFile "/wamp/www/raspot/.htpasswd"
-Require valid-user

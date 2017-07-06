@@ -42,7 +42,7 @@ body {
     margin: 0;
     overflow: auto;
     position: relative;
-    background: url('accueil.jpg') no-repeat center center fixed;
+    /*background: url('homedefault.png') no-repeat center center fixed;*/
     background-size: cover;
 }
 
@@ -87,8 +87,9 @@ body:before {
     z-index: -1;
 
     display: block;
-    /*background: url(../img/background.png) no-repeat center center fixed;*/
-    background: url('accueil.jpg') no-repeat center center fixed;
+    /*
+    background: url('homedefault.png') no-repeat center center fixed;
+    */
     background-size:cover;
     width: 100%;
     height: 100%;
