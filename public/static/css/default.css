@@ -87,9 +87,7 @@ body:before {
     z-index: -1;
 
     display: block;
-    /*
-    background: url('homedefault.png') no-repeat center center fixed;
-    */
+    background: url('home.jpg') no-repeat center center fixed;
     background-size:cover;
     width: 100%;
     height: 100%;
