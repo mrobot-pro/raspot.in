@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-require_once('./php/Parametres.class.php');
+require_once('../model/Settings.php');
 
 /**
  * @covers Parametres
@@ -31,7 +31,7 @@ final class Test extends TestCase
     	$param2->hydrate($data2);
 
     	$this->assertEquals(
-    		$param2->setEvenement($event),
+    		$param2->setEvent($event),
     		''
     	);
     }
@@ -44,7 +44,7 @@ final class Test extends TestCase
     	$param3->hydrate($data3);
 
     	$this->assertEquals(
-    		$param3->setMdp($mdp),
+    		$param3->setPwd($mdp),
     		''
     		);
     }
