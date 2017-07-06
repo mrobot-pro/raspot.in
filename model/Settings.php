@@ -106,6 +106,7 @@ class Settings extends Model {
         $slogan = $this->_slogan = 'Partagez vos photos sur ce spot tout au long de la soirée !';
         $pwd = $this->_pwd = password_hash('admin', PASSWORD_DEFAULT);
         $this->updateSettings($event, $slogan, $pwd,1);
+        copy('../public/static/css/homedefault.jpg','../public/static/css/home.jpg');
     }
 
     public function hydrate(array $settings) {

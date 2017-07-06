@@ -19,10 +19,10 @@ class AdminAppliController {
         if (isset($_FILES['image_fond'])) {
             //Vérification image uploadée
             if ($_FILES['image_fond']['error'] > 0) {
+                echo "Probleme lors de l'upload";
             }
             // ENREGISTREMENT DE L'IMAGE UPLOADEE
-            move_uploaded_file($_FILES["image_fond"]["tmp_name"], 'static/css/homecustom.jpg');
-            $settings->updateBackground('custom', $settings->getId());
+            move_uploaded_file($_FILES["image_fond"]["tmp_name"], 'static/css/home.jpg');
         }
         //changement mot de passe 
         if (isset($_POST['changePassword'])) {
