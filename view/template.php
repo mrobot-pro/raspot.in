@@ -2,7 +2,6 @@
 $settings = new Settings();
 
 if($settings->getBackground() == 'custom'){
-    echo var_dump($settings);
     $bg = '../public/static/css/homecustom.jpg';
 }else{$bg='../public/static/css/homedefault.png';}
 ?>
