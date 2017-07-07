@@ -2,7 +2,8 @@
 
 require_once '../controller/autoload.php';
 
-class Media extends Model {
+class Media extends Model
+{
 
 // CLASS ATTRIBUTS //    
     private
@@ -20,11 +21,13 @@ class Media extends Model {
     const VIGN_PATH = '../data/thumbnail/';
     const BACK_PATH = '../data/backup/';
 
-    public function __construct(array $dataMedia) {
+    public function __construct(array $dataMedia)
+    {
         $this->hydrate($dataMedia);
     }
 
-    public function hydrate(array $dataMedia) {
+    public function hydrate(array $dataMedia)
+    {
         foreach ($dataMedia as $key => $value) {
             $method = 'set' . ucfirst($key);
 
@@ -36,79 +39,97 @@ class Media extends Model {
 
     // GETTERS - ACCESSEURS //
 
-    public function mediaId() {
+    public function mediaId()
+    {
         return $this->_mediaId;
     }
 
-    public function oldName() {
+    public function oldName()
+    {
         return $this->_oldName;
     }
 
-    public function newName() {
+    public function newName()
+    {
         return $this->_newName;
     }
 
-    public function fileSize() {
+    public function fileSize()
+    {
         return $this->_fileSize;
     }
 
-    public function pseudo() {
+    public function pseudo()
+    {
         return $this->_pseudo;
     }
 
-    public function comment() {
+    public function comment()
+    {
         return $this->_comment;
     }
 
-    public function timestamp() {
+    public function timestamp()
+    {
         return $this->_timestamp;
     }
 
-    public function event() {
+    public function event()
+    {
         return $this->_event;
     }
 
     // SETTERS - MUTATEURS //
 
-    public function setMediaId($mediaId) {
+    public function setMediaId($mediaId)
+    {
         $this->_mediaId = $mediaId;
     }
 
-    public function setOldName($oldName) {
+    public function setOldName($oldName)
+    {
         $this->_oldName = $oldName;
     }
 
-    public function setNewName($newName) {
+    public function setNewName($newName)
+    {
         $this->_newName = $newName;
     }
 
-    public function setPseudo($pseudo) {
+    public function setPseudo($pseudo)
+    {
         $this->_pseudo = $pseudo;
     }
 
-    public function setComment($comment) {
+    public function setComment($comment)
+    {
         $this->_comment = $comment;
     }
 
-    public function setFileSize($fileSize) {
+    public function setFileSize($fileSize)
+    {
         $this->_fileSize = $fileSize;
     }
 
-    public function setTimestamp($timestamp) {
+    public function setTimestamp($timestamp)
+    {
         $this->_timestamp = $timestamp;
     }
 
-    public function setEvent($event) {
+    public function setEvent($event)
+    {
         $this->_event = $event;
     }
 
     // FONCTIONS //
 
-    public function updateNewName() {
+    public function updateNewName()
+    {
         $this->_newName = $this->cleanFileName($this->mediaId() . '_' . $this->event() . '.' . $this->getExtension());
     }
 
-    public function getExtension() {
+    public function getExtension()
+    {
         $i = strrpos($this->oldName(), ".");
         if (!$i) {
             return "";
@@ -118,7 +139,8 @@ class Media extends Model {
         return $ext;
     }
 
-    function cleanFileName($str, $charset = 'utf-8') {
+    function cleanFileName($str, $charset = 'utf-8')
+    {
         $str = htmlentities($str, ENT_NOQUOTES, $charset);
         $str = preg_replace('#&([A-za-z])(?:acute|cedil|caron|circ|grave|orn|ring|slash|th|tilde|uml);#', '\1', $str);
         $str = preg_replace('#&([A-za-z]{2})(?:lig);#', '\1', $str); // pour les ligatures e.g. '&oelig;'
@@ -127,7 +149,8 @@ class Media extends Model {
         return $str;
     }
 
-    public function saveFile() {
+    public function saveFile()
+    {
 // ENREGISTREMENT DE L'IMAGE UPLOADEE
         move_uploaded_file($_FILES["my_file"]["tmp_name"], Media::MEDIA_PATH . $this->newName());
 // COPY MEDIA FROM STOCK TO BACKUP

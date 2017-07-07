@@ -1,12 +1,14 @@
 <?php
 
-abstract class Model {
+abstract class Model
+{
 
 // Connexion object
     private $db;
 
 // execute request
-    protected function executeRequest($sql, $params = null) {
+    protected function executeRequest($sql, $params = null)
+    {
         if ($params == null) {
             $resultat = $this->getDb()->query($sql);    // exécution directe
         } else {
@@ -17,7 +19,8 @@ abstract class Model {
     }
 
 // return DB connexion object
-    protected function getDb() {
+    protected function getDb()
+    {
         if ($this->db == null) {
 // Create connexion
             $this->db = new PDO('sqlite:../db/database.sqlite', '', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));

@@ -13,22 +13,22 @@ html {
 
 @keyframes zoom {
     from {
-            transform: scale(1);
-            border-radius: 75%;
-        }
+        transform: scale(1);
+        border-radius: 75%;
+    }
     50% {
-            transform: scale(0.9);
-            border-radius: 50%;
-            background-color: darkgrey;
-        }
+        transform: scale(0.9);
+        border-radius: 50%;
+        background-color: darkgrey;
+    }
     100% {
-            transform: scale(1);
-            border-radius: 75%;
-        }
+        transform: scale(1);
+        border-radius: 75%;
+    }
 }
-     
+
 .cameraico {
-        animation: zoom 1s infinite;
+    animation: zoom 1s infinite;
 }
 
 

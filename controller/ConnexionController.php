@@ -2,9 +2,11 @@
 
 require_once 'autoload.php';
 
-class ConnexionController {
+class ConnexionController
+{
 
-    public function connexion() {
+    public function connexion()
+    {
         $settings = new Settings();
 
         $view = new View("Connexion");
@@ -22,7 +24,8 @@ class ConnexionController {
         }
     }
 
-    function redirect($url) {
+    function redirect($url)
+    {
         if (!headers_sent()) {
             header('Location: ' . $url);
             exit;

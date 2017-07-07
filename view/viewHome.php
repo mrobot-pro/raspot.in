@@ -14,7 +14,6 @@
                 $settings = new Settings();
                 $event = $settings->getEvent();
                 $slogan = $settings->getSlogan();
-             
                 ?> 
                 <h2><?php echo $event; ?></h2>
                 <h3><?php echo $slogan; ?></h3>

@@ -1,0 +1,1 @@
+rename htaccess.txt, .htaccess

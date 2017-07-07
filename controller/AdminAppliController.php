@@ -2,10 +2,12 @@
 
 require_once 'autoload.php';
 
-class AdminAppliController {
+class AdminAppliController
+{
 
     // Affiche la liste de tous les billets du blog
-    public function adminappli() {
+    public function adminappli()
+    {
 
         $settings = new Settings();
 

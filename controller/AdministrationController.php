@@ -2,14 +2,16 @@
 
 require_once 'autoload.php';
 
-class AdministrationController {
+class AdministrationController
+{
 
     private $ctrlAdminmenu;
     private $ctrlConnexion;
     private $ctrlAdminAppli;
     private $ctrlAdminData;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->ctrlAdminmenu = new AdminMenuController();
         $this->ctrlConnexion = new ConnexionController();
         $this->ctrlAdminAppli = new AdminAppliController();
@@ -17,7 +19,8 @@ class AdministrationController {
     }
 
     // Affiche le menu admin
-    public function administration() {
+    public function administration()
+    {
 
         if (!empty($_SESSION) && $_SESSION['login'] == 'admin') {
 

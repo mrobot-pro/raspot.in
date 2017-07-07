@@ -6,7 +6,8 @@
  * and open the template in the editor.
  */
 
-function autoload($class) {
+function autoload($class)
+{
 
     # List all the class directories in the array.
     $array_paths = array(

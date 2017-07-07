@@ -13,28 +13,33 @@
  */
 require_once 'autoload.php';
 
-class Router {
+class Router
+{
 
-  private $ctrlHome;
-  private $ctrlAdministration;
+    private $ctrlHome;
+    private $ctrlAdministration;
 
+    public function __construct()
+    {
+        $this->ctrlHome = new HomeController();
+        $this->ctrlAdministration = new AdministrationController();
+    }
 
-  public function __construct() {
-    $this->ctrlHome = new HomeController();
-    $this->ctrlAdministration = new AdministrationController();
-  }
+    public function home()
+    {
+        $this->ctrlHome->home();
+    }
 
-  public function home(){
-      $this->ctrlHome->home();
-  }
+    public function administration()
+    {
+        $this->ctrlAdministration->administration();
+    }
 
-  public function administration() {
-           $this->ctrlAdministration->administration();
-  }
+    // Affiche une erreur
+    private function erreur($msgErreur)
+    {
+        $vue = new View("Erreur");
+        $vue->generer(array('msgErreur' => $msgErreur));
+    }
 
-  // Affiche une erreur
-  private function erreur($msgErreur) {
-    $vue = new View("Erreur");
-    $vue->generer(array('msgErreur' => $msgErreur));
-  }
 }

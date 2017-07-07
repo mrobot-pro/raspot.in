@@ -2,10 +2,12 @@
 
 require_once 'autoload.php';
 
-class HomeController {
+class HomeController
+{
 
     // Affiche la liste de tous les billets du blog
-    public function home() {
+    public function home()
+    {
 
         try {
             $view = new View("Home");

@@ -28,7 +28,7 @@
                 </form>
 
                 <div class="col-lg-8 col-md-offset-2 col-md-8 col-xs-12">      
-<?= $contenu ?>
+                    <?= $contenu ?>
                 </div>
             </div>
         </div>

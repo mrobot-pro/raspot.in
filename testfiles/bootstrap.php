@@ -10,6 +10,6 @@
  * @author Olivier
  */
 // TODO: check include path
-ini_set('include_path', ini_get('include_path').PATH_SEPARATOR.dirname(__FILE__).'/../../../bin'.PATH_SEPARATOR.dirname(__FILE__).'/../../../bin/php/php5.6.25');
+ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . dirname(__FILE__) . '/../../../bin' . PATH_SEPARATOR . dirname(__FILE__) . '/../../../bin/php/php5.6.25');
 
 // put your code here
