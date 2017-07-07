@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-require_once('../model/Settings.php');
+require_once '../controller/autoload.php';
 
 /**
  * @covers Parametres
@@ -12,37 +12,25 @@ final class Test extends TestCase
 
     public function testParamSlogan()
     {
-
-        $slogan = 'tamere';
-        $param = new Settings();
-        $param->hydrate($data);
-
+        $settings = new Settings();
         $this->assertEquals(
-                $param->setSlogan($slogan), ''
+                $settings->getSlogan(), 'Partagez vos photos sur ce spot tout au long de la soirée !'
         );
     }
 
     public function testParamEvenement()
     {
-        $data2 = [];
-        $event = '';
-        $param2 = new Settings($data2);
-        $param2->hydrate($data2);
-
+        $settings = new Settings();
         $this->assertEquals(
-                $param2->setEvent($event), ''
+                $settings->getEvent(), "Saisissez ici le nom de l'événement !"
         );
     }
 
     public function testParamMdp()
     {
-        $data3 = [];
-        $mdp = '';
-        $param3 = new Settings($data3);
-        $param3->hydrate($data3);
-
-        $this->assertEquals(
-                $param3->setPwd($mdp), ''
+     $settings = new Settings();
+        $this->assertSame(
+                $settings->getPwd(), password_hash('admin', PASSWORD_DEFAULT)
         );
     }
 
