@@ -29,8 +29,7 @@ final class Test extends TestCase
     public function testParamMdp()
     {
      $settings = new Settings();
-        $this->assertSame(
-                $settings->getPwd(), password_hash('admin', PASSWORD_DEFAULT)
+        $this->assertTrue(password_verify('admin', $settings->getPwd())
         );
     }
 
