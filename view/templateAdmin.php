@@ -13,7 +13,7 @@
     <div id="main-container" class="container-fluid">
         <div class="col-lg-10 col-lg-offset-1 col-md-8 col-xs-12">  
             <h3 class="btn btn-primary" id="deco"><a class="heading" href="?deconnexion=1">Déconnexion</a></h3>
-            <div class ="text-center"><h1><a class="heading"  href="index.php">Snap Snap Spot !</a></h1> 
+            <div class ="text-center"><h1><a class="heading"  href="index.php">Raspot.in !</a></h1> 
                 <h3 class="heading text-center"><?= $titre ?></h3>
 
                 <form action="" method="get">
