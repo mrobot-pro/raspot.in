@@ -9,40 +9,38 @@
 class View
 {
 
-    // Nom du fichier associé à la vue
     private $fichier;
-    // Titre de la vue (défini dans le fichier vue)
     private $titre;
 
     public function __construct($action)
     {
-        // Détermination du nom du fichier vue à partir de l'action
+        // define view file to be requested
         $this->fichier = "../view/view" . $action . ".php";
     }
 
-    // Génère et affiche la vue
+    // display view
     public function generer($donnees)
     {
-        // Génération de la partie spécifique de la vue
+        // generate specific view
         $contenu = $this->genererFichier($this->fichier, $donnees);
-        // Génération du gabarit commun utilisant la partie spécifique
+        // generate common view
         $view = $this->genererFichier('../view/template.php', array('titre' => $this->titre, 'contenu' => $contenu));
-        // Renvoi de la vue au navigateur
+        // return view to browser
         echo $view;
     }
 
-    // Génère un fichier vue et renvoie le résultat produit
+    // generate specific view file with specific dynamic content
     private function genererFichier($fichier, $donnees)
     {
         if (file_exists($fichier)) {
-            // Rend les éléments du tableau $donnees accessibles dans la vue
+            // data extraction for final view
             extract($donnees);
-            // Démarrage de la temporisation de sortie
+            // start memory request for extraction
             ob_start();
-            // Inclut le fichier vue
-            // Son résultat est placé dans le tampon de sortie
+            // include view file
+            // result placed for outputmemory
             require $fichier;
-            // Arrêt de la temporisation et renvoi du tampon de sortie
+            // stop memory and return result
             return ob_get_clean();
         } else {
             throw new Exception("Fichier '$fichier' introuvable");

@@ -5,7 +5,7 @@ require_once 'autoload.php';
 class AdminDataController
 {
 
-    // Affiche la liste de tous les billets du blog
+    // Display views of all pictures downloaded
     public function admindata()
     {
 

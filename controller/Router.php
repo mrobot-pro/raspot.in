@@ -18,7 +18,7 @@ class Router
 
     private $ctrlHome;
     private $ctrlAdministration;
-
+    //only two routes available for router as two url requests available
     public function __construct()
     {
         $this->ctrlHome = new HomeController();
@@ -35,7 +35,7 @@ class Router
         $this->ctrlAdministration->administration();
     }
 
-    // Affiche une erreur
+    // Error view request
     private function erreur($msgErreur)
     {
         $vue = new View("Erreur");

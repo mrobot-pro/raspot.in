@@ -4,7 +4,7 @@ require_once 'autoload.php';
 
 class ConnexionController
 {
-
+    //display view for administrator connection request
     public function connexion()
     {
         $settings = new Settings();

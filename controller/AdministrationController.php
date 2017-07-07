@@ -18,7 +18,7 @@ class AdministrationController
         $this->ctrlAdminData = new AdminDataController();
     }
 
-    // Affiche le menu admin
+    // Check Administrator Session value and ask for controller in adequacy
     public function administration()
     {
 

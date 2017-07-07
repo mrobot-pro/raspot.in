@@ -2,4 +2,3 @@
 ?>
 
 <h3 class="heading text-center">Bienvenue</h3>
-

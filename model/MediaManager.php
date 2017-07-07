@@ -24,18 +24,17 @@ class MediaManager extends Model
 
     public function reset()
     {
-        //Effacement table media   
+        //deletion table media data
         $this->getDb()->exec('delete from media');
-        //Effacement des photos et vignettes
+        //pictures and vignettes deletion
         $this->deleteMedias();
-        //Effacement des backup
+        //backup deletion
         $this->deleteBackup();
-        //Reset parametres
     }
 
     public function deleteMedias()
     {
-        //Effacement table media   
+        //deletion table media   
         $this->getDb()->exec('delete from media');
         array_map('unlink', glob(Media::MEDIA_PATH . '*'));
         array_map('unlink', glob(Media::VIGN_PATH . '*'));

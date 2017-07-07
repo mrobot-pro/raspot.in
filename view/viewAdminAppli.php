@@ -9,9 +9,7 @@ $percentStock = ($stock * 100) / Settings::STOCK_SIZE;
 $percentBack = ($back * 100) / Settings::BACK_SIZE;
 ?>
 
-
-<form id="paramAppli" class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12" action="" method="post">
-
+    <form id="paramAppli" class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12" action="" method="post">
     <div>
         <label for="event">Nom de l'événement:</label>
         <div class="input-group">
@@ -43,7 +41,7 @@ $percentBack = ($back * 100) / Settings::BACK_SIZE;
     </div>
 </form>
 
-<div class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12">
+    <div class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12">
     <form method="post" id="change_fond" action="" enctype="multipart/form-data">
         <label for="image_fond">Fond d'écran :</label>
         <div>
@@ -52,7 +50,7 @@ $percentBack = ($back * 100) / Settings::BACK_SIZE;
     </form>
 </div>
 
-<div class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12">
+    <div class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12">
     <label for>Utilisation stockage</label>
     <div>
         <div class="progress text-center" style="text-indent: -<?= $percentStock ?>%" >
@@ -63,7 +61,7 @@ $percentBack = ($back * 100) / Settings::BACK_SIZE;
     </div>
 </div> 
 
-<div class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12">
+    <div class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12">
     <label for>Utilisation backup</label>
     <div>
         <div class="progress text-center" style="text-indent: -<?= $percentBack ?>%">
@@ -74,7 +72,7 @@ $percentBack = ($back * 100) / Settings::BACK_SIZE;
     </div>
 </div> 
 
-<div class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12">
+    <div class="row col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12">
     <label for>Nettoyage du disque</label>
 
 
@@ -94,12 +92,3 @@ $percentBack = ($back * 100) / Settings::BACK_SIZE;
     </form>
 
 </div>
-
-
-
-
-
-
-
-
-

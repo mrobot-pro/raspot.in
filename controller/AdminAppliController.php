@@ -5,7 +5,7 @@ require_once 'autoload.php';
 class AdminAppliController
 {
 
-    // Affiche la liste de tous les billets du blog
+    // Manage Data from Administrator requests and display view
     public function adminappli()
     {
 
@@ -19,32 +19,32 @@ class AdminAppliController
             require '../view/viewError.php';
         }
         if (isset($_FILES['image_fond'])) {
-            //Vérification image uploadée
+            //Check Picture upload
             if ($_FILES['image_fond']['error'] > 0) {
                 echo "Probleme lors de l'upload";
             }
-            // ENREGISTREMENT DE L'IMAGE UPLOADEE
+            // Record Background Picture
             move_uploaded_file($_FILES["image_fond"]["tmp_name"], 'static/css/home.jpg');
         }
-        //changement mot de passe 
+        //Control Password change request 
         if (isset($_POST['changePassword'])) {
             $settings->updatePassword($_POST['pwd'], $settings->getId());
             echo "<meta http-equiv='refresh' content='0'>";
         }
 
-        //changement evenement
+        //Control Event name change request
         if (isset($_POST['changeEvent'])) {
             $settings->updateEvent($_POST['event'], $settings->getId());
             echo "<meta http-equiv='refresh' content='0'>";
         }
 
-        //changement slogan
+        //Control Slogan name change request
         if (isset($_POST['changeSlogan'])) {
             $settings->updateSlogan($_POST['slogan'], $settings->getId());
             echo "<meta http-equiv='refresh' content='0'>";
         }
 
-        //reset
+        //Reset control if requested
         if (isset($_POST['Reset'])) {
             $mediaManager = new MediaManager();
             $mediaManager->reset();

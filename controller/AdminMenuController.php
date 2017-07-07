@@ -5,7 +5,7 @@ require_once 'autoload.php';
 class AdminMenuController
 {
 
-    // Affiche la liste de tous les billets du blog
+    // Display view of the menu for administrator
     public function adminmenu()
     {
 

@@ -151,11 +151,11 @@ class Media extends Model
 
     public function saveFile()
     {
-// ENREGISTREMENT DE L'IMAGE UPLOADEE
+        // Pictures uploaded records
         move_uploaded_file($_FILES["my_file"]["tmp_name"], Media::MEDIA_PATH . $this->newName());
-// COPY MEDIA FROM STOCK TO BACKUP
+        // COPY MEDIA FROM STOCK TO BACKUP
         copy(Media::MEDIA_PATH . $this->newName(), Media::BACK_PATH . $this->newName());
-//CREATE THUMBNAIL //
+        //CREATE THUMBNAIL //
         $src = imagecreatefromjpeg($this::MEDIA_PATH . $this->newName());
         list($width, $height) = getimagesize(Media::MEDIA_PATH . $this->newName());
 
